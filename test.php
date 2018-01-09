@@ -265,6 +265,75 @@ EOF;
    }
    fwrite( $file, "Ví dụ ghi file trong PHP.\n" );
    fclose( $file );
+
+   //tạo hàm
+   function binhnguyen()
+   {
+       echo "chúc bạn học tốt";
+   }
+
+   binhnguyen();
+
+   function hamTinhTong($num1, $num2)
+         {
+            $sum = $num1 + $num2;
+            return $sum;
+         }
+         $giaTriTraVe = hamTinhTong(10, 20);
+         
+         echo "Giá trị trả về từ hàm là: $giaTriTraVe";
+
+    //thiết lập cookie
+    setcookie("name", "nguyenvanbinh", time()+3600, "/", "", 0);
+    setcookie("age", "25", time()+3600, "/", "", 0);
+
+    //xóa kookie
+//     setcookie( "name", "", time()- 60, "/","", 0);
+//    setcookie( "age", "", time()- 60, "/","", 0);
+
+    //session
+    session_start();
+    if(isset($_SESSION['counter']))
+    {
+        $_SESSION['counter'] += 1;
+    }
+    else
+    {
+        $_SESSION['counter'] = 1;
+    }
+    $msg = "bạn đã truy cập trang này". $_SESSION["counter"];
+    $msg .= " lần trong session này.";
+    //hủy session
+    // session_destroy();
+
+    //upload file
+    if(isset($_FILES['image'])){
+        $errors= array();
+        $file_name = $_FILES['image']['name'];
+        $file_size =$_FILES['image']['size'];
+        $file_tmp =$_FILES['image']['tmp_name'];
+        $file_type=$_FILES['image']['type'];
+        $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+        
+        $expensions= array("jpeg","jpg","png");
+        
+        if(in_array($file_ext,$expensions)=== false){
+           $errors[]="Không chấp nhận định dạng ảnh có đuôi này, mời bạn chọn JPEG hoặc PNG.";
+        }
+        
+        if($file_size > 2097152){
+           $errors[]='Kích cỡ file nên là 2 MB';
+        }
+        
+        if(empty($errors)==true){
+           move_uploaded_file($file_tmp,"images/".$file_name);
+           echo "Thành công!!!";
+        }
+        else{
+           print_r($errors);
+        }
+     }
+
 ?>
 
 <!DOCTYPE html>
@@ -304,5 +373,43 @@ EOF;
     <a href="http://nguyenvanbinh3479.github.io/">help</a>
     <a href="http://nguyenvanbinh3479.github.io/">home</a>
     <a href="http://nguyenvanbinh3479.github.io/">help</a>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+         <input type="file" name="image" />
+         <input type="submit"/>
+      </form>
+
+    <?php
+        //truy cập cookie
+        echo $_COOKIE["name"]. '<br>';
+
+        echo($msg);
+
+        //gửi mail
+        $to = "xyz@somedomain.com";
+        $subject = "Đây là subject";
+        
+        $message = "<b>Đây là HTML Message.</b>";
+        $message .= "<h1>Đây là headline.</h1>";
+        
+        $header = "From:me@example.com \r\n";
+        $header = "Cc:afgh@somedomain.com \r\n";
+        $header .= "MIME-Version: 1.0\r\n";
+        $header .= "Content-type: text/html\r\n";
+        
+        $retval = mail ($to,$subject,$message,$header);
+        
+        if( $retval == true )
+        {
+           echo "Gửi email thành công ...";
+        }
+        else
+        {
+           echo "Không thể gửi email ...";
+        }
+
+        
+
+    ?>
 </body>
 </html>
