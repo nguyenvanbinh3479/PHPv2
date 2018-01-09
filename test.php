@@ -236,9 +236,35 @@ EOF;
       exit();
    }
    //include
-   include("menu.php");
-     
+   include("");
 
+   //file
+   $filename = "tmp.txt";
+   $file = fopen($filename, "r");
+   if($file == false)
+   {
+       echo ("xảy ra lỗi khi mở file");
+       exit();
+   }
+
+   $filesize = filesize($filename);
+   $filetext = fread($file, $filesize);
+   fclose($file);
+   echo ( "Kích cỡ của file là: $filesize byte <br>" );
+   echo ( "Dưới đây là nội dung của file: <br>" );
+   echo ( "<pre>$filetext</pre>" ); 
+
+   //ghi file
+   $filename = "tmp.txt";
+   $file = fopen( $filename, "w" );
+   
+   if( $file == false )
+   {
+      echo ( "Xảy ra lỗi khi mở file" );
+      exit();
+   }
+   fwrite( $file, "Ví dụ ghi file trong PHP.\n" );
+   fclose( $file );
 ?>
 
 <!DOCTYPE html>
@@ -272,5 +298,11 @@ EOF;
       </form>
       <?php include("menu.php"); ?>
       <p>Ví dụ minh họa cách include file trong PHP!</p>
+
+
+      <a href="http://nguyenvanbinh3479.github.io/">home</a>
+    <a href="http://nguyenvanbinh3479.github.io/">help</a>
+    <a href="http://nguyenvanbinh3479.github.io/">home</a>
+    <a href="http://nguyenvanbinh3479.github.io/">help</a>
 </body>
 </html>
