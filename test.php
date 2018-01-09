@@ -235,6 +235,8 @@ EOF;
       echo "Bạn ". $_REQUEST['age']. " tuổi.";
       exit();
    }
+   //include
+   include("menu.php");
      
 
 ?>
