@@ -54,5 +54,155 @@ $conBo = new conbo();
 echo $conBo -> gioi_thieu();
 echo $conBo -> mat;
 
+//private
+class xe{
+    private $loaixe;
+    var $tenxe = '';
+    function getloaixe(){
+        return $this -> loaixe;
+    }
+    function setloaixe($loaixe){
+        $this -> loaixe = $loaixe;
+    }
+    private function xoaxe(){
+        echo 'xe đã xóa';
+    }
+    //protected
+    protected function soxe(){
+        
+    }
+}
+//khởi tạo lớp đối tượng
+$Xe = new xe();
+//gán giá tị thuộc tính loại xe
+$Xe -> setloaixe("<br> suzuki");
+//lấy giá trị thuộc tính loại xe
+echo $Xe -> getloaixe();
+
+class honda extends xe{
+    function hien_thi(){
+        $this -> tenxe = 'balovito';
+        $this -> setloaixe("<br> honda");
+        echo $this -> getloaixe(); 
+        echo $this -> soxe = '<br> 2740';
+    }
+}
+$xehonda = new honda();
+$xehonda -> hien_thi();
+$xehonda -> setloaixe("<br> zdbuu <br>");
+echo $xehonda -> getloaixe();
+echo $xehonda -> tenxe;
+
+//kế thừa lồng
+// Lớp A
+class A
+{
+    protected $protected_A = 'Protected <br>';
+    private $private_A = 'Private';
+    public $public_A = '<br>Public <br>';
+  
+    private function showPrivate()
+    {
+        echo $this->private_A;
+    }
+  
+    protected function showProtected()
+    {
+        echo $this->protected_A;
+    }
+  
+    public function showPublic()
+    {
+        echo $this->public_A;
+    }
+}
+  
+// Lớp B Kế Thừa Lớp A
+class B extends A
+{
+    public function ClassB()
+    {
+        echo $this->protected_A;
+    }
+}
+  
+// Lớp C Kế Thừa Lớp B
+class C extends B
+{
+    public function showInfo()
+    {
+        // Lệnh này đúng vì nó truy xuất vào thuộc tính protected
+        $this->protected_A = 'Nguyễn Văn A';
+  
+        // Lệnh này đúng vì nó truy xuất vào thuộc tính public
+        $this->public_A = 'Nguyễn Văn B';
+  
+        // Lệnh này sai vì nó truy xuất vào thuộc tính private
+        //$this->private_A = 'Lệnh sai';
+    }
+}
+  
+// ------------------//
+// Chương trình chính//
+// ------------------//
+  
+// Khởi tạo lớp C
+// Lớp C được kế thừa từ lớp B
+// mà lớp B kế thừa từ lớp A nên
+// suy ra nó kế thừa từ 2 lớp A, B
+$c = new C();
+  
+// Lệnh này đúng vì gọi đến hàm public của lớp cha A
+$c->showPublic();
+  
+// Lệnh này sai vì nó gọi hàm protected của lớp cha A
+//$c->showProtected();
+  
+// Lệnh này sai vì nó gọi hàm private của lớp cha A
+//$c->showPrivate();
+  
+// Lệnh này đúng vì nó truy xuất vào hàm public của lớp cha B
+$c->ClassB();
+
+//tính đa hình
+class hinhhoc{
+    function ve(){
+
+    }
+    function tinhdientich(){
+
+    }
+}
+class hinhvuong extends hinhhoc{
+    public $canh = 0;
+    function ve(){
+        echo "vẽ hình vuông";
+    }
+    function tinhdientich(){
+        return $this -> canh * $this -> canh;
+    }
+}
+class hinhchunhat extends hinhhoc{
+    public $dai = 0;
+    public $rong = 0;
+    function ve(){
+        echo 'vẽ hình chữ nhật';
+    }
+    function tinhdientich(){
+        return $this -> dai * $this -> rong;
+    }
+}
+$hinhChuNhat = new hinhchunhat();
+$hinhChuNhat -> ve();
+echo '<br>';
+$hinhChuNhat -> dai = 25;
+$hinhChuNhat -> rong = 20;
+echo $hinhChuNhat -> tinhdientich();
+echo '<br>';
+$hinhVuong = new hinhvuong();
+$hinhVuong -> ve();
+echo '<br>';
+$hinhVuong -> canh = 20;
+echo $hinhVuong -> tinhdientich();
 
 ?>
