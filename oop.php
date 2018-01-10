@@ -192,7 +192,6 @@ class hinhchunhat extends hinhhoc{
         return $this -> dai * $this -> rong;
     }
 }
-$hinhChuNhat = new hinhchunhat();
 $hinhChuNhat -> ve();
 echo '<br>';
 $hinhChuNhat -> dai = 25;
@@ -311,5 +310,7 @@ Animal :: setname('con heo<br>');
 echo Animal :: getname();
 //gọi thuộc tính tĩnh
 Animal :: all("con chó<br>");
+
+//lớp xử lý dữ liệu
 
 ?>
