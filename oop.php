@@ -205,4 +205,111 @@ echo '<br>';
 $hinhVuong -> canh = 20;
 echo $hinhVuong -> tinhdientich();
 
+//tính đóng gói
+//hàm khởi tạo
+class sv{
+    function __construct(){
+        echo '<br>lớp sinh viên vừa được khởi tạo';
+    }
+}
+//khởi tạo lớp sv
+$sinhv = new sv();
+//hàm hủy
+class d{
+    function __construct(){
+        echo "<br>lớp d đc khởi tạo<br>";
+    }
+    function show(){
+        echo 'lớp d đc sử dụng<br>';
+    }
+    function __destruct(){
+        echo "lớp d bị hủy<br>";
+    }
+}
+//chương trình
+$d = new d();
+$d -> show();
+
+//lớp trừu tượng abstract
+//khai báo
+abstract class BaseClass{
+    abstract protected function hello();
+    abstract public function hi();
+    public $nme;
+}
+
+abstract class person{
+    protected $ten;
+    protected $cmnd;
+    protected $namsinh;
+    abstract public function showInfo();
+}
+class SihVien extends Person{
+    public function showInfo(){
+
+    }
+}
+//hàm và lớp final là hàm không được kế thừa
+final class Person1{
+    protected $ten;
+    protected $cmnd;
+    protected $namsinh;
+    public function showInfo(){
+        echo "hello<br>";
+    }
+}
+$person = new Person1;
+$person -> showInfo();
+
+//Interface
+interface g
+{
+    const Constg = 'Freetuts.net';
+    public function run();
+}  
+//kế thừa interface
+interface h extends g{
+    public function jum();
+}
+// Lớp này đúng
+class heo implements h
+{
+    public function run(){
+
+    }
+    public function jum(){
+
+    }
+}
+//thuộc tính phương thức tĩnh statis
+class Animal{
+    protected static $_name = 'chưa có tên<br>';
+    public static function setname($name){
+        // $this -> _name = $name;
+        Animal::$_name = $name;
+    }
+    public static function getname(){
+        // return $this -> _name;
+        //biến bị ảnh hưởng
+        return Animal::$_name;
+    }
+    //gọi hàm tĩnh
+    public static function all($name){
+        Animal :: setname($name);
+        echo Animal :: getname();
+    }
+}
+
+// $con_vit = new Animal();
+// $con_vit -> setname('con vịt<br>');
+// echo $con_vit -> getname();
+Animal :: setname('con vịt<br>');
+echo Animal :: getname();
+// $con_heo = new Animal();
+// echo $con_heo -> getname();
+Animal :: setname('con heo<br>');
+echo Animal :: getname();
+//gọi thuộc tính tĩnh
+Animal :: all("con chó<br>");
+
 ?>
