@@ -59,18 +59,38 @@
             return mysqli_query($this -> __conn, $sql);
         }
         //hàm lấy danh sách
-        function get_link($table, $select, $where){
+        function get_link($sql){
             //kết nối
             $this -> connect();
             $result = mysqli_query($this -> __conn, $sql);
             if(!$result){
                 die ('câu truy vấn bị sai');
             }
-            
+            $return = array();
+            //lặp qua kết quả để đưa vào mảng
+            while ($row = mysqli_fetch_assoc($result)){
+                $return[] = $row;
+            }
+            //xóa kết quả khỏi bộ nhớ
+            mysqli_free_result($result);
+            return $return;
+
         }
         //hàm lấy chi tiết tin
-        function get_row($table, $select, $where){
-
+        function get_row($sql){
+            //kết nối
+            $this -> connect();
+            $result = mysqli_query($this -> __conn, $sql);
+            if(!$result){
+                die ('câu truy vấn bị sai');
+            }
+            $row = mysqli_result_fetch_asoc($result);
+            //xóa kết quả kkhỏi bộ nhớ
+            mysqli_free_result($result);
+            if($row){
+                return $row;
+            }
+            return false;
         }
     }
 ?>
