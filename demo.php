@@ -1,22 +1,34 @@
 <?php
 
-    require('DB_driver.php');
+    require('DB_business.php');
     //tạo mới đối tượng
     $DB = new DB_driver();
-    //INSERT
-    $DB -> insert('customer', array(
-        'name' => 'nguyễn văn cường',
+    //lớp khách hàng
+    class Customer extends DB_business{
+        function __construct(){
+            //khai báo tên bảng
+            $this -> _table_name = 'customer';
+            //khai báo tên filed id
+            $this -> _key = 'id';
+            //gọi hàm khởi tạo cha
+            parent :: __construct();
+        }
+    }
+    //khởi tạo lớp khách hàng
+    $customer = new Customer();
+    //thêm khách hàng
+    $customer -> add_new(array(
+        'name' => 'nguyễn văn bình',
         'phone' => '01633985817'
     ));
-    //UPDATE
-    $DB -> update('customer', array(
-        'name' => 'binhnguyen'
-    ), 'id = 1');
-    //delete
-    $DB -> remove('customer', 'id = 1');
-    //GET LIST
-    var_dump($DB -> get_list('select * from customer'));
-    //GET 1 ROW
-    var_dump($DB -> get_row('select * from customer where id = 2'));
+    //xóa khách hàng
+    $customer -> delete_by_id(1);
+
+    //update khách hàng
+    $customer -> update_by_id(array(
+        'name' => 'nguyenvanbinh'
+    ), 2);
+    //lấy chi tiết khách hàng
+    var_dump($customer -> select_by_id('*', 2));
 
 ?>

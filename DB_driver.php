@@ -12,7 +12,8 @@ class DB_driver
         // Nếu chưa kết nối thì thực hiện kết nối
         if (!$this->__conn){
             // Kết nối
-            $this->__conn = mysqli_connect('localhost', 'root', 'vertrigo', 'demo') or die ('Lỗi kết nối');
+            $mysql_pass="";
+            $this->__conn = mysqli_connect('localhost', 'root',$mysql_pass, 'vertrigo', 'demo') or die ('Lỗi kết nối');
  
             // Xử lý truy vấn UTF8 để tránh lỗi font
             mysqli_query($this->__conn, "SET character_set_results = 'utf8', character_set_client = 'utf8', character_set_database = 'utf8', character_set_server = 'utf8'");
