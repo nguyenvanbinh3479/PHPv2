@@ -12,7 +12,7 @@
 
     $sql = "update user set email='$email', password='$password' where id=$id";
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo "New record created successfully <a href='index.php'>Login</a>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

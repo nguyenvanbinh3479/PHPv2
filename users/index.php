@@ -43,6 +43,7 @@
         ?>
       </tbody>
     </table>
+    <a href="new.php"><input class='btn btn-primary' type="button" value='Create'></a>
   </div>
 </body>
 </html>

@@ -10,7 +10,9 @@
 
     $sql = "insert into user(email,password) values('$email','$password')";
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo "New record created successfully ";
+        echo "<a href='index.php'> Login </a> &nbsp";
+        echo "<a href='new.php'> Back </a>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
