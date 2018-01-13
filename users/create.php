@@ -5,7 +5,7 @@
     $password = $_POST['password'];
     $repassword = $_POST['repassword'];
     if($password != $repassword){
-      die('Password was not match');
+      die('Password was not match  &nbsp <a href="new.php">Back</a>');
     }
 
     $sql = "insert into user(email,password) values('$email','$password')";
