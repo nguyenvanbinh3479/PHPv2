@@ -8,7 +8,7 @@
       die('Password was not match');
     }
 
-    $sql = "insert into user(email,password) values('$email','$password')";
+    $sql = "insert into users(email,password) values('$email','$password')";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {

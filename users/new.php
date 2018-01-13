@@ -19,7 +19,7 @@
         <input class="form-control mt-2" type="password" placeholder="Password" name="password">
       </div>
       <div class="row">
-        <input class="form-control mt-2" type="password" placeholder="Repassword" name="repassword">
+        <input class="form-control mt-2" type="password" placeholder="Password" name="repassword">
       </div>
       <div class="row">
         <input class="btn btn-primary mt-2" type="submit" value="Submit">

@@ -2,7 +2,7 @@
 <?php
   if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $sql = "delete from user where id=$id";
+    $sql = "delete from users where id=$id";
     if($conn->query($sql) === TRUE){
       echo "Delete successful";
       echo "<a href='index.php'>Back</a>";
