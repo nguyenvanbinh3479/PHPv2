@@ -23,11 +23,11 @@
                 <input class='form-control mb-3' type="text" placeholder='Password' name='password'>
             </div>
             <div class="row">
-                <label class="mb-3"><input type="checkbox" value="remember" name="remember">&nbsp&nbsp Remember me</label>
+                <label class="mb-3"><input type="checkbox" value="remember" name="remember">&nbsp &nbsp Remember me</label>
             </div>
             <div class="row">
                 <input class='btn btn-primary btn-block mb-3' type="submit" value='Sign Up'>
-                <a href="#">forgot Password?</a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                <a href="#">forgot Password?</a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
                 <a href="#">Create account</a>
             </div>
         </div>

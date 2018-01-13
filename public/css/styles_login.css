@@ -1,8 +1,15 @@
 
 .form-login{
-    width: 300px;
+    max-width: 400px;
     margin: 10% auto 0;
+    background: #fff;
+    border-radius: 10px;
+    padding: 50px 30px;
 }
 a{
     text-align: center;
+}
+body{
+    background: url(../images/bk.jpg) no-repeat;
+    background-size: 100vw 100vh; 
 }
