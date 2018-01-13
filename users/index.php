@@ -23,7 +23,7 @@
       </thead>
       <tbody>
         <?php
-          $sql = "select * from users";
+          $sql = "select * from user";
           $result = $conn->query($sql);
           $index = 0;
           if ($result->num_rows > 0) {

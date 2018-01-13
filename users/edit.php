@@ -10,7 +10,7 @@
   <?php
     if(isset($_GET['id'])){
       $id = $_GET['id'];
-      $sql = "select * from users where id=$id limit 1";
+      $sql = "select * from user where id=$id limit 1";
       $result = $conn->query($sql);
       if($result->num_rows > 0){
         $row = $result->fetch_assoc(); ?>
@@ -29,7 +29,7 @@
               <input class="form-control mt-2" type="password" placeholder="Password" name="password" value="<?php echo $row['password'] ?>">
             </div>
             <div class="row">
-              <input class="form-control mt-2" type="password" placeholder="Password" name="repassword">
+              <input class="form-control mt-2" type="password" placeholder="Repassword" name="repassword">
             </div>
             <div class="row">
               <input class="btn btn-primary mt-2" type="submit" value="Submit">

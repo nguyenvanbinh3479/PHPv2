@@ -10,7 +10,7 @@
       die('Password was not match');
     }
 
-    $sql = "update users set email='$email', password='$password' where id=$id";
+    $sql = "update user set email='$email', password='$password' where id=$id";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {
