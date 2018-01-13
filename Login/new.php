@@ -11,19 +11,19 @@
 </head>
 <body>
     <div class="wrapper">
-    <form class='form-login' action="" method='POST'>
+    <form class='form-login' action="create1.php" method='POST'>
         <div class="container">
             <div class="row">
                 <h2 class='text-primary mb-3'>New User</h2>
             </div>
             <div class="row">
-                <input class='form-control mb-3' type="text" placeholder='Email' name='email'>
+                <input class='form-control mb-3' type="text" placeholder='Email' name='email' required>
             </div>
             <div class="row">
-                <input class='form-control mb-3' type="password" placeholder='Password' name='password'>
+                <input class='form-control mb-3' type="password" placeholder='Password' name='password' required>
             </div>
             <div class="row">
-                <input class='form-control mb-3' type="password" placeholder='Repassword' name='repassword'>
+                <input class='form-control mb-3' type="password" placeholder='Repassword' name='repassword' required>
             </div>
             <div class="row">
                 <input class='btn btn-primary btn-block mb-3' type="submit" value='Create'>

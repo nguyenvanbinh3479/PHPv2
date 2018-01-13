@@ -8,7 +8,7 @@
         if($password != $repassword){
             die('Password was not match  &nbsp <a href="new.php">Back</a>');
         }
-        $sql = "insert into sinhvien(email,password) value($email','$password')";
+        $sql = "insert into user(email,password) value('$email','$password')";
         if($conn -> query($sql) == TRUE){
             echo "New record created successfully ";
         }

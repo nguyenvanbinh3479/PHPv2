@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="wrapper">
-    <form class='form-login' action="" method='POST'>
+    <form class='form-login' action="login.php" method='POST'>
         <div class="container">
             <div class="row">
                 <h2 class='text-primary mb-3'>Login</h2>
@@ -20,7 +20,7 @@
                 <input class='form-control mb-3' type="text" placeholder='Email' name='email' required>
             </div>
             <div class="row">
-                <input class='form-control mb-3' type="text" placeholder='Password' name='password' required>
+                <input class='form-control mb-3' type="password" placeholder='Password' name='password' required>
             </div>
             <div class="row">
                 <label class="mb-3"><input type="checkbox" value="remember" name="remember" checked ='checked'>&nbsp &nbsp Remember me</label>
