@@ -20,14 +20,15 @@
                 <input class='form-control mb-3' type="text" placeholder='Email' name='email'>
             </div>
             <div class="row">
-                <input class='form-control mb-3' type="text" placeholder='Password' name='password'>
+                <input class='form-control mb-3' type="password" placeholder='Password' name='password'>
             </div>
             <div class="row">
-                <input class='form-control mb-3' type="text" placeholder='Repassword' name='repassword'>
+                <input class='form-control mb-3' type="password" placeholder='Repassword' name='repassword'>
             </div>
             <div class="row">
-                <input class='btn btn-primary btn-block mb-3' type="submit" value='Sign Up'>
-                <a href="#">forgot Password?</a>
+                <input class='btn btn-primary btn-block mb-3' type="submit" value='Create'>
+                <a href="#">forgot Password?</a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                <a href="index.php">Sign Up</a>
             </div>
         </div>
     </form>
