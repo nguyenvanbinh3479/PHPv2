@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../public/css/bootstrap.min.css">
     <link rel="stylesheet" href="../public/css/styles_login.css">
-    <title>edit</title>
+    <title>Change</title>
 </head>
 <body>
     <?php
@@ -23,7 +23,7 @@
           <input type="hidden" name="id" value="<?php echo $id; ?>">
           <div class="container">
             <div class="row">
-              <h1>Update User</h1>
+              <h1>Change User</h1>
             </div>
             <div class="row">
               <input class="form-control mt-2" type="text" placeholder="Email" name="email"
@@ -37,6 +37,8 @@
             </div>
             <div class="row">
               <input class="btn btn-primary mt-2" type="submit" value="Change">
+              </a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+              <a style='margin-top: 25px;' href="main.php">Back</a>
             </div>
           </div>
          </form>

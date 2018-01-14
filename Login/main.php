@@ -35,7 +35,7 @@
                             <td><?php $index = increment_once($index); echo $index;?></td>
                             <td><?php echo $row['email'];?></td>
                             <td><a href="Change.php?id=<?php echo $row['id'];?>">Edit</a></td>
-                            <td><a href="delete.php?id=<?php echo $row['id'];?>">Delete</a></td>
+                            <td><a href="delete1.php?id=<?php echo $row['id'];?>">Delete</a></td>
                         </tr>
                         <?php
                     }
