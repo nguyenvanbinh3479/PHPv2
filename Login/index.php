@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="wrapper">
-    <form class='form-login' action="login.php" method='POST'>
+    <form class='form-login' action="login1.php" method='POST'>
         <div class="container">
             <div class="row">
                 <h2 class='text-primary mb-3'>Login</h2>

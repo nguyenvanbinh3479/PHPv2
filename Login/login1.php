@@ -2,10 +2,16 @@
 <?php
     
     if(isset($_POST['email']) && isset($_POST['password'])){
-        if($_POST['email'] != $email && $_POST['password'] != $password){
-            die('bạn nhập sai tên hoặc mật khẩu <a href = "index.php">Back</a> ');
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $sql = "select email, password from user";     
+            $query = $conn -> query($sql);
+            if(mysqli_num_rows($query)){
+                header('location: main.php');
+            }
+            else{
+                echo "error";
+            }
         }
-        echo 'đăng nhập thành công';
-    }
-
-?>
+    
+?>  

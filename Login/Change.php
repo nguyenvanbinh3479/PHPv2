@@ -21,7 +21,7 @@
         <div class="wrapper">
         <form class="form-login" action="edit1.php" method="post">
           <input type="hidden" name="id" value="<?php echo $id; ?>">
-          <div class="container">/////
+          <div class="container">
             <div class="row">
               <h1>Change User</h1>
             </div>
@@ -33,7 +33,7 @@
               <input class="form-control mt-3" type="password" placeholder="Password" name="password" value="<?php echo $row['password'] ?>" required>
             </div>
             <div class="row">
-              <input class="form-control mt-3//////////////////" type="password" placeholder="Repassword" name="repassword" required>
+              <input class="form-control mt-3" type="password" placeholder="Repassword" name="repassword" required>
             </div>
             <div class="row">
               <input class="btn btn-primary btn-block mt-3 mb-3" type="submit" value="Change" >
