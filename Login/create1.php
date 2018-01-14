@@ -10,7 +10,7 @@
         }
         $sql = "insert into user(email,password) value('$email','$password')";
         if($conn -> query($sql) == TRUE){
-            echo "New record created successfully ";
+            echo 'New record created successfully <a href="main.php">Login</a>';
         }
         else{
             echo "Error: ". $sql ."<br>" .$conn -> error;
