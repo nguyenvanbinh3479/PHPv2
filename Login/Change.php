@@ -21,24 +21,23 @@
         <div class="wrapper">
         <form class="form-login" action="edit1.php" method="post">
           <input type="hidden" name="id" value="<?php echo $id; ?>">
-          <div class="container">
+          <div class="container">/////
             <div class="row">
               <h1>Change User</h1>
             </div>
             <div class="row">
-              <input class="form-control mt-2" type="text" placeholder="Email" name="email"
+              <input class="form-control mt-3" type="text" placeholder="Email" name="email"
               value="<?php echo $row['email'] ?>" required>
             </div>
             <div class="row">
-              <input class="form-control mt-2" type="password" placeholder="Password" name="password" value="<?php echo $row['password'] ?>" required>
+              <input class="form-control mt-3" type="password" placeholder="Password" name="password" value="<?php echo $row['password'] ?>" required>
             </div>
             <div class="row">
-              <input class="form-control mt-2" type="password" placeholder="Repassword" name="repassword" required>
+              <input class="form-control mt-3//////////////////" type="password" placeholder="Repassword" name="repassword" required>
             </div>
             <div class="row">
-              <input class="btn btn-primary mt-2" type="submit" value="Change">
-              </a>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-              <a style='margin-top: 25px;' href="main.php">Back</a>
+              <input class="btn btn-primary btn-block mt-3 mb-3" type="submit" value="Change" >
+              <a href="main.php">Back</a>
             </div>
           </div>
          </form>

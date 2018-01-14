@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../public/css/bootstrap.min.css">
     <link rel="stylesheet" href="../public/css/main_styles.css">
-    <title>Document</title>
+    <title>Main</title>
 </head>
 <body>
     <div class="container">
