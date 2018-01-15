@@ -110,5 +110,9 @@
       array_push($array, 'value');
       $array[$key] = 'value';  
     ?>
+  <!-- xoa phan tu khoi mang -->
+  <?php 
+   unset($author[1])
+   ?>
 </body>
 </html>
