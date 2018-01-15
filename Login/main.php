@@ -40,7 +40,7 @@
                         <?php
                     }
                 }else{
-                    echo "0 results";
+                    echo "No Uses";
                 }
                 $conn -> close();
             ?>
