@@ -1,5 +1,6 @@
 <?php include "../db/php-mysql.php"?>
 <?php include "helper1.php"?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,6 +48,7 @@
             </tbody>
         </table>
         <a href="new.php"><input class='btn btn-primary' type="button" value="Create"></a>
+        <a href="logout.php"><input class='btn btn-primary' type="button" value="Logout"></a>
     </div>
 </body>
 </html>
