@@ -7,7 +7,7 @@
         $repassword = addslashes($_POST['repassword']);
               
         //Kiểm tra tên đăng nhập này đã có người dùng chưa
-        if (mysqli_num_rows(mysqli_query($conn, "SELECT email FROM user WHERE email='$email' limit 1")) > 0){
+        if (mysqli_num_rows(mysqli_query($conn, "SELECT email FROM user WHERE email='$email'")) > 0){
             echo "Tên đăng nhập này đã có người dùng. Vui lòng chọn tên đăng nhập khác. <a href='javascript: history.go(-1)'>Trở lại</a>";
             exit;
         }
