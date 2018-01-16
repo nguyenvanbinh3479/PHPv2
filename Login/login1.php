@@ -1,4 +1,5 @@
 <?php include "../db/php-mysql.php"?>
+<?php session_start()?>
 <?php
     
     if(isset($_POST['email']) && isset($_POST['password'])){
@@ -23,7 +24,9 @@
             echo "Mật khẩu không đúng. Vui lòng nhập lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
             exit;
         }
-
+        //luu ten dang nhap
+        $_SESSION['email'] = $email;
+        
         $sql = "select email, password from user";     
             $query = $conn -> query($sql);
             if(mysqli_num_rows($query)){
