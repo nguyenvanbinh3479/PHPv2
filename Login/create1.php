@@ -2,9 +2,22 @@
 <?php
 
     if(isset($_POST['email']) && isset($_POST['password'])){
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $repassword = $_POST['repassword'];
+        $email = addslashes($_POST['email']);
+        $password = addslashes($_POST['password']);
+        $repassword = addslashes($_POST['repassword']);
+              
+        //Kiểm tra tên đăng nhập này đã có người dùng chưa
+        if (mysqli_num_rows(mysqli_query($conn, "SELECT email FROM user WHERE email='$email' limit 1")) > 0){
+            echo "Tên đăng nhập này đã có người dùng. Vui lòng chọn tên đăng nhập khác. <a href='javascript: history.go(-1)'>Trở lại</a>";
+            exit;
+        }
+        //Kiểm tra email có đúng định dạng hay không
+        if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/", $email)){
+            echo "Email này không hợp lệ. Vui long nhập email khác. <a href='javascript: history.go(-1)'>Trở lại</a>";
+            exit;
+        }
+ 
+        //kiem tra repass dung chua 
         if($password != $repassword){
             die('Password was not match  &nbsp <a href="new.php">Back</a>');
         }
