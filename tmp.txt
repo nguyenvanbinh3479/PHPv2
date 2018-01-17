@@ -1,1 +1,0 @@
-Ví dụ ghi file trong PHP.
