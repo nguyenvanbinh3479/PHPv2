@@ -161,7 +161,16 @@
   <h2>lay ten file</h2>
     <?php
       $tenFile = basename($_SERVER['PHP_SELF']);
-      echo "ten file la: $tenFile";
+      echo "ten file la: $tenFile <br>";
+    ?>
+  <!-- lay thanh phan trong url -->
+      <h2>lay thanh phan trong url</h2>
+    <?php
+      $url = 'http://vietjack.com/bai-tap-php/bai-tap-php/lay-url-trong-php.jsp';
+      $url = parse_url($url);
+      echo 'Scheme: ' . $url['scheme']. "<br>";
+      echo 'Host: ' . $url['host'] . "<br>";
+      echo 'Path: ' . $url['path'] . "<br>";
     ?>
 </body>
 </html>
