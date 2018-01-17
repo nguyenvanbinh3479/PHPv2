@@ -68,6 +68,7 @@
     </form>
     <?php echo $result; ?>
   <!-- duyet tung phan tu cua mang -->
+      <h2>mang php</h2>
     <?php
       $author = array(
        array(
@@ -111,8 +112,56 @@
       $array[$key] = 'value';  
     ?>
   <!-- xoa phan tu khoi mang -->
-  <?php 
-   unset($author[1])
-   ?>
+    <?php 
+      unset($author[1])
+    ?>
+  <!-- lay cau hinh va phien ban -->
+    <?php 
+      // phpinfo();
+    ?>
+  <!-- in 1 chuoi cho truoc -->
+    <h2>in 1 chuoi</h2>
+    <?php
+      echo "Hoc php co ban va nang cao";  
+    ?>    
+  <!-- tao form dang nhap hien thi ten dang nhap -->
+    <form method='POST'>
+    <h2>Nhap ten dang nhap:</h2>
+      <input type="text" name="name" placeholder='Name'>
+      <input type="submit" value="submit">
+    </form>  
+    <?php
+      if(isset($_POST['name'])){
+        $name = addslashes($_POST['name']);
+        echo "ten dang nhap cua ban la "."<strong>$name</strong";
+      }
+    ?>
+  <!-- lay dia chi ip khach hang -->
+    <h2>lay dia chi ip khach hang</h2>
+    <?php
+      //check from iternet
+      if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+        $ip_address = $_SERVER['HTTP_CLIENT_IP'];
+      }
+      //check from proxy
+      else if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+        $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
+      }
+      //check from remote
+      else{
+        $ip_address = $_SERVER['REMOTE_ADDR'];
+      }
+      echo "dia chi ip la $ip_address <br>";
+    ?>
+  <!-- lay thong tin trinh duyet -->
+    <?php
+      echo "<h2>thong ti trinh dyuet dang dung la </h2><br>". $_SERVER['HTTP_USER_AGENT'];
+    ?>
+  <!-- lay file luu code php -->
+  <h2>lay ten file</h2>
+    <?php
+      $tenFile = basename($_SERVER['PHP_SELF']);
+      echo "ten file la: $tenFile";
+    ?>
 </body>
 </html>
