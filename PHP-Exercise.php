@@ -166,11 +166,28 @@
   <!-- lay thanh phan trong url -->
       <h2>lay thanh phan trong url</h2>
     <?php
-      $url = 'http://vietjack.com/bai-tap-php/bai-tap-php/lay-url-trong-php.jsp';
+      $url = 'http://binh.com/bai-tap-php/bai-tap-php/lay-url-trong-php.jsp';
       $url = parse_url($url);
       echo 'Scheme: ' . $url['scheme']. "<br>";
       echo 'Host: ' . $url['host'] . "<br>";
       echo 'Path: ' . $url['path'] . "<br>";
+    ?>
+  <!-- doi mau ki tu dau tien -->
+  <h2>doi mau ki tu dau tien</h2>
+    <?php
+      $text = 'Binh Nguyen';
+      $text = preg_replace('/(\b[a-z])/i', '<span style="color: red;">\1</span>',$text);
+      echo $text ."<br>";
+    ?>
+  <!-- kiem tra http hay https -->
+    <h2>http or https</h2>
+    <?php
+      if(!empty($_POST['HTTPS'])){
+        echo 'trang duoc goi tu https <br>';
+      }
+      else{
+        echo 'trang duoc goi tu http';
+      }
     ?>
 </body>
 </html>
