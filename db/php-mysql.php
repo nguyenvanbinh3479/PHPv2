@@ -1,5 +1,4 @@
 <?php
-
     $dbhost = 'localhost';
     $dbuser = 'root';
     $dbpass = '';
@@ -18,5 +17,4 @@
     // echo 'kết nối thành công';
     //ngắt kết nối
     // mysqli_close($conn);
-
 ?>
