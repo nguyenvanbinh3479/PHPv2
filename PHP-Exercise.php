@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/js/bootstrap.min.js">
     <title>Document</title>
 </head>
 <body>
@@ -189,5 +191,55 @@
         echo 'trang duoc goi tu http';
       }
     ?>
+  <!-- chuyen nguoi dung den 1 trang moi -->
+    <h2>chuyen den trang moi</h2>
+    <form method='post'>
+      <input type="submit" name = 'go' value='Google'>
+    </form>
+    <?php
+      if(isset($_POST['go'])){
+        header("location: http://google.com");
+      }
+    ?>
+  <!-- kiem tra email -->
+    <h2>kiem tra email</h2>
+    <form method="post">
+      <input type="text" name ="eml" placeholder="email">
+      <input type="submit" name ="sm">
+    </form>
+    <?php
+      if(isset($_POST['eml'])){
+        $eml = $_POST['eml'];
+        if(filter_var($eml, FILTER_VALIDATE_EMAIL)){
+          echo '"' . $eml . '" = hop le' . "<br>";
+        }
+        else{
+          echo '"' . $eml . '" = khong hop le' . "<br>";
+        }
+      }
+    ?>
+  <!-- tao bang -->
+    <h2>table</h2>
+    <form method="post">
+      <input type="text" name="ml" placeholder="emali">
+      <input type="submit" name="smt" value="submit">
+    </form>
+    <table class="table table-hover" style="max-width: 500px;">
+    <thead>
+      <tr class="table-danger">
+        <th>email</th>
+        <th>name</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php
+      
+    ?>
+      <tr class="table-info">
+        <td>hoang@gmail.com</td>
+        <td>hoang</td>
+      </tr>
+    </tbody>
+    </table>
 </body>
 </html>
