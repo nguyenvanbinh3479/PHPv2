@@ -249,5 +249,52 @@
       </tr>
     </tbody>
     </table>
+  <!-- source code cua trang web -->
+    <h2>source code</h2>
+      <?php
+        $line = file('Login/helper1.php');
+        foreach($line as $line_num => $line){
+          echo "dong thu {$line_num}: " . htmlspecialchars($line). "<br>";
+        } 
+      ?>
+  <!-- lay thong tin last modified -->
+    <h2>last modified</h2>
+        <?php
+          $fht = basename($_SERVER['PHP_SELF']);
+          $flm = filemtime($fht);
+          echo 'last modified' . date('l, dS, F, Y, h:ia', $flm). '<br>';
+        ?>
+  <!-- dem so daong file -->
+    <h2>dem so dong file</h2>
+    <?php
+      $file = basename($_SERVER['PHP_SELF']);
+      $dong = count(file($file));
+      echo "co $dong dong trong $file";
+    ?>
+  <!-- phien ban php -->
+    <h2>phien ban php</h2>
+    <?php
+      echo "phien ban php hien tai: ". phpversion();
+    ?>
+  <!-- thuc thi chuong trinh trong khaong thoi gian -->
+    <h2>thuc thi chuong trinh</h2>
+    <?php
+      echo date('h:i:s').'<br>';
+      sleep(3);
+      echo date('h:i:s').'<br>';      
+    ?>
+  <!-- kiem tra 1 so lon hon 10 15 or 20 -->
+    <h2>toan tu tam phan</h2>
+    <form method="post">
+      nhap n = <input type="text" name="n" style="width: 50px;">
+      <input type="submit" name="msm" value="submit">
+    </form>
+    <?php
+      if(isset($_POST['n'])){
+        $n = $_POST['n'];
+        $r =$n >20 ? "lon hon hoac bang 20" : ($n >= 15 ? "lon hon hoac bang 15" : ($n >= 10 ? "lon hon hoawc bang 10" : "nho hon 10"));
+        echo $n . " : ". $r .'<br>';
+      }
+    ?>
 </body>
 </html>
