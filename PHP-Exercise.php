@@ -221,23 +221,31 @@
   <!-- tao bang -->
     <h2>table</h2>
     <form method="post">
-      <input type="text" name="ml" placeholder="emali">
+      <input type="text" name="ml" placeholder="email">
       <input type="submit" name="smt" value="submit">
     </form>
     <table class="table table-hover" style="max-width: 500px;">
     <thead>
       <tr class="table-danger">
+        <th>id</th>
         <th>email</th>
-        <th>name</th>
       </tr>
     </thead>
     <tbody>
     <?php
-      
-    ?>
+    $id = 0;
+      function increment_once($id){
+        $id++;
+        return $id;
+      }
+
+      if(isset($_POST['ml'])){
+        $ml = $_POST['ml'];
+        $ml1 = 0;
+      }  ?>
       <tr class="table-info">
-        <td>hoang@gmail.com</td>
-        <td>hoang</td>
+        <td><?php $id = increment_once($id); echo $id;?></td>
+        <td><?php echo $ml?></td>
       </tr>
     </tbody>
     </table>
