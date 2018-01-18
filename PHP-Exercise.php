@@ -292,7 +292,7 @@
     <?php
       if(isset($_POST['n'])){
         $n = $_POST['n'];
-        $r = $n >= 20 ? "lon hon hoac bang 20" : ($n >= 15 ? "lon hon hoac bang 15" : ($n >= 10 ? "lon hon hoawc bang 10" : "nho hon 10"));
+        $r = $n >= 20 ? "lon hon hoac bang 20" : ($n >= 15 ? "lon hon hoac bang 15" : ($n >= 10 ? "lon hon hoac bang 10" : "nho hon 10"));
         echo $n . " : ". $r .'<br>';
       }
     ?>
