@@ -302,5 +302,22 @@
         $rd = getenv('DOCUMENT_ROOT');
         echo $rd . '<br>';
       ?>
+  <!-- lay thong tin he dieu hanh -->
+    <h2>he dieu hanh</h2>
+    <?php
+      echo php_uname() . "<br>";
+      echo PHP_OS. "<br>";
+      if(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN'){
+        echo'Server dang use window';
+      }
+      else{
+        echo 'day khong phai la server dung winddow';
+      }
+    ?>
+  <!-- hien thi cac so khoang 200 - 250 chia het cho 4 -->
+    <h2>so chia het cho 4</h2>
+    <?php
+      echo implode(",",range(200,250,4))."<br>";
+    ?>
 </body>
 </html>
