@@ -26,3 +26,17 @@
       $str1 = "tuyen tap php co ban nang cao";
       echo preg_replace('/\s+/', '', $str1).'<br>';
     ?>
+<!-- xoa tat ca cac ky tu khong phai so tru phay va cham -->
+  <h1>xoa ky tu khong phai so</h1>
+    <?php
+      $strl = "12,334.00A";
+      echo preg_replace("/[^0-9,.]/", "", $strl). "<br>";
+    ?>
+<!-- xoa cac ky tu khong phai chu va so -->
+  <h1>xoa ky tu khong phai chu va so</h1>
+    <?php
+      $strll = 'abcde$ddfd @abcd )der]';
+      echo "chuoi ban dau: ".$strll.'<br>';
+      $newstr = preg_replace("/[^A-Za-z0-9 ]/","",$strll);
+      echo "chuoi moi: ".$newstr.'<br>';
+    ?>
