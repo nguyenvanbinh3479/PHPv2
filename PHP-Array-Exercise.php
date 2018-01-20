@@ -248,3 +248,124 @@
         echo "color[".$key."] = ". $val . "<br>";
       }
     ?>
+<!-- dao mang -->
+  <h2>dao mang</h2>
+    <?php
+      $colorss = array("Red", "Orange", "Black", "White");
+      rsort($colorss);
+      print_r($colorss);
+    ?>
+<!-- lay key lon nhat trong mang lien hop -->
+  <h2>key lon nhat trong mang lien hop</h2>
+    <?php
+      $x = array(
+        'value1' => 3021,
+        'value2' => 2365,
+        'value3' => 5215,
+        'value4' => 5214,
+        'value5' => 2145);
+        reset($x);
+        arsort($x);
+        $key_max = key($x);
+        echo "key cua gia tri lon nhat: " . $key_max . '<br>';
+    ?>
+<!-- tim gia tri trong mang lien hop -->
+  <h2>tim gia tri trong mang lien hop</h2>
+    <?php
+      function tgt1($arra1, $search)
+      {
+        reset($arra1);
+        while (list($key, $val) = each ($arra1))
+        {
+          if (preg_match ("/$search/i", $val))
+          {
+            echo $search ." duoc tim thay tai key: " .$key . "<br>";
+          }
+          else
+          {
+            echo $search . " khong tim thay tai key: ". $key . "<br>";
+          }
+        }
+      }
+      $exercises = array("part1" => "php array","part2"=>"PHP String", "part3"=>"PHP Math");
+      tgt1($exercises, "Math");
+    ?>
+<!-- sap xep mang lien hop theo gia tri -->
+  <?php
+    $tarray = array(
+      0 => 'example1',  
+      1 => 'Example11',  
+      2 => 'example10',  
+      3 => 'Example6',  
+      4 => 'example4',  
+      5 => 'EXAMPLE40',  
+      6 => 'example10' 
+    );
+    asort($tarray, SORT_STRING | SORT_FLAG_CASE | SORT_NATURAL);
+    print_r($tarray);
+  ?>
+<!-- xoa bang sao gia tri trong mang -->
+  <h2>xoa gia tri trung lap</h2>
+    <?php
+      $coo = array(
+        0 => 'Red',   
+        1 => 'Green',   
+        2 => 'White',   
+        3 => 'Black',   
+        4 => 'Red', 
+      );
+      $num = array(
+        0 => 100,   
+        1 => 200,   
+        2 => 100,   
+        3 => -10,   
+        4 => -10,   
+        5 => 0,
+      );
+      $uniq_colors = array_keys(array_flip($coo));
+      $uniq_numbers = array_keys(array_flip($num));
+      print_r($uniq_colors);  
+      echo "<br>";
+      print_r($uniq_numbers);
+    ?>
+<!-- kiem tra gia tri trong mang co phai chuoi -->
+  <h2>kiem tra gia tri chuoi</h2>
+    <?php
+      function ktc($arr)
+      {
+        return array_sum(array_map('is_string', $arr))==count($arr);
+      }
+      $arr1 = array('PHP', 'JS', 'Python');  
+      $arr2 = array('SQL', 200, 'MySQL');  
+      var_dump(ktc($arr1));  
+      echo "<br>";
+      var_dump(ktc($arr2));
+    ?>
+<!-- so sanh mang da chieu -->
+  <h2>so sanh 2 mang tra ve phan tu khac</h2>
+    <?php
+      function ssk($ax, $bx)
+      {
+        if($ax === $bx)
+          return 0;
+          return($ax > $bx) ? 1 : -1;
+      }
+      function hsm($arr1x, $arr2x){
+        return array_diff_uassoc($arr1x['c'], $arr2x['c'], "ssk");
+      }
+      //khai bao mang
+      $color1x =array('a'=>'White','b'=>'Red','c'=>array('a'=>'Green','b'=>'Blue','c'=>'Yellow'));  
+      $color2x =array('a'=>'White','b'=>'Red','c'=>array('a'=>'White','b'=>'Red','c'=>'Yellow'));  
+      print_r(hsm($color1x, $color2x));
+    ?>
+<!-- tim gia tri lon nhat nho nhat cua 1 tap hop mang so nguyen -->
+  <h2>tim gia tri lon, nho nhat</h2>
+    <?php
+      $ma = array(360,310,310,330,313,375,456,111,256);   
+      $ma2 = array(350,340,356,330,321);   
+      $ma3 = array(630,340,570,635,434,255,298);
+      $gtln = max(max($ma),max($ma2), max($ma3));
+      $gtnn = min(min($ma),min($ma2), min($ma3));
+      echo "gia tri lon nhat trong mang: " . $gtln. "<br>";
+      echo "gia tri nho nhat trong mang: " . $gtnn. "<br>";
+    ?>
