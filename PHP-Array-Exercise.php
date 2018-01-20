@@ -216,5 +216,35 @@
       //dung ham max min tim do dai
       echo "do dai ngan nhat: ". min($mt) . "<br>do dai dai nhat: ". max($mt);
     ?>
-
-    
+<!-- tim key lon nhat trong mang -->
+  <h2>tim key lon nhat trong mang</h2>
+    <?php
+      $mlh = array( "Italy"=>"Rome", "Luxembourg"=>"Luxembourg",  
+      "Belgium"=> "Brussels", "Denmark"=>"Copenhagen",  
+      "Finland"=>"Helsinki", "France" => "Paris",  
+      "Slovakia"=>"Bratislava", "Slovenia"=>"Ljubljana",  
+      "Germany" => "Berlin", "Greece" => "Athens",  
+      "Ireland"=>"Dublin", "Netherlands"=>"Amsterdam",
+      "Austria" => "Vienna", "Poland"=>"Warsaw");
+      $maxk = max(array_keys($mlh));
+      echo $maxk;
+    ?>
+<!-- tim gia tri nho nhat trong mang -->
+  <h2>tim gia tri nho nhat trong mang</h2>
+    <?php
+      function tgtnn(Array $value)
+      {
+        return min(array_diff(array_map('intval', $value), array(0)));
+      }
+      print_r(tgtnn(array(-1,0,1,12,-100,1)).'<br>');
+    ?>
+<!-- sap xep mang theo thu tu tu nhien khong phan biet kieu chu -->
+  <h2>sap xep mang theo tu nhien</h2>
+    <?php
+      $colors = array("color1", "color20", "color3", "color2");
+      sort($colors, SORT_NATURAL | SORT_FLAG_CASE);
+      foreach ($colors as $key => $val)
+      {
+        echo "color[".$key."] = ". $val . "<br>";
+      }
+    ?>
