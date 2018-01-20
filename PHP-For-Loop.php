@@ -93,4 +93,43 @@
           echo "</tr>"; 
         }
       ?>  
-    </table> 
+    </table> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- ban co vua -->
+  <h1>ban co vua</h1>
+    <table width="270px" cellspacing="0" cellpadding="0" border="1px">
+      <?php
+        for ($row = 1; $row <= 8; $row++)
+        {
+          echo "<tr>";
+            for ($col = 1; $col <= 8; $col++)
+            {
+              $total = $row + $col;
+              if($total % 2 == 0)
+              {
+                echo "<td height=30px width=30px bgcolor=#fff></td>";
+              }
+              else
+              {
+                echo "<td height=30px width=30px bgcolor=#000></td>";                
+              }
+            }
+          echo "</tr>";
+        }
+      ?>
+    </table>
+<!-- ve tam giac floyd -->
+  <h1>ve tam giac floyd</h1>
+    <?php
+      $n = 10;
+      echo "<h2>n = " .$n. "</h2><br>";
+      $count = 1;
+      for ($i = $n; $i > 0; $i--)
+      {
+        for ($j = $i; $j < $n + 1; $j++)
+        {
+          printf("%4s", $count);
+          $count++;
+        }
+        echo "<br>";
+      }
+    ?>
