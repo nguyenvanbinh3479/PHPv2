@@ -208,4 +208,13 @@
       $mang_dang_chu_hoa = hcd($mang_ban_dau,CASE_UPPER);  
       print_r($mang_dang_chu_hoa);
     ?>
+<!-- tim do dai chuoi -->
+  <h2>do dai chuoi</h2>
+    <?php
+      $mbd = array("abcd","abc","de","hjjj","g","wer");
+      $mt = array_map("strlen", $mbd);
+      //dung ham max min tim do dai
+      echo "do dai ngan nhat: ". min($mt) . "<br>do dai dai nhat: ". max($mt);
+    ?>
+
     
