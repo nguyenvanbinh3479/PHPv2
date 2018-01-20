@@ -85,6 +85,9 @@
       date_default_timezone_set('America/Los_Angeles');  
       $date = date('m/d/Y h:i:s a', time());  
       echo $date;
+      //or
+      ini_set('date.timezone','America/New_York');   
+		  echo '<p>'.date("g:i A").'</p>'."<br>";
     ?>
 <!-- kiem tra co phai cuoi tuan ko -->
   <h1>kiem tra co phai cuoi tuan ko</h1>
@@ -102,3 +105,25 @@
         echo $dt. ' là vào ' .$dt3.' tức là không phải là ngày cuối tuần'."<br>";  
       }
     ?>
+<!-- cong tru 1 ngay tu ngay da chon -->
+  <h1>cong tru 1 ngay tu ngay da chon</h1>
+    <?php
+      $dt='2018-1-20';  
+      echo 'Ngày ban đầu: '.$dt."<br>";  
+      $so_ngay = 35;  
+      $bdate = strtotime("-".$so_ngay." days", strtotime($dt));  
+      $adate = strtotime("+".$so_ngay." days", strtotime($dt));  
+      echo 'Ngày trước 35 ngày là: '.date("Y-m-d", $bdate)."<br>";  
+      echo 'Ngày sau 35 ngày là: '.date("Y-m-d", $adate)."<br>";
+    ?>
+<!-- chuyen giay thanh ngay gio phut giay -->
+   <h1>chuyen giay thanh ngay gio phut giay</h1>
+     <?php
+        function ham_chuyen_doi($so_giay)   
+        {  
+          $dt1 = new DateTime("@0");  
+          $dt2 = new DateTime("@$so_giay");  
+          return $dt1->diff($dt2)->format('%a ngày, %h giờ, %i phút và %s giây');  
+        }  
+        echo ham_chuyen_doi(200000)."<br>";
+     ?>
