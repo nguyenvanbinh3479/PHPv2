@@ -227,9 +227,9 @@
     <table class="table table-hover" style="max-width: 500px;">
     <thead>
       <tr class="table-danger">
-        <th>id</th>
-        <th>email</th>
-        <th>name</th>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Name</th>
       </tr>
     </thead>
     <tbody>
