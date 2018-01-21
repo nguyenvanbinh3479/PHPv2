@@ -229,6 +229,7 @@
       <tr class="table-danger">
         <th>id</th>
         <th>email</th>
+        <th>name</th>
       </tr>
     </thead>
     <tbody>
@@ -246,6 +247,7 @@
       <tr class="table-info">
         <td><?php $id = increment_once($id); echo $id;?></td>
         <td><?php echo $ml?></td>
+        <td><?php echo strstr($ml, '@', true)?></td>
       </tr>
     </tbody>
     </table>
