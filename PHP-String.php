@@ -46,3 +46,42 @@
       $user = strstr($diachimail, '@', true);
       echo $user .'<br';
     ?>
+<!-- lay 3 ky tu cuoi cua 1 chuoi -->
+  <h1>lay 3 ky tu cuoi cua 1 chuoi</h1>
+    <?php
+      $str3 = "hello there";
+      echo substr($str3, -3).'<br>';
+    ?>
+<!-- thay the tu dau tien trong chuoi bang tu khac -->
+  <h1>thay the tu dau tien trong chuoi bang tu khac</h1>
+    <?php
+      $str = 'bai tap php va nang cao';
+      echo preg_replace('/bai/', "thuc",$str, 1).'<br>';
+    ?>
+<!-- xoa 1 phan bat dau tu dau chuoi -->
+  <h1>xoa 1 phan bat dau tu dau chuoi</h1>
+    <?php
+      $chuoicon = 'binhnguyen';
+      $chuoibandau = "binhnguyenno1@gmail.com";
+      if (substr($chuoibandau, 0, strlen($chuoicon)) == $chuoicon)
+      {
+        $chuoibandau = substr($chuoibandau, strlen($chuoicon));
+      }
+      echo $chuoibandau, '<br>';
+    ?>
+<!-- chen chuoi vao vi tri bat ki -->
+  <h1>chen chuoi vao vi tri bat ki</h1>
+    <?php
+      $chuoibd = 'bai tap php ';
+      $chuoicanchen = 'nang cao';
+      $insertpos = 12;
+      $chuoimoi = substr_replace($chuoibd, $chuoicanchen, $insertpos, 0);
+      echo $chuoimoi. '<br>';
+    ?>
+<!-- lay tu dau tien trong 1 cau -->
+  <h1>lay tu dau tien trong 1 cau</h1>
+    <?php
+      $str = 'bai tap php';
+      $arr1 = explode(' ', trim($str));
+      echo $arr1[0].'<br>';
+    ?>
