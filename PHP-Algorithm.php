@@ -28,3 +28,59 @@
 			$my_array = quick_sort($my_array);
 			echo 'mang sau khi duoc sap xep: '.implode(',',$my_array);
 		?>
+<!-- sap xep chen insertion sort -->
+  <h1>sap xep chen insertion sort</h1>
+	  <?php
+			function insertion_sort($my_array1)
+			{
+				for ($i = 0; $i < count($my_array1); $i++)
+				{
+					$val = $my_array1[$i];
+					$j = $i - 1;
+					while ($j >= 0 && $my_array1[$j] > $val)
+					{
+						$my_array1[$j + 1] = $my_array1[$j];
+						$j--;
+					}
+					$my_array1[$j + 1] = $val;
+				}
+				return $my_array1;
+			}		
+			$test_array = array(3,0,2,5,-1,4,1);
+			echo 'mang ban dau: <br>';
+			echo implode(',',$test_array);
+			echo 'mang sau khi sap xep: <br>';
+			print_r(insertion_sort($test_array));
+		?>
+<!-- sap xep chon selection sort -->
+  <h1>sap xep chon selection sort</h1>
+	  <?php
+			function selection_sort($data)
+			{
+				for ($i = 0; $i < count($data) -1; $i++)
+				{
+					$min = $i;
+					for ($j = $i +1; $j < count($data); $j++)
+					{
+						if ($data[$j] < $data[$min])
+						{
+							$min = $j;
+						}
+					}
+					$data = swap_positions($data, $i, $min);
+				}
+				return $data;
+			}
+			function swap_positions($data1, $left, $right)
+			{
+				$backup_old_data_right_value = $data1[$right];
+				$data1[$right] = $data1[$left];
+				$data1[$left] = $backup_old_data_right_value;
+				return $data1;
+			}
+			$my_array2 = array(3, 0, 2, 5, -1, 4, 1);  
+			echo "Mảng ban đầu: <br>";  
+			echo implode(', ',$my_array2 );  
+			echo "<br>Mảng đã qua sắp xếp:<br>"; 
+			echo implode(',', selection_sort($my_array2)).PHP_EOL;
+		?>
