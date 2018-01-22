@@ -84,3 +84,32 @@
 			echo "<br>Mảng đã qua sắp xếp:<br>"; 
 			echo implode(',', selection_sort($my_array2)).PHP_EOL;
 		?>
+<!-- giai thuat shell sort -->
+  <h1>giai thuat shell sort</h1>
+	  <?php
+			function shell_sort($my_array3)
+			{
+				$x = round(count($my_array3)/2);
+				while($x > 0)
+				{
+					for ($i = $x; $i < count($my_array3); $i++)
+					{
+						$temp = $my_array3[$i];
+						$j = $i;
+						while($j >= $x && $my_array3[$j - $x] > $temp)
+						{
+							$my_array3[$j] = $my_array3[$j - $x];
+							$j -= $x;
+						}
+						$my_array3[$j] = $temp;
+					}
+					$x = round($x/2.2);
+				}
+				return $my_array3;
+			}
+			$test_array = array(3, 0, 2, 5, -1, 4, 1);  
+			echo "Mảng ban đầu:<br>";  
+			echo implode(', ',$test_array );  
+			echo "<br>Mảng đã qua sắp xếp:<br>";  
+			echo implode(', ',shell_Sort($test_array)). PHP_EOL;
+		?>
