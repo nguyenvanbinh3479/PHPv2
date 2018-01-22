@@ -113,3 +113,76 @@
 			echo "<br>Mảng đã qua sắp xếp:<br>";  
 			echo implode(', ',shell_Sort($test_array)). PHP_EOL;
 		?>
+<!-- sap xep noi bot bubble sort-->
+  <h1>sap xep noi bot bubble sort</h1>
+	  <?php
+			function bubble_sort($my_array4)
+			{
+				do
+				{
+					$swapped =false;
+					for ($i = 0, $c = count($my_array4) - 1; $i < $c; $i++)
+					{
+						if ($my_array4[$i] > $my_array4[$i + 1])
+						{
+							list ($my_array4[$i + 1], $my_array4[$i]) = array($my_array4[$i], $my_array4[$i + 1]);
+							$swapped = true;
+						}
+					}
+				}
+				while($swapped);
+				return $my_array4;
+			}
+			$test_array = array(3, 0, 2, 5, -1, 4, 1);  
+			echo "Mảng ban đầu:<br>";  
+			echo implode(', ',$test_array );  
+			echo "<br>Mảng đã qua sắp xếp:<br>";  
+			echo implode(', ',bubble_Sort($test_array)). PHP_EOL;
+		?>
+<!-- sap xep tron merge sort -->
+  <h1>sap xep tron merge sort</h1>
+	  <?php
+			function merge_sort($my_array5)
+			{
+				if (count($my_array5) == 1) return $my_array5;
+				$mid = count($my_array5)/2;
+				$left = array_slice($my_array5, 0, $mid);
+				$right = array_slice($my_array5, $mid);
+				$left = merge_sort($left);
+				$right = merge_sort($right);
+				return merge($left, $right);
+			}
+			function merge($left, $right)
+			{
+				$res = array();
+				while(count($left) > 0 && count($right) > 0)
+				{
+					if($left[0] > $right[0])
+					{
+						$res[] = $right[0];
+						$right = array_slice($right, 1);
+					}
+					else
+					{
+						$res[] = $left[0];
+						$left = array_slice($left, 1);
+					}
+				}
+				while(count($left) > 0)
+				{
+					$res[] = $left[0];
+					$left = array_slice($left, 1);
+				}
+				while(count($right) > 0)
+				{
+					$res[] = $right[0];
+					$right = array_slice($right, 1);
+				}
+				return $res;
+			}
+			$test_array = array(100, 54, 7, 2, 5, 4, 1);  
+			echo "Mảng ban đầu:<br>";  
+			echo implode(', ',$test_array );  
+			echo "<br>Mảng đã qua sắp xếp:<br>";  
+			echo implode(', ',merge_sort($test_array))."<br>";
+		?>
