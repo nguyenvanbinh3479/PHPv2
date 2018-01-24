@@ -109,13 +109,169 @@
 <?php
 	$ngay ='';
 	$thang ='';
+	$image = '';
+	$time = '';
 	if(isset($_POST['ngay']) && isset($_POST['thang']))
 			{
 				$ngay = $_POST['ngay'];
 				$thang = $_POST['thang'];
-				if(is_numeric($ngay) && is_numeric($thang)){
-					if($ngay <= 31 && $thang <= 12){
-						$result = "vao ngay: ".$ngay. " thang : ".$thang. " thi ban thuoc cung <strong>song ngu</strong>";
+				if(is_numeric($ngay) && is_numeric($thang))
+				{
+					if($ngay <= 31 && $thang <= 12)
+					{
+						switch($thang)
+						{
+							case 1:
+								if ($ngay <= 19)
+								{
+									$image = 'maket';
+									$time = "23/12 - 19/1";
+								}
+								if ($ngay >= 20)
+								{
+									$image = 'baobinh';
+									$time = "20/1 - 19/2";
+								}
+							break;
+							case 2:
+								if ($ngay <= 19)
+								{
+									$image = 'baobinh';
+									$time = "20/1 - 19/2";
+								}
+								if ($ngay >= 20)
+								{
+									$image = 'songngu';
+									$time = "20/2 - 21/3";
+								}
+							break;
+							case 3:
+								if ($ngay <= 21)
+								{
+									$image = 'songngu';
+									$time = "20/2 - 21/3";
+								}
+								if ($ngay >= 22)
+								{
+									$image = 'bachduong';
+									$time = "22/3 - 20/4";
+								}
+							break;
+							case 4:
+								if ($ngay <= 20)
+								{
+									$image = 'bachduong';
+									$time = "22/3 - 20/4";
+								}
+								if ($ngay >= 21)
+								{
+									$image = 'kimnguu';
+									$time = "21/4 - 21/5";
+								}
+							break;
+							case 5:
+								if ($ngay <= 21)
+								{
+									$image = 'kimnguu';
+									$time = "21/4 - 21/5";
+								}
+								if ($ngay >= 22)
+								{
+									$image = 'songtu';
+									$time = "22/5 - 22/6";
+								}
+							break;
+							case 6:
+								if ($ngay <= 22)
+								{
+									$image = 'songtu';
+									$time = "22/5 - 22/6";
+								}
+								if ($ngay >= 23)
+								{
+									$image = 'cugiai';
+									$time = "23/6 - 23/7";
+								}
+							break;
+							case 7:
+								if ($ngay <= 23)
+								{
+									$image = 'cugiai';
+									$time = "23/6 - 23/7";
+								}
+								if ($ngay >= 24)
+								{
+									$image = 'sutu';
+									$time = "24/7 - 23/8";
+								}
+							break;
+							case 8:
+								if ($ngay <= 23)
+								{
+									$image = 'sutu';
+									$time = "24/7 - 23/8";
+								}
+								if ($ngay >= 24)
+								{
+									$image = 'xunu';
+									$time = "24/8 - 23/9";
+								}
+							break;
+							case 9:
+								if ($ngay <= 23)
+								{
+									$image = 'xunu';
+									$time = "24/8 - 23/9";
+								}
+								if ($ngay >= 24)
+								{
+									$image = 'thienbinh';
+									$time = "24/9 - 23/10";
+								}
+							break;
+							case 10:
+								if ($ngay <= 23)
+								{
+									$image = 'thienbinh';
+									$time = "24/9 - 23/10";
+								}
+								if ($ngay >= 24)
+								{
+									$image = 'bocap';
+									$time = "24/10 - 22/11";
+								}
+							break;
+							case 11:
+								if ($ngay <= 22)
+								{
+									$image = 'bocap';
+									$time = "24/10 - 22/11";
+								}
+								if ($ngay >= 23)
+								{
+									$image = 'nhanma';
+									$time = "23/11 - 22/12";
+								}
+							break;
+							case 12:
+								if ($ngay <= 22)
+								{
+									$image = 'nhanma';
+									$time = "23/11 - 22/12";
+								}
+								if ($ngay >= 23)
+								{
+									$image = 'maket';
+									$time = "23/12 - 19/1";
+								}
+							break;
+						}
+						$result = "
+							<div class='result'>
+								<img src='public/images/$image.png'>
+								<h4>($time)</h4>
+							</div>
+						";
 					}
 					else
 					{
