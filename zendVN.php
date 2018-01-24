@@ -780,13 +780,41 @@
 					font-weight: normal;
 				}
 			</style>
-			<div style="width: 200px; height: 50px;">
-				<p>box A<span>(200x500)</span></p>
-			</div>
+			<?php
+				function createBox()
+				{
+					$value = '<div style="width: 200px; height: 50px;">';
+					$value .=  '<p>box A<span>(200x500)</span></p>';
+					$value .=  '</div>';
+					return $value;
+				}
 
-			<div style="width: 300px; height: 100px;">
-				<p>box B<span>(300x100)</span></p>
-			</div>
+				function checkNumber()
+				{
+					$value = 13;
+					if ($value % 2 ==0)
+					{
+						return true;
+					}
+					else{
+						return false;
+					}
+				}
+			
+				$result = createBox();
+				echo $result;
+
+				$result = checkNumber();
+				if($result == true)
+				{
+					echo 'so chan';
+				}
+				else
+				{
+					echo'so le';
+				}
+
+			?>
 		</div>
 	</body>
 </html>
