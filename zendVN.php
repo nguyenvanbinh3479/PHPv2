@@ -591,6 +591,7 @@
 							</div>
 							<div class="clr"></div>
 					<?php
+							define("F", 100);
 							define("ONE", 1000);
 							define("TWO", 2000);
 							define("FIVE", 5000);
@@ -600,7 +601,9 @@
 							define("ONE_00", 100000);
 							define("TWO_00", 200000);
 							define("FIVE_00", 500000);
+							define("ONE_000", 1000000);
 
+							$one000 = 0;
 							$five00 = 0;
 							$two00 = 0;
 							$one00 = 0;
@@ -610,8 +613,16 @@
 							$five = 0;
 							$two = 0;
 							$one = 0;
+							$f = 0;
 							if (is_numeric($money) && $money > 1000)
 							{
+
+								while($money >= ONE_000)
+								{
+									$one000 += 1;
+									$money = $money - ONE_000;
+								}
+
 								while($money >= FIVE_00)
 								{
 									$five00 += 1;
@@ -666,10 +677,25 @@
 									$money = $money - FIVE;
 								}
 
-								$total = FIVE_00 * $five00 + TWO_00 * $two00 + ONE_00 * $one00 + FIVE_0 * $five0 + TWO_0 * $two0 + ONE_0 * $one0 + ONE * $one + TWO * $two + FIVE * $five;
+								while($money >= F)
+								{
+									$f += 1;
+									$money = $money - F;
+								}
+
+								$total = F * $f + ONE_000 * $one000 + FIVE_00 * $five00 + TWO_00 * $two00 + ONE_00 * $one00 + FIVE_0 * $five0 + TWO_0 * $two0 + ONE_0 * $one0 + ONE * $one + TWO * $two + FIVE * $five;
 							}
 					?>
 					<?php
+							if($one000 > 0)
+							{
+								echo '<div class="normal">
+												<p class="col1">'.number_format(ONE_000).'</p>
+												<p class="col2">'.$one000.'</p>
+												<p class="col3">'.number_format(ONE_000 * $one000).'</p>
+											</div><div class="clr"></div>';
+							}
+
 							if($five00 > 0)
 							{
 								echo '<div class="normal">
@@ -750,6 +776,15 @@
 												<p class="col3">'.number_format(FIVE * $five).'</p>
 											</div><div class="clr"></div>';
 							}
+
+							if($f > 0)
+							{
+								echo '<div class="normal">
+												<p class="col1">'.number_format(F).'</p>
+												<p class="col2">'.$f.'</p>
+												<p class="col3">'.number_format(F * $f).'</p>
+											</div><div class="clr"></div>';
+							}
 							
 								echo '<hr><p class="total">Tổng tiền: ' .number_format($total) . '</p>';	
 							
@@ -781,17 +816,19 @@
 				}
 			</style>
 			<?php
-				function createBox()
-				{
-					$value = '<div style="width: 200px; height: 50px;">';
-					$value .=  '<p>box A<span>(200x500)</span></p>';
-					$value .=  '</div>';
-					return $value;
-				}
+				// function createBox()
+				// {
+				// 	$value = '<div style="width: 200px; height: 50px;">';
+				// 	$value .=  '<p>box A<span>(200x500)</span></p>';
+				// 	$value .=  '</div>';
+				// 	return $value;
+				// }
+				// $result = createBox();
+				// echo $result;
 
-				function checkNumber()
+				function checkNumber($value)
 				{
-					$value = 13;
+					echo $value;
 					if ($value % 2 ==0)
 					{
 						return true;
@@ -800,20 +837,53 @@
 						return false;
 					}
 				}
-			
-				$result = createBox();
-				echo $result;
-
-				$result = checkNumber();
+				$result = checkNumber(23);
 				if($result == true)
 				{
-					echo 'so chan';
+					echo ' so chan <br>';
 				}
 				else
 				{
-					echo'so le';
+					echo' so le<br>';
 				}
 
+				$value = 'ABC';//bien toan cuc
+				function createBox($content, $width = 200, $height = 100)
+				{
+					//bien cuc bo
+					$result = '<div style="width: '.$width.'px; height: '.$height.'px;">';
+					$result .=  '<p>'.$content.'<span>('.$width.'x'.$height.')</span></p>';
+					$result .=  '</div>';
+
+					//goi bien toan cuc trong ham
+					//cach2
+					echo $GLOBALS['value'] ."<br>";
+
+					//cach 1
+					global $value;
+					echo $value .'<br>';
+					return $result;
+				}
+				$boxA = createBox("Box A");
+				$boxB = createBox("Box B", 300,200);
+				echo $boxA . $boxB;
+
+				//tham chieu tham tri
+				function pow2($n1, $n2)
+				{
+					$result = 0;
+					$n1 *= $n1; 
+					$n2 *= $n2;
+					$result = $n1 + $n2; 
+
+					return $result;
+				}
+				$n1 = 2;
+				$n2 = 4;
+				$number = pow2($n1, $n2);
+				echo "Number: ". $number. "<br>";
+				echo 'n1: '.$n1."<br>";
+				echo 'n2: '.$n2."<br>";
 			?>
 		</div>
 	</body>
