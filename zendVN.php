@@ -106,194 +106,202 @@
 
 
 <!-- doan chom sao -->
-<?php
-	$ngay ='';
-	$thang ='';
-	$image = '';
-	$time = '';
-	if(isset($_POST['ngay']) && isset($_POST['thang']))
-			{
-				$ngay = $_POST['ngay'];
-				$thang = $_POST['thang'];
-				if(is_numeric($ngay) && is_numeric($thang))
+	<?php
+		$ngay ='';
+		$thang ='';
+		$image = '';
+		$time = '';
+		if(isset($_POST['ngay']) && isset($_POST['thang']))
 				{
-					if($ngay <= 31 && $thang <= 12)
+					$ngay = $_POST['ngay'];
+					$thang = $_POST['thang'];
+					if(is_numeric($ngay) && is_numeric($thang))
 					{
-						switch($thang)
+						if($ngay <= 31 && $thang <= 12)
 						{
-							case 1:
-								if ($ngay <= 19)
-								{
-									$image = 'maket';
-									$time = "23/12 - 19/1";
-								}
-								if ($ngay >= 20)
-								{
-									$image = 'baobinh';
-									$time = "20/1 - 19/2";
-								}
-							break;
-							case 2:
-								if ($ngay <= 19)
-								{
-									$image = 'baobinh';
-									$time = "20/1 - 19/2";
-								}
-								if ($ngay >= 20)
-								{
-									$image = 'songngu';
-									$time = "20/2 - 21/3";
-								}
-							break;
-							case 3:
-								if ($ngay <= 21)
-								{
-									$image = 'songngu';
-									$time = "20/2 - 21/3";
-								}
-								if ($ngay >= 22)
-								{
-									$image = 'bachduong';
-									$time = "22/3 - 20/4";
-								}
-							break;
-							case 4:
-								if ($ngay <= 20)
-								{
-									$image = 'bachduong';
-									$time = "22/3 - 20/4";
-								}
-								if ($ngay >= 21)
-								{
-									$image = 'kimnguu';
-									$time = "21/4 - 21/5";
-								}
-							break;
-							case 5:
-								if ($ngay <= 21)
-								{
-									$image = 'kimnguu';
-									$time = "21/4 - 21/5";
-								}
-								if ($ngay >= 22)
-								{
-									$image = 'songtu';
-									$time = "22/5 - 22/6";
-								}
-							break;
-							case 6:
-								if ($ngay <= 22)
-								{
-									$image = 'songtu';
-									$time = "22/5 - 22/6";
-								}
-								if ($ngay >= 23)
-								{
-									$image = 'cugiai';
-									$time = "23/6 - 23/7";
-								}
-							break;
-							case 7:
-								if ($ngay <= 23)
-								{
-									$image = 'cugiai';
-									$time = "23/6 - 23/7";
-								}
-								if ($ngay >= 24)
-								{
-									$image = 'sutu';
-									$time = "24/7 - 23/8";
-								}
-							break;
-							case 8:
-								if ($ngay <= 23)
-								{
-									$image = 'sutu';
-									$time = "24/7 - 23/8";
-								}
-								if ($ngay >= 24)
-								{
-									$image = 'xunu';
-									$time = "24/8 - 23/9";
-								}
-							break;
-							case 9:
-								if ($ngay <= 23)
-								{
-									$image = 'xunu';
-									$time = "24/8 - 23/9";
-								}
-								if ($ngay >= 24)
-								{
-									$image = 'thienbinh';
-									$time = "24/9 - 23/10";
-								}
-							break;
-							case 10:
-								if ($ngay <= 23)
-								{
-									$image = 'thienbinh';
-									$time = "24/9 - 23/10";
-								}
-								if ($ngay >= 24)
-								{
-									$image = 'bocap';
-									$time = "24/10 - 22/11";
-								}
-							break;
-							case 11:
-								if ($ngay <= 22)
-								{
-									$image = 'bocap';
-									$time = "24/10 - 22/11";
-								}
-								if ($ngay >= 23)
-								{
-									$image = 'nhanma';
-									$time = "23/11 - 22/12";
-								}
-							break;
-							case 12:
-								if ($ngay <= 22)
-								{
-									$image = 'nhanma';
-									$time = "23/11 - 22/12";
-								}
-								if ($ngay >= 23)
-								{
-									$image = 'maket';
-									$time = "23/12 - 19/1";
-								}
-							break;
+							switch($thang)
+							{
+								case 1:
+									if ($ngay <= 19)
+									{
+										$image = 'maket';
+										$time = "23/12 - 19/1";
+									}
+									if ($ngay >= 20)
+									{
+										$image = 'baobinh';
+										$time = "20/1 - 19/2";
+									}
+								break;
+								case 2:
+									if ($ngay <= 19)
+									{
+										$image = 'baobinh';
+										$time = "20/1 - 19/2";
+									}
+									if ($ngay >= 20)
+									{
+										$image = 'songngu';
+										$time = "20/2 - 21/3";
+									}
+								break;
+								case 3:
+									if ($ngay <= 21)
+									{
+										$image = 'songngu';
+										$time = "20/2 - 21/3";
+									}
+									if ($ngay >= 22)
+									{
+										$image = 'bachduong';
+										$time = "22/3 - 20/4";
+									}
+								break;
+								case 4:
+									if ($ngay <= 20)
+									{
+										$image = 'bachduong';
+										$time = "22/3 - 20/4";
+									}
+									if ($ngay >= 21)
+									{
+										$image = 'kimnguu';
+										$time = "21/4 - 21/5";
+									}
+								break;
+								case 5:
+									if ($ngay <= 21)
+									{
+										$image = 'kimnguu';
+										$time = "21/4 - 21/5";
+									}
+									if ($ngay >= 22)
+									{
+										$image = 'songtu';
+										$time = "22/5 - 22/6";
+									}
+								break;
+								case 6:
+									if ($ngay <= 22)
+									{
+										$image = 'songtu';
+										$time = "22/5 - 22/6";
+									}
+									if ($ngay >= 23)
+									{
+										$image = 'cugiai';
+										$time = "23/6 - 23/7";
+									}
+								break;
+								case 7:
+									if ($ngay <= 23)
+									{
+										$image = 'cugiai';
+										$time = "23/6 - 23/7";
+									}
+									if ($ngay >= 24)
+									{
+										$image = 'sutu';
+										$time = "24/7 - 23/8";
+									}
+								break;
+								case 8:
+									if ($ngay <= 23)
+									{
+										$image = 'sutu';
+										$time = "24/7 - 23/8";
+									}
+									if ($ngay >= 24)
+									{
+										$image = 'xunu';
+										$time = "24/8 - 23/9";
+									}
+								break;
+								case 9:
+									if ($ngay <= 23)
+									{
+										$image = 'xunu';
+										$time = "24/8 - 23/9";
+									}
+									if ($ngay >= 24)
+									{
+										$image = 'thienbinh';
+										$time = "24/9 - 23/10";
+									}
+								break;
+								case 10:
+									if ($ngay <= 23)
+									{
+										$image = 'thienbinh';
+										$time = "24/9 - 23/10";
+									}
+									if ($ngay >= 24)
+									{
+										$image = 'bocap';
+										$time = "24/10 - 22/11";
+									}
+								break;
+								case 11:
+									if ($ngay <= 22)
+									{
+										$image = 'bocap';
+										$time = "24/10 - 22/11";
+									}
+									if ($ngay >= 23)
+									{
+										$image = 'nhanma';
+										$time = "23/11 - 22/12";
+									}
+								break;
+								case 12:
+									if ($ngay <= 22)
+									{
+										$image = 'nhanma';
+										$time = "23/11 - 22/12";
+									}
+									if ($ngay >= 23)
+									{
+										$image = 'maket';
+										$time = "23/12 - 19/1";
+									}
+								break;
+							}
+							$result = "
+								<div class='result'>
+									<img src='public/images/$image.png'>
+									<h4>($time)</h4>
+								</div>
+							";
 						}
-						$result = "
-							<div class='result'>
-								<img src='public/images/$image.png'>
-								<h4>($time)</h4>
-							</div>
-						";
+						else
+						{
+							$result = "vui long nhap lai ngay thang";
+						}
 					}
-					else
-					{
-						$result = "vui long nhap lai ngay thang";
+					else{
+						$result = "vui long nhap so";
 					}
 				}
-				else{
-					$result = "vui long nhap so";
-				}
-			}
-?>
-<form method ="post" style="border: 1px solid black; width: 550px; margin: 10px auto; padding: 20px; text-align: center; font-weight: bold">
-	<h1 style="color: red;">Ban thuoc chom sao gi?</h1>
-	Ngay sinh: <input type="text" name="ngay" value="<?php echo $ngay?>" required><br><br>
-	Thang sinh: <input type="text" name="thang" value="<?php echo $thang?>" required><br><br>
-	<input type="submit" value="Lay chom sao!"><br><br>
-</form>
-			<h3 style="text-align: center;">
-			<?php
-				echo $result;
-			?>
-			</h3>
+	?>
+	<form method ="post" style="border: 1px solid black; width: 550px; margin: 10px auto; padding: 20px; text-align: center; font-weight: bold">	
+		<h1 style="color: red;">Ban thuoc chom sao gi?</h1>
+		Ngay sinh: <input type="text" name="ngay" value="<?php echo $ngay?>" required><br><br>
+		Thang sinh: <input type="text" name="thang" value="<?php echo $thang?>" required><br><br>
+		<input type="submit" value="Lay chom sao!"><br><br>
+	</form>
+	<h3 style="text-align: center;">
+		<?php
+			echo $result;
+		?>
+	</h3>
+<!-- vong lap for -->
+  <?php
+		echo "<h1 style='text-align: center;'>for loop</h1>";
+		for($i = 1; $i <= 10; $i++)
+		{
+			echo "<h2 style= 'text-align: center'>$i. hello every one! <br></h2>";
+		}
+	?>
 </div>
 </body>
 </html>
