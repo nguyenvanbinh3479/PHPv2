@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<link rel="stylesheet" href="public/css/bootstrap.min.css">
-		<link rel="stylesheet" href="public/js/bootstrap.min.js">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="public/js/bootstrap.min.js">
+  <title>Document</title>
 </head>
 <body>
 <div class="content">
@@ -302,6 +302,80 @@
 			echo "<h2 style= 'text-align: center'>$i. hello every one! <br></h2>";
 		}
 	?>
+<!-- vong la while -->
+	<style>
+		ul{
+			list-style-type: none;
+			border: 1px solid #000;
+			width: 900px;
+			padding: 50px 100px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		li{
+			display: inline-block;
+			margin-right: 48px;
+		}
+		a:link, a:visited{
+			border: 5px solid #ff9800;
+			color: #000;
+			padding: 20px 50px;
+			display: inline-block;
+			font-weight: bold;
+			text-decoration: none;
+		}
+		a:hover{
+			border: 5px solid #000;
+			color: #ff9800;
+		}
+	</style>
+	<div class="tamgiac">
+		<ul>
+			<h1 style="color: red; margin: 50px 0;">Ve Tam Giac</h1>
+			<li style="text-align: start;">
+					<a href="ZenVN.php?type=1">
+						<?php
+							for( $i = 1; $i <= 6; $i++)
+							{
+								for ($j = 0; $j < $i; $j++)
+								{
+									echo "* ";
+								}
+								echo '<br>';
+							}
+						?>
+					</a>
+			</li>
+			<li style="text-align: start;">
+					<a href="ZenVN.php?type=2">
+						<?php
+							for ($i = 0; $i <= 6; $i++)
+							{
+								for($j = 6; $j > $i; $j--)
+								{
+									echo '* ';
+								}
+								echo '<br>';
+							}
+						?>
+					</a>
+			</li>
+			<li>
+					<a href="ZenVN.php?type=3">
+						<?php
+							for( $i = 1; $i <= 6; $i++)
+							{
+								for ($j = 0; $j < $i; $j++)
+								{
+									echo "* ";
+								}
+								echo '<br>';
+							}
+						?>
+					</a>
+			</li>
+		</ul>
+	</div>
 </div>
 </body>
 </html>
