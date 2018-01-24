@@ -308,7 +308,7 @@
 			list-style-type: none;
 			border: 1px solid #000;
 			width: 900px;
-			padding: 50px 100px;
+			padding: 50px 97px;
 			margin: 50px auto;
 			border-radius: 10px;
 		}
@@ -361,16 +361,19 @@
 						?>
 					</a>
 			</li>
-			<li style="text-align: center;">
+			<li style="text-align: center; margin: 0;">
 					<a href="ZendVN.php?type=3">
 						<?php
-							for( $i = 1; $i <= 6; $i++)
+							for( $i = 1; $i <= 12; $i++)
 							{
-								for ($j = 0; $j < $i; $j++)
+								if($i % 2 == 0)
 								{
-									echo "* ";
+									for ($j = 1; $j < $i; $j++)
+									{
+										echo "* ";
+									}		
+									echo '<br>';
 								}
-								echo '<br>';
 							}
 						?>
 					</a>
@@ -403,7 +406,7 @@
 								$i = 1;
 								while ($i <= 6)
 								{
-									$space = str_repeat(" ", 6 - $i);
+									$space = str_repeat("&nbsp;&nbsp;", 6 - $i);
 									$character = str_repeat("* ", 2 * $i - 1);
 									$result .= $space . $character . "<br>";
 									$i++;
@@ -416,6 +419,52 @@
 			</div>
 		</ul>
 	</div>
+<!-- vong lap do while -->
+	<div class="image" style="border: 1px solid #000; width: 500px; margin: 100px auto; text-align: center;"><br>
+		<h1 style="color: red;">image gallery</h1><br><br>
+		<?php
+			$i = 1;
+			do
+			{
+				echo '<img src="public/images/bocap-0'.$i.'.png" alt=""><br><br><br><br>';
+				$flagShow = 0;
+				 if (isset($_GET['show']))
+				 {
+					$flagShow = $_GET['show'];
+					$i++;
+				 }
+			}
+			while($i <= 12 && $flagShow == 1);
+		?>
+		<a href="ZendVN.php?show=1">Show All</a>
+		<a href="ZendVN.php?show=0">Show Demo</a><br><br>
+	</div>
+<!-- break, continue -->
+	<?php
+	$n = 0;
+		for($i = 0; $i <= 100; $i+=8)
+		{
+			if($n < 3)
+			{
+				if ($i % 8 == 0 && $i > 0)
+				{
+					echo $i.'<br>';
+					$n++;
+				}
+			}
+			else
+			{
+				break;
+			}
+		}
+	?>
+	<?php
+		for ($i = 0; $i <= 10; $i++)
+		{
+			if($i == 3 || $i == 8) continue;
+			echo $i . "<br/>";
+		}
+	?>
 </div>
 </body>
 </html>
