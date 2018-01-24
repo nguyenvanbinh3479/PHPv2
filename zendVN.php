@@ -309,8 +309,8 @@
 			border: 1px solid #000;
 			width: 900px;
 			padding: 50px 100px;
-			margin: 0 auto;
-			text-align: center;
+			margin: 50px auto;
+			border-radius: 10px;
 		}
 		li{
 			display: inline-block;
@@ -319,6 +319,7 @@
 		a:link, a:visited{
 			border: 5px solid #ff9800;
 			color: #000;
+			border-radius: 20px;
 			padding: 20px 50px;
 			display: inline-block;
 			font-weight: bold;
@@ -331,9 +332,9 @@
 	</style>
 	<div class="tamgiac">
 		<ul>
-			<h1 style="color: red; margin: 50px 0;">Ve Tam Giac</h1>
-			<li style="text-align: start;">
-					<a href="ZenVN.php?type=1">
+			<h1 style="color: red; margin: 50px 0; text-align: center;">Ve Tam Giac</h1>
+			<li>
+					<a href="ZendVN.php?type=1">
 						<?php
 							for( $i = 1; $i <= 6; $i++)
 							{
@@ -346,8 +347,8 @@
 						?>
 					</a>
 			</li>
-			<li style="text-align: start;">
-					<a href="ZenVN.php?type=2">
+			<li>
+					<a href="ZendVN.php?type=2">
 						<?php
 							for ($i = 0; $i <= 6; $i++)
 							{
@@ -360,8 +361,8 @@
 						?>
 					</a>
 			</li>
-			<li>
-					<a href="ZenVN.php?type=3">
+			<li style="text-align: center;">
+					<a href="ZendVN.php?type=3">
 						<?php
 							for( $i = 1; $i <= 6; $i++)
 							{
@@ -374,6 +375,45 @@
 						?>
 					</a>
 			</li>
+			<div class="result" style="margin: 100px auto 50px; width: 135px;">
+				<?php
+				$result = '';
+					if(isset($_GET['type']))
+					{
+						$type = $_GET['type'];
+						switch($type)
+						{
+							case '1':
+								$i = 1;
+								while($i <= 6)
+								{
+									$result .= str_repeat('* ', $i) . '<br>';
+									$i++;
+								}
+							break;
+							case '2':
+								$i = 6;
+								while($i >= 1)
+								{
+									$result .= str_repeat('* ', $i) . '<br>';
+									$i--;
+								}
+							break;
+							case '3':
+								$i = 1;
+								while ($i <= 6)
+								{
+									$space = str_repeat(" ", 6 - $i);
+									$character = str_repeat("* ", 2 * $i - 1);
+									$result .= $space . $character . "<br>";
+									$i++;
+								}
+							break;
+						}
+					}
+					echo $result;
+				?>
+			</div>
 		</ul>
 	</div>
 </div>
