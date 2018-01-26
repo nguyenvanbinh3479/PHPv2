@@ -930,7 +930,17 @@
       ?>
     <!-- array -->
       <?php
-        
+        $php = "PHP";
+        $gey = "GEY";
+        $less = "less";
+        $courses = array();
+        $courses[] = "PHP";
+        $courses[] = "GEY";
+        $courses[] = "less";
+
+        //dem so phan tu
+        $length = count($courses);
+        echo $length;
       ?>
 	</body>
 </html>
