@@ -996,6 +996,129 @@
             echo $value . '<br>';
           }
         }
+
+        //mang ket hop
+        $courses = array();
+        $courses["cc"] = "PHP";
+        $courses["cwc"] = "GEY";
+        $courses["wcw"] = "less";
+        $courses[] = "lescss";
+        $courses[] = "lescsfeves";
+        $courses[] = "lesevvevevess";
+        echo '<pre>';
+        print_r($courses);
+        echo '</pre>';
+
+        echo $courses['cwc'];
+        //or
+        $courses = array('cc' => "PHddP", 'cwc' => "binddh", 'wcw' => "ddnguyen");
+        echo '<pre>';
+        print_r($courses);
+        echo '</pre>';
+        echo '<hr>';
+        if(!empty($courses))
+        {
+          foreach($courses as $key => $value)
+          {
+            echo $key . " => " .$value. '<br>';
+          }
+        }
+        // mang da chieu
+          //quan ly thong tin sinh vien
+          $students = array();
+          $students['sv01'] = array('name' => 'John', 'sex' => '1', 'score' => array('toan' => 9,'ly' => 8,'hoa' => 9));
+          $students['sv02'] = array('name' => 'Peter', 'sex' => '1', 'score' => array('toan' => 9,'ly' => 9,'hoa' => 9));
+          $students['sv03'] = array('name' => 'Mary', 'sex' => '0', 'score' => array('toan' => 9,'ly' =>10,'hoa' => 9));
+
+          echo '<hr>';
+          echo '<pre>';
+          print_r($students);
+          echo '</pre>';
+          // or
+          $students = array(
+            "sv01" => array('name' => 'john',
+                            'sex' => '1',
+                            'score' => array(
+                                              9,
+                                              6,
+                                              10
+                                            )
+                            ),
+             "sv02" => array('name' => 'binh',
+                            'sex' => '1',
+                            'score' => array(
+                                              10,
+                                              8,
+                                              10
+                                            )
+                            ),
+             "sv03" => array('name' => 'thao',
+                            'sex' => '0',
+                            'score' => array(
+                                              9,
+                                              2,
+                                              9
+                                            )
+                           )                                     
+           );
+           
+
+          echo '<hr>';
+          echo '<pre>';
+          print_r($students);
+          echo '</pre>';
+
+          // //tim ten sv02
+          // echo '<hr>';
+          // echo '<pre>';
+          // print_r($students['sv02']['name']);
+          // echo '</pre>';
+
+          // //diem thu 2 cua sinh vien 3
+          // echo '<hr>';
+          // echo '<pre>';
+          // print_r($students['sv03']['score']['toan']);
+          // echo '</pre>';
+
+          // //thay doi ten sv03 
+          // $students['sv03']['name'] = 'Thy';
+
+          // echo '<hr>';
+          // echo '<pre>';
+          // print_r($students);
+          // echo '</pre>';
+          // //thay diem
+          // $students['sv03']['score']['toan'] = '2';
+          // echo '<hr>';
+          // echo '<pre>';
+          // print_r($students);
+          // echo '</pre>';
+
+          //tong so diem cua moi sinh vien
+           //duyet mang
+
+           if (!empty($students))
+           {
+             foreach($students as $key => $value)
+             {
+               $name =  $value['name'];
+               $sex =  $value['sex'] == 1 ? 'boy' : 'girl';
+               $score =  array_sum($value['score']);     
+              //  $total = 0;   
+              //  for($i = 0; $i < count($score); $i++)
+              //  {
+              //    $total += $score[$i];
+              //  }       
+               echo 'name: '.$name . '// sex: '. $sex . '// score: ' .$score . '<br>';
+             }
+           }
+        // lay danh sach khoa va gia tri
+          $courses = array('name' => 'php', 'time' => 200);
+          echo '<hr>';
+          echo '<pre>';
+          print_r($courses);
+          echo '</pre>';
+
       ?>
 	</body>
 </html>
