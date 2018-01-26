@@ -1200,11 +1200,24 @@
         echo '<pre>';
         print_r($courses);
         echo '</pre>';
+        //xoa bo phan tu trung lap
         $newarr = array_unique($courses);
         echo '<pre>';
         print_r($newarr);
         echo '</pre>';
-          
+        //loai bo array
+        unset($courses[0], $courses[1]);
+        echo '<pre>';
+        print_r($courses);
+        echo '</pre>';
+        //them pha tu cuoi mang
+        array_push($courses, 'http', 'css');
+        //them phan tu dau mang
+        array_unshift($courses, 'http', 'css');
+        echo '<hr>';
+        echo '<pre>';
+        print_r($courses);
+        echo '</pre>';
       ?>
 	</body>
 </html>
