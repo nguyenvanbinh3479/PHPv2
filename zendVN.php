@@ -1118,7 +1118,74 @@
           echo '<pre>';
           print_r($courses);
           echo '</pre>';
+          //lay gia tri
+          $newarr = array_values($courses);
+          
+          echo '<hr>';
+          echo '<pre>';
+          print_r($newarr);
+          echo '</pre>';
+          //lay key
+          $newarr = array_keys($courses);
+          
+          echo '<hr>';
+          echo '<pre>';
+          print_r($newarr);
+          echo '</pre>';
 
+        // loai bo phan tu cuoi dau mang
+          //bo phan tu cuoi
+          $courses = array('php','html', 'jquery', 'mysql');
+          
+          echo '<hr>';
+          echo '<pre>';
+          print_r($courses);
+          echo '</pre>';
+          //bo phan tu cuoi
+          array_pop($courses);
+
+          //bo phan tu dau
+          array_shift($courses);
+          echo '<hr>';
+          echo '<pre>';
+          print_r($courses);
+          echo '</pre>';
+
+          $courses = array('php','html', 'jquery', 'mysql');
+           function removeItem(&$array, $type = 'first', $total = 2)
+           {
+              $result = array();
+              if(!empty($array))
+              {
+                if($type == 'first')
+                {
+                  for($i = 1; $i <= $total; $i++)
+                  {
+                    $result[] = array_shift($array);
+                  }
+                }
+                else if($type == 'last')
+                {
+                  for($i = 1; $i <= $total; $i++)
+                  {
+                    $result[] = array_pop($array);
+                  }
+                }
+              }
+              return $result;
+           }
+           $arrTemp = removeItem($courses, 'first', 2);
+
+           echo '<hr>';
+           echo 'arrTeam: <br>';
+           echo '<pre>';
+           print_r($arrTemp);
+           echo '</pre>';
+
+           echo 'courses: <br>' ;    
+           echo '<pre>';
+           print_r($courses);
+           echo '</pre>';
       ?>
 	</body>
 </html>
