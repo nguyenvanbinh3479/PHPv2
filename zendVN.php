@@ -938,9 +938,64 @@
         $courses[] = "GEY";
         $courses[] = "less";
 
-        //dem so phan tu
+        //dem so phan tu 
         $length = count($courses);
         echo $length;
+
+        // if($length > 0)
+        // {
+        //   echo 'khong phai mang rong';
+        // }
+        // else
+        // {
+        //   echo 'mang rong';
+        // }
+
+        //empty kiem tra mang rong hay khong
+        if(!empty($courses))
+        {
+          echo 'khong phai mang rong';
+        }
+        else
+        {
+          echo 'mang rong';
+        }
+
+        //in phan tu trong mang
+        echo "<pre>";
+        print_r($courses);
+        echo '</pre>';
+
+        //mang so nguyen
+        $courses = array();
+        $courses[0] = "PHP";
+        $courses[1] = "GEY";
+        $courses[2] = "less";
+        // or
+        $courses = array("PHP", "binh", "nguyen");
+        echo $courses[1] . '<br>';
+        // in tat ca phan tu
+        if(!empty($courses))
+        {
+          for($i = 0; $i < count($courses); $i ++)
+          {
+            echo $courses[$i]. '<br>';
+          }
+        }
+        else
+        {
+          echo 'mang empty';
+        }
+        // vong lap foreach
+        $courses = array("PHddP", "binddh", "ddnguyen");
+        
+        if(!empty($courses))
+        {
+          foreach($courses as $key => $value)
+          {
+            echo $value . '<br>';
+          }
+        }
       ?>
 	</body>
 </html>
