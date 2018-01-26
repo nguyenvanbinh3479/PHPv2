@@ -1157,24 +1157,32 @@
               $result = array();
               if(!empty($array))
               {
-                if($type == 'first')
+                if($total >= count($array))
                 {
-                  for($i = 1; $i <= $total; $i++)
-                  {
-                    $result[] = array_shift($array);
-                  }
+                  $result = $array;
+                  $array = null;
                 }
-                else if($type == 'last')
+                else
                 {
-                  for($i = 1; $i <= $total; $i++)
+                  if($type == 'first')
                   {
-                    $result[] = array_pop($array);
+                    for($i = 1; $i <= $total; $i++)
+                    {
+                      $result[] = array_shift($array);
+                    }
                   }
-                }
+                  else if($type == 'last')
+                  {
+                    for($i = 1; $i <= $total; $i++)
+                    {
+                      $result[] = array_pop($array);
+                    }
+                  }
+                }                
               }
               return $result;
            }
-           $arrTemp = removeItem($courses, 'first', 2);
+           $arrTemp = removeItem($courses, 'first', 3);
 
            echo '<hr>';
            echo 'arrTeam: <br>';
@@ -1186,6 +1194,17 @@
            echo '<pre>';
            print_r($courses);
            echo '</pre>';
+        //loai bo phan tu trung nhau trong mang
+        $courses = array('php','html', 'jquery', 'mysql', 'php','html');
+        echo '<hr>';
+        echo '<pre>';
+        print_r($courses);
+        echo '</pre>';
+        $newarr = array_unique($courses);
+        echo '<pre>';
+        print_r($newarr);
+        echo '</pre>';
+          
       ?>
 	</body>
 </html>
