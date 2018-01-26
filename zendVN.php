@@ -868,7 +868,9 @@
 				$boxB = createBox("Box B", 300,200);
 				echo $boxA . $boxB;
 
-				//tham chieu tham tri
+				//tham chieu
+				// function pow2(&$n1, $n2)
+				//tham tri
 				function pow2($n1, $n2)
 				{
 					$result = 0;
@@ -885,6 +887,50 @@
 				echo 'n1: '.$n1."<br>";
 				echo 'n2: '.$n2."<br>";
 			?>
+
 		</div>
+    
+    <?php
+        function sumDigit($number)
+        {
+          $sum = 0;
+          while($number > 0)
+          {
+            $digit = $number % 10;
+            $sum += $digit;
+            $number = ($number - $digit) / 10; 
+          }
+          return $sum;
+        }
+        $result = sumDigit(18);
+        echo $result;
+      ?>
+
+    <!-- ASNT kiem tra kieu du lieu-->
+      <?php
+        $n = 13;
+        $str = "PHP";
+
+        var_dump($n);
+        var_dump($str);
+        echo '<br>';
+        echo gettype($n);
+        echo '<br>';
+        echo gettype($str);
+        echo '<br>';
+
+        if(is_numeric($str))
+        {
+          echo 'number <br>';
+        }
+        else
+        {
+          echo 'string <br>';
+        }
+      ?>
+    <!-- array -->
+      <?php
+        
+      ?>
 	</body>
 </html>
