@@ -1218,6 +1218,65 @@
         echo '<pre>';
         print_r($courses);
         echo '</pre>';
+        // dao vi tri mang
+        $courses = array('php','html', 'jquery', 'mysql', 'php','html');
+        echo '<hr>';
+        echo '<pre>';
+        print_r($courses);
+        echo '</pre>';
+        $newarr = array_reverse($courses) ;
+
+        echo '<pre>';
+        print_r($newarr);
+        echo '</pre>';
+
+        //hoan doi key value
+        $courses = array('php','html', 'jquery', 'mysql', 'php','html');
+        echo '<hr>';
+        echo '<pre>';
+        print_r($courses);
+        echo '</pre>';
+        $newarr = array_flip($courses) ;
+
+        echo '<pre>';
+        print_r($newarr);
+        echo '</pre>';
+
+        //tinh tong mang
+        $score = array(2,3,5,1,3,5,7,2);
+        $sum = array_sum($score);
+        //gia tri trung binh
+        $length = count($score);
+        //gia tri lon nhat
+        $max = max($score);
+        //gia tri lon nhat
+        $min = min($score);
+        
+        echo '<hr>';
+        echo '<pre>';
+        print_r($score);
+        echo '</pre>';
+        echo'trung binh: '. $sum/$length.'<br>';
+        echo'tong: '. $sum.'<br>';
+        echo'max: '. $max.'<br>';
+        echo'min: '. $min.'<br>';
+
+        //tong cac gia tri lap
+        $newarr = array_count_values($score);
+        echo '<pre>';
+        print_r($newarr);
+		echo '</pre>';
+		
+		//ket hop 2 mang
+		$array1 = array('a', 'b', 'c');
+		$array2 = array(2, 4, 6);
+
+		$newarr = array_merge($array1, $array2);
+
+		echo '<hr>';
+        echo '<pre>';
+        print_r($newarr);
+        echo '</pre>';
       ?>
 	</body>
 </html>
