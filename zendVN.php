@@ -1268,15 +1268,70 @@
 		echo '</pre>';
 		
 		//ket hop 2 mang
-		$array1 = array('a', 'b', 'c');
-		$array2 = array(2, 4, 6);
+			$array1 = array('a', 'b', 'c');
+			$array3 = array('php' => 'PHP', 'binh' => 'nguyen');
+			$array2 = array(2, 4, 6);
 
-		$newarr = array_merge($array1, $array2);
+			$newarr = array_merge($array1, $array2, $array3);
+
+			echo '<hr>';
+			echo '<pre>';
+			print_r($newarr);
+			echo '</pre>';
+			
+			//lay chi so key
+			$array31 = array('pv' => 'PHPd', 'php' => 'PHP', 'binh' => 'nguyen');
+			$keyarr = array_rand($array31, 2);
+			
+			echo '<hr>';
+			echo '<pre>';
+			print_r($keyarr);
+			echo '</pre>';
+		//tim phan tu trong mang
+		$array31 = array('pv' => 'PHPd', 'php' => 'PHP', 'Binh' => 'nguyen');
+		$key1 = array_search('nguyen', $array31);
+		echo '<hr>';
+		echo '<pre>';
+		print_r($key1);
+		echo '<br>';
+		echo '</pre>';
+
+		//kiem tra key value co ton tai trong mang
+			if(array_key_exists('php', $array31))
+			{
+				echo 'key exitst <br>';
+			}
+			//kiem gia tri
+			if(in_array('nguyen',$array31))
+			{
+				echo 'value exitst <br>';
+			}
+			//chuyen doi key thanh chu hoa thuong
+			$change = array_change_key_case($array31, CASE_UPPER);
+			echo '<hr>';
+			echo '<pre>';
+			print_r($change);
+			echo '<br>';
+			echo '</pre>';
+
+			//truyen ky tu vao mang
+		$array31 = array('pv', 'PHP', 'Binh','nguyen');
+		$str = implode('--', $array31);
+		echo '<hr>';
+		echo '<pre>';
+		print_r($str);
+		echo '<br>';
+		echo '</pre>';
+
+		// dua chuoi vao mang
+		$full = 'nguyen van binh';
+		$ar = explode(' ', $full);
 
 		echo '<hr>';
-        echo '<pre>';
-        print_r($newarr);
-        echo '</pre>';
-      ?>
+		echo '<pre>';
+		print_r($ar);
+		echo '<br>';
+		echo '</pre>';
+    ?>
 	</body>
 </html>
