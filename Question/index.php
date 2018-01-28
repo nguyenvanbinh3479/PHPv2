@@ -23,7 +23,7 @@
 	<!-- question -->
 	<div class="contentQ">
 		<h1>Trắc nghiệm tính cách</h1>
-			<form action="" method="POST" name ="mainForm">
+			<form action="result.php" method="POST" name ="mainForm">
 				<?php
 				$i = 1;
 					foreach($newarr as $key => $value)
