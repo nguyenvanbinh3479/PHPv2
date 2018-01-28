@@ -1332,6 +1332,30 @@
 		print_r($ar);
 		echo '<br>';
 		echo '</pre>';
+		// truy suat phan tu mang
+		$ar1 = array('pv', 'PHP', 'Binh','nguyen');
+		echo '<hr>';
+		echo '<pre>';
+		print_r($ar1);
+		echo '<br>';
+		echo '</pre>';	
+		//ts ptu hien tai
+		echo 'Current: '. current($ar1). '<br>';
+		//ts ptu sau ptu hien tai
+		echo 'next: '. next($ar1). '<br>';
+		//ts ptu truoc phan tu hien tai
+		echo 'prev: '. prev($ar1). '<br>';
+		//ts quay ve phan tu dau tien trong mang
+		echo 'reset: '. reset($ar1). '<br>';
+		//ts phan tu cuoi mang
+		echo 'end: '. end($ar1). '<br>';
+
+		//chuyen doi mang ve chuoi dac biet
+		$courses= array('pv' => 'PHPd', 'php' => 'PHP', 'Binh' => 'nguyen');
+		
+		$result = serialize($courses);
+		echo $result;
+
     ?>
 	</body>
 </html>
