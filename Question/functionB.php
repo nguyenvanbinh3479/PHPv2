@@ -18,9 +18,5 @@
 		$arrO[$questionID][$optionID]['point'] = $point;
 
 	}
-	
-	echo '<pre>';
-	print_r($arrO);
-	echo '</pre>';
 
 ?>

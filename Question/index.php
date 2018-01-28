@@ -1,4 +1,17 @@
-<!-- question -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<?php
+		require_once 'functionA.php';
+		require_once 'functionB.php';
+	?>
+	<!-- question -->
 	<div class="contentQ">
 		<h1>Trắc nghiệm tính cách</h1>
 			<form action="" method="POST">
@@ -27,3 +40,5 @@
 				<input type="submit" value="Kiểm tra" name="submit">
 			</form>
 	</div>
+</body>
+</html>
