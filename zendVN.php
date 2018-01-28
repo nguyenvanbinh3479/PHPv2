@@ -5,7 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<link rel="stylesheet" href="public/css/bootstrap.min.css">
-		<link rel="stylesheet" href="public/js/bootstrap.min.js">
+		<script src="public/js/jquery-3.3.1.min.js"></script>
+		<script src="public/js/bootstrap.min.js"></script>	
 		<title>Document</title>
 	</head>
 	<body>
@@ -1622,35 +1623,52 @@
     ?>
 
 		<!-- bai tap array -->
-		<style>
-		*{
-			margin: 0;
-			padding: 0;
-		}
-		.contentt{
-			width: 500px;
-			padding: 10px;
-			border: 2px solid #ddd;
-			height: auto;
-			margin: 10px auto;
-		}
-		</style>
-		<div class="contentt">
-
-		<?php
-			$group = array('1' => 'Admin', '2' => 'Manager', '3' => 'Member', '4' => 'Guest');
-			$xhtml = '';
-			if(!empty($group))
-			{
-				$xhtml .= '<select name="group" id="group" style="width: 200px">';
-				foreach($group as $key => $value)
-				{
-					$xhtml .= '<option value="'.$key.'">'.$value.'</option>';
+			<style>
+				*{
+					margin: 0;
+					padding: 0;
 				}
-				$xhtml .= '</select';
-			}
-			echo $xhtml;
-		?>
-		</div>
+				.contentt{
+					width: 500px;
+					padding: 10px;
+					border: 2px solid #ddd;
+					height: auto;
+					margin: 10px auto;
+				}
+			</style>
+			<div class="contentt">
+				<?php
+					$group = array('1' => 'Admin', '2' => 'Manager', '3' => 'Member', '4' => 'Guest');
+					$city = array('ct' => 'can tho', 'qt' => 'quang tri', 'h' => 'hue', 'hn' => 'hanoi');
+
+					function createSelectBox($name, $attributes, $array, $keyselect)
+					{
+						$xhtml = '';
+						if(!empty($array))
+						{
+							$xhtml .= '<select name="'.$name.'" id="'.$name.'" style="'.$attributes.'">';
+							foreach($array as $key => $value)
+							{
+								if($key == $keyselect)
+								{
+									$xhtml .= '<option value="'.$key.'" selected="selected">'.$value.'</option>';
+								}
+								else
+								{
+									$xhtml .= '<option value="'.$key.'">'.$value.'</option>';
+								}
+							}
+							$xhtml .= '</select>';
+						}
+						return $xhtml;
+					}
+
+					$groupSelect = createSelectBox('group', 'width: 200px;', $group, 4);
+					$city = createSelectBox('city', 'width: 200px;', $city, 'qt');
+
+					echo $groupSelect . '<br>';
+					echo $city;
+				?>
+			</div>
 	</body>
 </html>
