@@ -1461,6 +1461,196 @@
 		echo '<br>';
 		echo '</pre>';
 
+		//xu ly gia tri mang
+		$arr111 = array('name' => 'php', 'time' => 120, 'zen','juma');
+		
+		// foreach ($arr111 as $key => $value)
+		// {
+		// 	echo $key . ' : ' .$value. '<br>';
+		// }
+		function myf($value, $key, $param)
+		{
+			echo $key .  $param  .$value. '<br>';
+		}
+		array_walk($arr111,'myf', ' - ');
+
+		$arr = array(2,4,6,8);
+
+		function mf(&$value, $key, $param = 2)
+		{
+			$value *= $param;
+			
+		}
+		array_walk($arr,'mf');
+
+		echo '<hr>';
+		echo '<pre>';
+		print_r($arr);
+		echo '<br>';
+		echo '</pre>';
+
+		//array_map
+
+		$array = array(2,3,1);
+		$narr = array();
+		foreach ($array as $key => $value)
+		{
+			$narr[] = ($value % 2 == 0) ? 'even' : 'odd';
+		}
+
+		echo '<hr>';
+		echo '<pre>';
+		print_r($array);
+		echo '<br>';
+		echo '</pre>';
+		echo '<pre>';
+		print_r($narr);
+		echo '<br>';
+		echo '</pre>';
+
+		function chen($number)
+		{
+			$result = ($number % 2 == 0) ? 'even' : 'odd';
+			return $result;
+		}
+
+		$narr = array_map('chen', $array);
+
+		echo '<hr>';
+		echo '<pre>';
+		print_r($array);
+		echo '<br>';
+		echo '</pre>';
+		echo '<pre>';
+		print_r($narr);
+		echo '<br>';
+		echo '</pre>';
+
+		$array1 = array(2,3,1);
+		$array2 = array(7,8,9);
+		function myft($num1, $num2)
+		{
+			$result = $num1 * $num2;
+			return $result;
+		}
+
+		$narr = array_map('myft', $array1, $array2);
+		echo '<hr>';
+		echo '<pre>';
+		print_r($narr);
+		echo '<br>';
+		echo '</pre>';
+
+		//trich 1 doan phan tu cua mang
+		$array = array('a','b','c','d','e');
+
+		$newarr = array_slice($array, 2);
+		$newarr = array_slice($array, 2, 2, true);
+		echo '<hr>';
+		echo '<pre>';
+		print_r($newarr);
+		echo '<br>';
+		echo '</pre>';
+		//thay the 1 doan phan tu cua mang
+		$array = array('a','b','c','d','e');
+
+		echo '<hr>';
+		echo '<pre>';
+		print_r($array);
+		echo '<br>';
+		echo '</pre>';
+		//loai bo phan tu thu 2 thay the mang 
+		$newarr = array_splice($array, 2,1, array(7,8));
+		echo '<pre>';
+		print_r($newarr);
+		echo '<br>';
+		echo '</pre>';
+
+
+		echo '<pre>';
+		print_r($array);
+		echo '<br>';
+		echo '</pre>';
+
+		// sap xep mang
+		$array = array(1,4,2,14,29,23);
+		echo '<hr>';
+		echo '<pre>';
+		print_r($array);
+		echo '<br>';
+		echo '</pre>';
+		//tan dan
+		sort($array);
+
+		echo '<hr>';
+		echo '<pre>';
+		print_r($array);
+		echo '<br>';
+		echo '</pre>';
+		//giam dan
+		rsort($array);
+
+		echo '<hr>';
+		echo '<pre>';
+		print_r($array);
+		echo '<br>';
+		echo '</pre>';
+
+		//sap xem theo khoa
+		$array = array('f' => 'php', 'd'=>80,'g' => 100);
+		echo '<hr>';
+		echo '<pre>';
+		print_r($array);
+		echo '<br>';
+		echo '</pre>';
+		//tan dan
+		ksort($array);
+
+		echo '<hr>';
+		echo '<pre>';
+		print_r($array);
+		echo '<br>';
+		echo '</pre>';
+		//giam dan
+		krsort($array);
+
+		echo '<hr>';
+		echo '<pre>';
+		print_r($array);
+		echo '<br>';
+		echo '</pre>';
     ?>
+
+		<!-- bai tap array -->
+		<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.contentt{
+			width: 500px;
+			padding: 10px;
+			border: 2px solid #ddd;
+			height: auto;
+			margin: 10px auto;
+		}
+		</style>
+		<div class="contentt">
+
+		<?php
+			$group = array('1' => 'Admin', '2' => 'Manager', '3' => 'Member', '4' => 'Guest');
+			$xhtml = '';
+			if(!empty($group))
+			{
+				$xhtml .= '<select name="group" id="group" style="width: 200px">';
+				foreach($group as $key => $value)
+				{
+					$xhtml .= '<option value="'.$key.'">'.$value.'</option>';
+				}
+				$xhtml .= '</select';
+			}
+			echo $xhtml;
+		?>
+		</div>
 	</body>
 </html>
