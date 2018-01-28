@@ -8,7 +8,20 @@
 </head>
 <body>
   <?php
-		
+		$data = file('question.txt') or die ('cannot read file');
+
+		$point = 0;
+
+		array_shift($data);
+
+		foreach($data as $key => $value)
+		{
+			$tmp = explode('|', $value);
+			$id = $tmp[0];
+			$point = $point + $_POST[$id];
+		}
+
+		echo $point;
   ?>
   <div class="content">
     <h1>Kết quả trắc nghiệm tính cách</h1>
