@@ -1414,7 +1414,7 @@
 		//tra ve khoa chi ton tai trong arr1
 		$diff2 = array_diff_key($arr1, $arr2);
 		//tra ve khoa phan tu chi ton tai trong arr1
-		$diff2 = array_diff_assoc($arr1, $arr2);
+		$diff3 = array_diff_assoc($arr1, $arr2);
 		
 		echo '<hr>';
 		echo '<pre>';
@@ -1430,6 +1430,34 @@
 		echo '<hr>';
 		echo '<pre>';
 		print_r($diff2);
+		echo '<br>';
+		echo '</pre>';
+		echo '<hr>';
+		echo '<pre>';
+		print_r($diff3);
+		echo '<br>';
+		echo '</pre>';
+		//so sanh giong nhau giua 2 mang
+		$arr111 = array('name' => 'php', 'time' => 120, 'zen','juma');
+		$arr222 = array('php', 100, 'time' => 120);
+		//lay phan tu giong nhau
+		$diff = array_intersect($arr111, $arr222);
+		//lay key giong nhau
+		$diff2 = array_intersect_key($arr111, $arr222);
+		//lay key phan tu gong nhau
+		$diff3 = array_intersect_assoc($arr111, $arr222);		
+		echo '<hr>';
+		echo '<pre>';
+		print_r($diff);
+		echo '<br>';
+		echo '</pre>';
+		echo '<hr>';
+		echo '<pre>';
+		print_r($diff2);
+		echo '<br>';
+		echo '</pre>';
+		echo '<pre>';
+		print_r($diff3);
 		echo '<br>';
 		echo '</pre>';
 
