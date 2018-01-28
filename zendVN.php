@@ -1670,5 +1670,6 @@
 					echo $city;
 				?>
 			</div>
+			
 	</body>
 </html>
