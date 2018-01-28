@@ -1354,7 +1354,46 @@
 		$courses= array('pv' => 'PHPd', 'php' => 'PHP', 'Binh' => 'nguyen');
 		
 		$result = serialize($courses);
-		echo $result;
+		echo $result . '<br>';
+
+		//chuyen ve trang thai ban dau
+
+		$result = 'a:3:{s:2:"pv";s:4:"PHPd";s:3:"php";s:3:"PHP";s:4:"Binh";s:6:"nguyen";}';
+
+		$arr = unserialize($result);
+		echo '<hr>';
+		echo '<pre>';
+		print_r($arr);
+		echo '<br>';
+		echo '</pre>';
+
+		//xao tron phan tu trong mang
+		$arr = array(1,2,3,4,5,6,7,8,9);
+		shuffle($arr);
+		echo '<hr>';
+		echo '<pre>';
+		print_r($arr);
+		echo '<br>';
+		echo '</pre>';
+
+		//tao mang tu cac bien
+		$name = 'php';
+		$time = 100;
+		$arr = compact('name', 'time');
+		echo '<hr>';
+		echo '<pre>';
+		print_r($arr);
+		echo '<br>';
+		echo '</pre>';
+
+		//tao mang su dung ham range
+
+		$arr = range(1,10,2);
+		echo '<hr>';
+		echo '<pre>';
+		print_r($arr);
+		echo '<br>';
+		echo '</pre>';
 
     ?>
 	</body>
