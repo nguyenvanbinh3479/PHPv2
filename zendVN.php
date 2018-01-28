@@ -1408,9 +1408,14 @@
 
 		//so sanh khac nhau giua 2 mang
 		$arr1 = array('name' => 'php', 'time' => 120, 'zen','juma');
-		$arr2 = array('php', 100);
+		$arr2 = array('php', 100, 'time' => 120);
 		//lay phan tu arr1 khong ton tai trong arr2
 		$diff = array_diff($arr1, $arr2);
+		//tra ve khoa chi ton tai trong arr1
+		$diff2 = array_diff_key($arr1, $arr2);
+		//tra ve khoa phan tu chi ton tai trong arr1
+		$diff2 = array_diff_assoc($arr1, $arr2);
+		
 		echo '<hr>';
 		echo '<pre>';
 		print_r($arr1);
@@ -1420,6 +1425,11 @@
 		echo '<br>';
 		echo '<pre>';
 		print_r($diff);
+		echo '<br>';
+		echo '</pre>';
+		echo '<hr>';
+		echo '<pre>';
+		print_r($diff2);
 		echo '<br>';
 		echo '</pre>';
 
