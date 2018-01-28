@@ -23,22 +23,26 @@
 	<!-- question -->
 	<div class="contentQ">
 		<h1>Trắc nghiệm tính cách</h1>
-			<form action="" method="POST">
+			<form action="" method="POST" name ="mainForm">
 				<?php
+				$i = 1;
 					foreach($newarr as $key => $value)
 					{
 						echo '<div class="question">';
 						echo '<p>
-										<span>Câu hỏi 1: </span> Bạn cảm thấy dễ chịu nhất khi nào?
+										<span>Câu hỏi '.$i.': </span> '.$value['question'].'
 									</p>';
-						echo '<ul>
-										<li><label><input type="radio" name="01" value ="2">Vào buổi sáng</label></li>
-										<li><label><input type="radio" name="01" value ="4">Vào buổi chiều và chớm tối</label></li>
-										<li><label><input type="radio" name="01" value ="6">Vào đêm muộn</label></li>
-									</ul>';
+						echo '<ul>';
+							foreach($value['sentences'] as $keyC => $valueC )
+							{
+								echo '<li><label><input type="radio" name="'.$key.'" value ="'.$valueC['point'].'">'.$valueC['option'].'</label></li>';
+							}
+						echo '</ul>';
 						echo '</div>';
-						echo '<input type="submit" value="Kiểm tra" name="submit">';
+						$i++;
 					}	
+					
+					echo '<input type="submit" value="Kiểm tra" name="submit">';
 				?>				
 			</form>
 	</div>
