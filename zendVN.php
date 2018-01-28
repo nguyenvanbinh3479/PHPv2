@@ -1395,6 +1395,34 @@
 		echo '<br>';
 		echo '</pre>';
 
+		//tao mang bang array_combine
+		$key = array('name', 'time', 'total');
+		$value = array('php', 100, '2000');
+
+		$narr = array_combine($key, $value);
+		echo '<hr>';
+		echo '<pre>';
+		print_r($narr);
+		echo '<br>';
+		echo '</pre>';
+
+		//so sanh khac nhau giua 2 mang
+		$arr1 = array('name' => 'php', 'time' => 120, 'zen','juma');
+		$arr2 = array('php', 100);
+		//lay phan tu arr1 khong ton tai trong arr2
+		$diff = array_diff($arr1, $arr2);
+		echo '<hr>';
+		echo '<pre>';
+		print_r($arr1);
+		echo '<br>';
+		echo '<pre>';
+		print_r($arr2);
+		echo '<br>';
+		echo '<pre>';
+		print_r($diff);
+		echo '<br>';
+		echo '</pre>';
+
     ?>
 	</body>
 </html>
