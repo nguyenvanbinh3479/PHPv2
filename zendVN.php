@@ -1839,6 +1839,31 @@
 					$str = "https://www.binhnguyen.com/websever.php?id=79&page=2#item1";
 					$data = parse_url($str);
 					print_r($data);
+				//truy xuat noi dung
+					$url = "http://201.245.126.171/Music/NhacTre/TinhYeu_LyMaiTrang/wma32/06_BienTham_TinhYeu_LyMaitrang.wma"; 
+					//cach 1
+					function getInfo1($url)
+					{
+						$info = explode("/", $url);
+						$result = $info[count($info) - 1];
+				 		return $result;
+					}
+					//cach 2
+					function getInfo2($url)
+					{
+						$arrayUrl = parse_url($url);
+						$info = explode("/", $arrayUrl["path"]);
+						echo $result = $info[count($info) - 1];	
+					}				
+					// print_r($info);
+					//cach 3
+					function getInfo3($url)
+					{
+						$index = strripos($url, "/");
+						$result = substr($url, $index + 1);
+						return $result;
+					}
+					getInfo3($url);
 			?>
 	</body>
 </html>
