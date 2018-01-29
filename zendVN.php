@@ -1679,8 +1679,28 @@
 				echo 'php'. ' string';
 				$php = '<br> php';
 				$string = ' string';
-
 				echo $php . $string . '<br>';
+				//phan biet + .
+				$case = 'php ' . 'easy' . '<br>';
+				$case1 = 1 . 2;
+				$case2 = 1.2;
+				$case3 = 1 + 2;
+				echo $case;
+				var_dump($case1) . '<br>';
+				var_dump($case2) . '<br>';
+				var_dump($case3) . '<br>';
+				//ham noi chuoi
+				function joinString($str1, $str2, $joinCharacter = ' ')
+				{
+					$result = $str1 . $joinCharacter . $str2;
+					return $result;
+				}
+				$result = joinString('php', 'string', '+');
+				echo $result . '<br>';
+				//dem so chuoi
+				$str = 'php is easy';
+				$length = strlen($str);
+				echo $length . '<br>';
 			?>
 			
 	</body>
