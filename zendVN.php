@@ -1840,21 +1840,21 @@
 					$data = parse_url($str);
 					print_r($data);
 				//truy xuat noi dung
-					$url = "http://201.245.126.171/Music/NhacTre/TinhYeu_LyMaiTrang/wma32/06_BienTham_TinhYeu_LyMaitrang.wma"; 
+					$url = "http://201.245.126.171/Music/NhacTre/TinhYeu_LyMaiTrang/wma32/06_BienTham_TinhYeu_LyMaiTrang.wma"; 
 					//cach 1
-					function getInfo1($url)
-					{
-						$info = explode("/", $url);
-						$result = $info[count($info) - 1];
-				 		return $result;
-					}
-					//cach 2
-					function getInfo2($url)
-					{
-						$arrayUrl = parse_url($url);
-						$info = explode("/", $arrayUrl["path"]);
-						echo $result = $info[count($info) - 1];	
-					}				
+					// function getInfo1($url)
+					// {
+					// 	$info = explode("/", $url);
+					// 	$result = $info[count($info) - 1];
+				 	// 	return $result;
+					// }
+					// //cach 2
+					// function getInfo2($url)
+					// {
+					// 	$arrayUrl = parse_url($url);
+					// 	$info = explode("/", $arrayUrl["path"]);
+					// 	echo $result = $info[count($info) - 1];	
+					// }				
 					// print_r($info);
 					//cach 3
 					function getInfo3($url)
@@ -1863,7 +1863,42 @@
 						$result = substr($url, $index + 1);
 						return $result;
 					}
-					getInfo3($url);
+					$info = getInfo3($url);
+					$result = array();
+					$arrInfo = explode('_', $info);
+					//id
+					$result['id'] = $arrInfo[0]; 
+					//type
+					$arrType = explode(".", $arrInfo[3]); 
+					$result['type'] = $arrType[1];
+					//name, audio ,singer
+					$arrInfo[3] = $arrType['0'];
+					function format($str)
+					{
+						$result = $str[0];
+						for($i = 1; $i < strlen($str); $i ++)
+						{
+							if(ctype_upper($str[$i]) == true)
+							{
+								$result .= ' ' . $str[$i]; 
+							}
+							else
+							{
+								$result .= $str[$i];
+							}
+						}
+						return $result;
+					}
+					$result['singer'] = format($arrInfo[3]);
+					$result['name'] = format($arrInfo[1]);
+					$result['album'] = format($arrInfo[2]);
+					print_r($result);
+				//so sanh 2 chuoi
+					$str1 = "Php is";
+					$str2 = "Php is";
+					$result = strcmp($str1, $str2);
+					echo $result;
+					
 			?>
 	</body>
 </html>
