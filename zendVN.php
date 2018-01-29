@@ -1676,49 +1676,112 @@
 				$str = '\'php\' \'string\'\\ <br>';
 				echo $str;
 				//noi chuoi
-				echo 'php'. ' string';
-				$php = '<br> php';
-				$string = ' string';
-				echo $php . $string . '<br>';
-				//phan biet + .
-				$case = 'php ' . 'easy' . '<br>';
-				$case1 = 1 . 2;
-				$case2 = 1.2;
-				$case3 = 1 + 2;
-				echo $case;
-				var_dump($case1) . '<br>';
-				var_dump($case2) . '<br>';
-				var_dump($case3) . '<br>';
-				//ham noi chuoi
-				function joinString($str1, $str2, $joinCharacter = ' ')
-				{
-					$result = $str1 . $joinCharacter . $str2;
-					return $result;
-				}
-				$result = joinString('php', 'string', '+');
-				echo $result . '<br>';
+					echo 'php'. ' string';
+					$php = '<br> php';
+					$string = ' string';
+					echo $php . $string . '<br>';
+					//phan biet + .
+					$case = 'php ' . 'easy' . '<br>';
+					$case1 = 1 . 2;
+					$case2 = 1.2;
+					$case3 = 1 + 2;
+					echo $case;
+					var_dump($case1) . '<br>';
+					var_dump($case2) . '<br>';
+					var_dump($case3) . '<br>';
+					//ham noi chuoi
+					function joinString($str1, $str2, $joinCharacter = ' ')
+					{
+						$result = $str1 . $joinCharacter . $str2;
+						return $result;
+					}
+					$result = joinString('php', 'string', '+');
+					echo $result . '<br>';
 				//dem so chuoi
-				$str = 'php is easy';
-				$length = strlen($str);
-				echo $length . '<br>';
-				//dem tu
-				$str = 'php is easy';
-				$wordCount = str_word_count($str);
-				echo $wordCount . '<br>';
+					$str = 'php is easy';
+					$length = strlen($str);
+					echo $length . '<br>';
+					//dem tu
+					$str = 'php is easy';
+					$wordCount = str_word_count($str);
+					echo $wordCount . '<br>';
 				//chuyen chu hoa thanh thuong va nguoc lai
-				$str = 'Nguyen van binh';
-				//in hoa
-				$upper = strtoupper($str);
-				//in thuong
-				$lower = strtolower($str);
-				//in hoa chu cai dau
-				$first = ucfirst($str);
-				//in thuong chu cai dau
-				$lfirst = lcfirst($str);
-				echo $upper . '<br>';
-				echo $lower . '<br>';
-				echo $first . '<br>';
-				echo $lfirst . '<br>';
+					$str = 'Nguyen van binh';
+					//in hoa 
+					$upper = strtoupper($str);
+					//in thuong
+					$lower = strtolower($str);
+					//in hoa chu cai dau
+					$first = ucfirst($str);
+					//in thuong chu cai dau
+					$lfirst = lcfirst($str);
+					//in hoa tat ca chu cai dau
+					$ucw = ucwords($str);
+					echo $upper . '<br>';
+					echo $lower . '<br>';
+					echo $first . '<br>';
+					echo $lfirst . '<br>';
+					echo $ucw . '<br>';
+				//xac dinh vi tri
+					$str = 'hello php, php is easy';
+					$word = 'php';
+					echo $str[6]. '<br>';
+					//chi so xuat hien dau tien
+					echo stripos($str, $word) . '<br>';
+					//chi so xuat hien cuoi cung
+					echo strripos($str, $word) . '<br>';
+				//dao nguoc chuoi
+					$str = 'php is easy';
+					$result = strrev($str);
+					echo $result . '<br>';
+				//trich xuat noi dung
+					$str = 'hello php, php is easy';
+					echo substr($str, 2, 5) . '<br>';
+					echo substr($str, -3, 2) . '<br>';
+				//xoa bo ky tu 
+					//xoa ben trai chuoi
+					$str = 'hei ejlk   ';
+					echo $str . '<br>';
+					echo strlen($str) . '<br>';
+					$str = ltrim($str, 'hei');
+					echo $str . '<br>';					
+					echo strlen($str) . '<br>' ;
+					//xoa ben phai chuoi
+					$str = 'hei ejlk   ';
+					echo $str . '<br>';
+					echo strlen($str) . '<br>';
+					$str = rtrim($str,'k   ');
+					echo $str . '<br>';					
+					echo strlen($str) . '<br>' ;
+					//xoa 2 ben
+					$str = '   hei ejlk   ';
+					echo $str . '<br>';
+					echo strlen($str) . '<br>';
+					$str = trim($str);
+					echo $str . '<br>';					
+					echo strlen($str) . '<br>' ;
+					//bt
+					$str = '      php     is         easy';
+					$str = trim($str);
+					$arr = explode(' ', $str);
+
+					foreach($arr as  $key => $value)
+					{
+						if( trim($value) == null) unset($arr[$key]);
+					}
+					print_r($arr);
+					$str = implode(' ', $arr);
+					echo $str. '<br>' . strlen($str) . '<br>';
+				//kiem tra chuoi khac rong
+					$str = 'hello world';
+					if(!isset($str) || trim($str) == '')
+					{
+						echo 'empty';
+					}
+					else
+					{
+						echo 'no empty';
+					}
 			?>
 			
 	</body>
