@@ -1670,6 +1670,18 @@
 					echo $city;
 				?>
 			</div>
+		<!-- string -->
+		  <?php
+				//khai bao
+				$str = '\'php\' \'string\'\\ <br>';
+				echo $str;
+				//noi chuoi
+				echo 'php'. ' string';
+				$php = '<br> php';
+				$string = ' string';
+
+				echo $php . $string . '<br>';
+			?>
 			
 	</body>
 </html>
