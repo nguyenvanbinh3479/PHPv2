@@ -18,7 +18,7 @@
 			$newarr[$key]['question'] = $value['question'];
 			$newarr[$key]['sentences'] = $arrO[$key];
 		}
-		
+				
 	?>
 	<!-- question -->
 	<div class="contentQ">

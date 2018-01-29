@@ -8,6 +8,11 @@
 </head>
 <body>
   <?php
+		// echo '<pre>';
+		// print_r($_POST);
+		// echo '</pre>';
+
+
 		$data = file('question.txt') or die ('cannot read file');
 
 		$point = 0;
