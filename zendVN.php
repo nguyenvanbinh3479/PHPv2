@@ -1831,9 +1831,14 @@
 					echo ord($str34) . '<br>';
 				//phan tich chuoi trong truy van
 					$str12 = "name=peter&age=23";
-					parse_str($str12);
-					echo $name;
+					parse_str($str12, $array);
+					// echo $name . '<br>';
+					// echo $age . '<br>';
+					print_r($array) . '<br>';
+				//phan tich url
+					$str = "https://www.binhnguyen.com/websever.php?id=79&page=2#item1";
+					$data = parse_url($str);
+					print_r($data);
 			?>
-			
 	</body>
 </html>
