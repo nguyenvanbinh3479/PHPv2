@@ -1773,15 +1773,58 @@
 					$str = implode(' ', $arr);
 					echo $str. '<br>' . strlen($str) . '<br>';
 				//kiem tra chuoi khac rong
-					$str = 'hello world';
-					if(!isset($str) || trim($str) == '')
+					$str09 = '0';
+					// if(!isset($str) || trim($str) == '')
+					// {
+					// 	echo 'empty';
+					// }
+					// else
+					// {
+					// 	echo 'no empty';
+					// }
+					//or ko nen dung
+					if(empty($str09))
 					{
-						echo 'empty';
+						echo 'empty <br>';
 					}
 					else
 					{
-						echo 'no empty';
+						echo 'no empty <br>';
 					}
+				//chuyen doi 
+					$arr = array("yellow", "pink", "blue");
+					print_r($arr);
+					//arr thanh chuoi
+					$str = implode('+', $arr);
+					echo $str . '<br>';
+					//chuoi thanh arr
+					$arr = explode("+", $str);
+					print_r($arr); 
+				//trich xuat noi dung trong chuoi
+					$str = 'php is easy';
+					echo $str . '<br>';
+					echo substr($str, 0, 3) . '<br>';
+					echo substr($str, 3, -3) . '<br>';
+					echo substr($str, -3, 3) . '<br>';
+					echo substr($str, -3, 0) . '<br>';
+					echo substr($str, -3, -3) . '<br>';
+				//rut gon chuoi
+					$str = 'chi xuat hien 50 ky tu dau nhe, may ky tu sau nay khong nen xuat hien dau nhe. chi xuat hien 50 ky tu dau nhe, may ky tu sau nay khong nen xuat hien dau nhe';
+					function truncateString($str, $maxChars = 50, $holder = '...')
+					{
+						$result = $str;
+						if(strlen($str) > $maxChars)
+						{
+							$result = substr($str, 0, $maxChars). $holder;
+						}
+						return $result;
+					}
+					$str = truncateString($str, 50, '...');
+					echo $str . '<br>';
+				//lap chuoi
+				$str = "++";
+				$case = str_repeat($str, 5);
+				echo $case . '<br>';
 			?>
 			
 	</body>
