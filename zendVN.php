@@ -1932,8 +1932,30 @@
 					print_r($array);
 					echo '</pre>';			
 				//chuan hoa
-					$str = 'nguyen VAn An ';
-					echo strlen($str) . '<br>';
+					$str = '  nguyen    VAn   An ';
+					function formatString($str, $type = null)
+					{
+						$str = strtolower($str);
+						$str = trim($str);
+						$arrex = explode(' ', $str);
+						foreach ($arrex as $key => $value)
+						{
+							if(trim($value) == null) {
+								unset($arrex[$key]);
+								continue;
+							}
+							if($type == 'danh-tu')
+							{
+								$arrex[$key] = ucfirst($value);
+							}
+						}
+						$result = implode(' ', $arrex);
+						$result = ucfirst($result);
+						return $result;
+					}
+					$result = formatString($str, 'danh-tu');
+					echo $result . '<br>';
+					echo strlen($result) . '<br>';
 			?>
 	</body>
 </html>
