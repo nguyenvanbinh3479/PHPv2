@@ -1911,8 +1911,29 @@
 				//sap sep ngau nhien
 					$str = 'php is easy';
 					$str = str_shuffle($str);
-					echo $str;
+					echo $str . '<br>';
+				//tim kiem thay the chuoi
+					$str = 'php is eaasy';
+					$str = str_replace("php", "java", $str);
+					echo $str . "<br>";
 
+					$array = array("php", 'java', 'html', 'jquery');
+					$array = str_replace("php", "css", $array);
+					print_r($array);
+				//dem so lan xuat hien chuoi con
+					$str = 'this is test';
+					$index = substr_count($str, 'is');
+					$index = substr_count($str, 'is', 3);
+					echo $index . '<br>';
+				//cat chuoi
+					$str = 'this is a test';
+					$array = str_split($str, 3);
+					echo '<pre>';
+					print_r($array);
+					echo '</pre>';			
+				//chuan hoa
+					$str = 'nguyen VAn An ';
+					echo strlen($str) . '<br>';
 			?>
 	</body>
 </html>
