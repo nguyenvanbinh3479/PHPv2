@@ -1701,6 +1701,24 @@
 				$str = 'php is easy';
 				$length = strlen($str);
 				echo $length . '<br>';
+				//dem tu
+				$str = 'php is easy';
+				$wordCount = str_word_count($str);
+				echo $wordCount . '<br>';
+				//chuyen chu hoa thanh thuong va nguoc lai
+				$str = 'Nguyen van binh';
+				//in hoa
+				$upper = strtoupper($str);
+				//in thuong
+				$lower = strtolower($str);
+				//in hoa chu cai dau
+				$first = ucfirst($str);
+				//in thuong chu cai dau
+				$lfirst = lcfirst($str);
+				echo $upper . '<br>';
+				echo $lower . '<br>';
+				echo $first . '<br>';
+				echo $lfirst . '<br>';
 			?>
 			
 	</body>
