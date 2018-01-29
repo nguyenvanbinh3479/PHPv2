@@ -8,10 +8,6 @@
 </head>
 <body>
   <?php
-		// echo '<pre>';
-		// print_r($_POST);
-		// echo '</pre>';
-
 
 		$data = file('question.txt') or die ('cannot read file');
 
@@ -21,17 +17,33 @@
 
 		foreach($data as $key => $value)
 		{
-			$tmp = explode('|', $value);
+			$tmp = explode("|", $value);
 			$id = $tmp[0];
 			$point = $point + $_POST[$id];
 		}
 
-		echo $point;
+		$data = file('result.txt') or die ('cannot read file');
+		
+		array_shift($data);
+
+		foreach($data as $key => $value)
+		{
+			$tmp = explode("|", $value);
+			$min = $tmp[0];
+			$max = $tmp[1];
+			$content = $tmp[2];
+			if($point >= $min && $point <= $max)
+			{
+				$result = $content;
+				break;
+			}
+		}
+		
   ?>
   <div class="content">
     <h1>Kết quả trắc nghiệm tính cách</h1>
-		<p><b>Tổng số điểm của bạn là: </b> 25</p>
-		<p style="margin-top: 20px; text-align: justify"><b>Kết quả trắc nghiệm: </b></p>
+		<p><b>Tổng số điểm của bạn là: </b><?php echo $point;?></p>
+		<p style="margin-top: 20px; text-align: justify"><b>Kết quả trắc nghiệm: </b><?php echo $result;?></p>
   </div>
 </body>
 </html>
