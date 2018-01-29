@@ -1822,9 +1822,17 @@
 					$str = truncateString($str, 50, '...');
 					echo $str . '<br>';
 				//lap chuoi
-				$str = "++";
-				$case = str_repeat($str, 5);
-				echo $case . '<br>';
+					$str = "++";
+					$case = str_repeat($str, 5);
+					echo $case . '<br>';
+				//ky tu ascii
+					echo chr(84) . '<br>';
+					$str34 = "php is easy";
+					echo ord($str34) . '<br>';
+				//phan tich chuoi trong truy van
+					$str12 = "name=peter&age=23";
+					parse_str($str12);
+					echo $name;
 			?>
 			
 	</body>
