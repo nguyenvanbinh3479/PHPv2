@@ -1897,8 +1897,22 @@
 					$str1 = "Php is";
 					$str2 = "Php is";
 					$result = strcmp($str1, $str2);
-					echo $result;
-					
+					echo $result . '<br>';
+
+					$str1 = "Php is easy";
+					$str2 = "easy";
+					$result = substr_compare($str1, $str2, -4, 4);
+					echo $result . '<br>';
+				//tang do dai chuoi
+					$str = 'php is easy';
+
+					$str = str_pad($str, 30, ".", STR_PAD_BOTH);
+					echo $str . '<br>';
+				//sap sep ngau nhien
+					$str = 'php is easy';
+					$str = str_shuffle($str);
+					echo $str;
+
 			?>
 	</body>
 </html>
