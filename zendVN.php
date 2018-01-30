@@ -1962,6 +1962,8 @@
 					$str = addcslashes($str, "s");
 					$str = stripslashes($str);
 					echo $str . "<Br>";
+				//html entity
+					
 			?>
 	</body>
 </html>
