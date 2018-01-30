@@ -1963,7 +1963,7 @@
 					$str = stripslashes($str);
 					echo $str . "<Br>";
 				//html entity
-					
 			?>
+					<h1>HTL intities &gt;</h1>
 	</body>
 </html>
