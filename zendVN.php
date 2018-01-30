@@ -1957,7 +1957,10 @@
 					echo $result . '<br>';
 					echo strlen($result) . '<br>';
 				//thao tac voi ki tu gach cheo
-					$str = '\'php\' is easy';
+					$str = "'php' \is easy\ ";
+					$str = addslashes($str);
+					$str = addcslashes($str, "s");
+					$str = stripslashes($str);
 					echo $str . "<Br>";
 			?>
 	</body>
