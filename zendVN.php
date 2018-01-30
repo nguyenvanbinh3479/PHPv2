@@ -1956,6 +1956,9 @@
 					$result = formatString($str, 'danh-tu');
 					echo $result . '<br>';
 					echo strlen($result) . '<br>';
+				//thao tac voi ki tu gach cheo
+					$str = '\'php\' is easy';
+					echo $str . "<Br>";
 			?>
 	</body>
 </html>
