@@ -1963,8 +1963,9 @@
 					$str = stripslashes($str);
 					echo $str . "<Br>";
         //html entity
-          $str = 'php is easy';
-          echo 'in' . $str;
+          $str = '<b>php</b> is easy';
+          echo 'input: ' . $str . '<br>';
+          echo 'output: ' . htmlspecialchars($str);
 			?>
 	</body>
 </html>
