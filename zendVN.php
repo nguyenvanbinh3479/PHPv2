@@ -32,57 +32,58 @@
 				<p class="result">ban dang o trang thu <?php echo $result;?></p>
 
 			<!-- may tinh -->
+      
 				<?php
 					
-				$a = ''; 
-				$b = '';
-				$c = '';
-				$flag = true;
-				$tt = true;
-				if (isset($_POST['a']) && isset($_POST['c']) && isset($_POST['b']))
-				{
-					$a = $_POST['a'];
-					$b = $_POST['b'];
-					$c = $_POST['c'];
+          $a = ''; 
+          $b = '';
+          $c = '';
+          $flag = true;
+          $tt = true;
+          if (isset($_POST['a']) && isset($_POST['c']) && isset($_POST['b']))
+          {
+            $a = $_POST['a'];
+            $b = $_POST['b'];
+            $c = $_POST['c'];
 
-					if (is_numeric($a) && is_numeric($b))
-					{
-						switch($c)
-						{
-							case "+":
-							$result = $a + $b;
-							break;
-							case "-":
-							$result = $a - $b;
-							break;
-							case "*":
-							$result = $a * $b;
-							break;
-							case "x":
-							$result = $a * $b;
-							break;
-							case "/":
-							$result = $a / $b;
-							break;
-							case ":":
-							$result = $a / $b;
-							break;
-							case "%":
-							$result = $a % $b;
-							break;
-							default:
-							$result = "vui long nhap phep toan";
-							$tt= false;
-							break;
-						}	
-					}
-					else
-					{
-						$result = "vui long nhap so";
-						$flag = false;
-					}
-				}
-					?>
+            if (is_numeric($a) && is_numeric($b))
+            {
+              switch($c)
+              {
+                case "+":
+                $result = $a + $b;
+                break;
+                case "-":
+                $result = $a - $b;
+                break;
+                case "*":
+                $result = $a * $b;
+                break;
+                case "x":
+                $result = $a * $b;
+                break;
+                case "/":
+                $result = $a / $b;
+                break;
+                case ":":
+                $result = $a / $b;
+                break;
+                case "%":
+                $result = $a % $b;
+                break;
+                default:
+                $result = "vui long nhap phep toan";
+                $tt= false;
+                break;
+              }	
+            }
+            else
+            {
+              $result = "vui long nhap so";
+              $flag = false;
+            }
+          }
+				?>
 				<form method="post" style="border: 1px solid black; width: 550px; margin: 10px auto; padding: 20px; text-align: center; font-weight: bold">
 					<h1 style="color: red;">mo phong may tinh dien tu</h1>
 					So thu nhat: <input type="text" name="a" value="<?php echo $a?>" required><br><br><br>
@@ -99,10 +100,7 @@
 						else{
 							echo $result;
 						}
-					?><?php 
-				
-				?>
-				
+					?>
 				</h4>
 
 
@@ -413,7 +411,7 @@
 						</div>
 					</ul>
 				</div>
-			<!-- vong lap do while -->
+			<!-- image gallery -->
 				<div class="image" style="border: 1px solid #000; width: 500px; margin: 100px auto; text-align: center;"><br>
 					<h1 style="color: red;">image gallery</h1><br><br>
 					<?php
@@ -430,35 +428,10 @@
 						}
 						while($i <= 12 && $flagShow == 1);
 					?>
-					<a href="ZendVN.php?show=1">Show All</a>
-					<a href="ZendVN.php?show=0">Show Demo</a><br><br>
+					<a class="name" href="ZendVN.php?show=1">Show All</a>
+					<a class="name" href="ZendVN.php?show=0">Show Demo</a><br><br>
 				</div>
-			<!-- break, continue -->
-				<?php
-					$n = 0;
-					for($i = 0; $i <= 100; $i+=8)
-					{
-						if($n < 3)
-						{
-							if ($i % 8 == 0 && $i > 0)
-							{
-								echo $i.'<br>';
-								$n++;
-							}
-						}
-						else
-						{
-							break;
-						}
-					}
-				?>
-				<?php
-					for ($i = 0; $i <= 10; $i++)
-					{
-						if($i == 3 || $i == 8) continue;
-						echo $i . "<br/>";
-					}
-				?>
+			
 			<!-- giai cau do bang vong lap -->
 				<div class="giaido" style="text-align: center; border: 1px solid #000; width: 630px; margin: 0 auto 50px; padding: 0 20px;">
 					<h1 style='color: red;'>Giai cau do bang vong lap</h1>
