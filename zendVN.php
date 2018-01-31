@@ -26,9 +26,9 @@
         <div class="result">
 					<?php
 						$result = '';
-						if(isset($_POST['page']))
+						if(isset($_GET['page']))
 						{
-						  $page = $_POST['page'];
+						  $page = $_GET['page'];
 							switch($page)
 							{
                 case '1':?>
@@ -322,7 +322,7 @@
                     <ul class="ull">
                       <h1 style="color: red; margin: 50px 0; text-align: center;">Ve Tam Giac</h1>
                       <li class="lii">
-                          <a class="name" href="zendVN.php?page=3">
+                          <a class="name" href="zendVN.php?page=3?type=1">
                             <?php
                               for( $i = 1; $i <= 6; $i++)
                               {
@@ -336,7 +336,7 @@
                           </a>
                       </li>
                       <li class="lii">
-                          <a class="name" href="zendVN.php?page=3">
+                          <a class="name" href="zendVN.php?type=2">
                             <?php
                               for ($i = 0; $i <= 6; $i++)
                               {
@@ -350,7 +350,7 @@
                           </a>
                       </li>
                       <li class="lii" style="text-align: center; margin: 0;">
-                          <a class="name" href="zendVN.php?page=3">
+                          <a class="name" href="zendVN.php?type=3">
                             <?php
                               for( $i = 1; $i <= 12; $i++)
                               {
