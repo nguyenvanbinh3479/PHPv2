@@ -294,482 +294,470 @@
                     ?>
                   </h3><?php		
 								break;
-								case '3':
-										
-								break;
+								case '3':?>
+								<!-- ve tam giac -->
+                  <style>
+                    ul{
+                      list-style-type: none;
+                      border: 1px solid #000;
+                      width: 900px;
+                      padding: 50px 97px;
+                      margin: 50px auto;
+                      border-radius: 10px;
+                    }
+                    li{
+                      display: inline-block;
+                      margin-right: 48px;
+                    }
+                    .name:link, .name:visited{
+                      border: 5px solid #ff9800;
+                      color: #000;
+                      border-radius: 20px;
+                      padding: 20px 50px;
+                      display: inline-block;
+                      font-weight: bold;
+                      text-decoration: none;
+                    }
+                    .name:hover{
+                      border: 5px solid #000;
+                      color: #ff9800;
+                    }
+                  </style>
+                  <div class="tamgiac">
+                    <ul>
+                      <h1 style="color: red; margin: 50px 0; text-align: center;">Ve Tam Giac</h1>
+                      <li>
+                          <a class="name" href="ZendVN.php?type=1">
+                            <?php
+                              for( $i = 1; $i <= 6; $i++)
+                              {
+                                for ($j = 0; $j < $i; $j++)
+                                {
+                                  echo "* ";
+                                }
+                                echo '<br>';
+                              }
+                            ?>
+                          </a>
+                      </li>
+                      <li>
+                          <a class="name" href="ZendVN.php?type=2">
+                            <?php
+                              for ($i = 0; $i <= 6; $i++)
+                              {
+                                for($j = 6; $j > $i; $j--)
+                                {
+                                  echo '* ';
+                                }
+                                echo '<br>';
+                              }
+                            ?>
+                          </a>
+                      </li>
+                      <li style="text-align: center; margin: 0;">
+                          <a class="name" href="ZendVN.php?type=3">
+                            <?php
+                              for( $i = 1; $i <= 12; $i++)
+                              {
+                                if($i % 2 == 0)
+                                {
+                                  for ($j = 1; $j < $i; $j++)
+                                  {
+                                    echo "* ";
+                                  }		
+                                  echo '<br>';
+                                }
+                              }
+                            ?>
+                          </a>
+                      </li>
+                      <div class="result" style="margin: 100px auto 50px; width: 150px;">
+                        <?php
+                        $result = '';
+                          if(isset($_GET['type']))
+                          {
+                            $type = $_GET['type'];
+                            switch($type)
+                            {
+                              case '1':
+                                $i = 1;
+                                while($i <= 6)
+                                {
+                                  $result .= str_repeat('* ', $i) . '<br>';
+                                  $i++;
+                                }
+                              break;
+                              case '2':
+                                $i = 6;
+                                while($i >= 1)
+                                {
+                                  $result .= str_repeat('* ', $i) . '<br>';
+                                  $i--;
+                                }
+                              break;
+                              case '3':
+                                $i = 1;
+                                while ($i <= 6)
+                                {
+                                  $space = str_repeat("&nbsp;&nbsp;", 6 - $i);
+                                  $character = str_repeat("* ", 2 * $i - 1);
+                                  $result .= $space . $character . "<br>";
+                                  $i++;
+                                }
+                              break;
+                            }
+                          }
+                          echo $result;
+                        ?>
+                      </div>
+                    </ul>
+                  </div><?php		
+                break;
+                case '4':?>
+                <!-- image gallery -->
+                  <div class="image" style="border: 1px solid #000; width: 500px; margin: 100px auto; text-align: center;"><br>
+                    <h1 style="color: red;">image gallery</h1><br><br>
+                    <?php
+                      $i = 1;
+                      do
+                      {
+                        echo '<img src="public/images/bocap-0'.$i.'.png" alt=""><br><br><br><br>';
+                        $flagShow = 0;
+                        if (isset($_GET['show']))
+                        {
+                          $flagShow = $_GET['show'];
+                          $i++;
+                        }
+                      }
+                      while($i <= 12 && $flagShow == 1);
+                    ?>
+                    <a class="name" href="ZendVN.php?show=1">Show All</a>
+                    <a class="name" href="ZendVN.php?show=0">Show Demo</a><br><br>
+                  </div><?php          
+                break;
+                case '5':?>
+                <!-- may atm -->
+                  <style>
+                    .content11 {
+                    width: 700px;
+                    border: 2px solid #9A9A9A;
+                    background: #E6E6E6;
+                    margin: 20px auto;
+                    }
+                    
+                    .content11 .info {
+                    height: 150px;
+                    padding: 0px;
+                    text-align: center;
+                    } 
+                    .content11 .info img {
+                    margin: 10px;
+                    float: left;
+                    border-radius: 5px;
+                    }
+
+                    .content11 .info h1 {
+                    color: red;
+                    margin: 0px;
+                    }
+
+                    .content11 .info p {
+                    font-size: 18px;
+                    }
+
+                    .content11 .info input {
+                    height: 30px;
+                    }
+
+                    .content11 .info input[type='text'] {
+                    width: 300px;
+                    font-size: 18px;
+                    }
+
+                    .content11 .info input[type='submit'] {
+                    width: 100px;
+                    font-size: 18px;
+                    border-radius: 5px;
+                    height: 34px;
+                    }
+
+                    .clr {
+                    clear:both;
+                    }
+
+                    .result div p {
+                    display: inline-table;
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin-top: 0px;
+                    margin-bottom: 5px;
+                    }
+                    .result div p.col1{
+                    width: 200px;
+                    text-align: left;
+                    }
+                    .result div p.col2{
+                    width: 200px;
+                    text-align: center;
+                    }
+                    .result div p.col3{
+                    width: 200px;
+                    text-align: right;
+                    }
+                    .result {
+                    padding: 10px;
+                    }
+
+                    .result p.total {
+                    text-align: right;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #3879D9;
+                    }
+                  </style>
+                  <div class="content11">
+                    <?php
+                      $money = 0;
+                      $total = 0;
+                      if(isset($_POST['money'])) $money = $_POST['money'];
+                    ?>
+                    <div class="info">
+                      <img src="public/images/bocap.png" alt="atm">
+                      <h1>Mô phỏng máy ATM</h1>
+                      <form action="#" method="post">
+                        <p>Vui lòng nhập vào số tiền mà quý khách muốn thực hiện giao dịch</p>
+                        <input type="text" name="money" value="<?php echo number_format($money);?>">
+                        <input type="submit" value="Rút tiền">
+                      </form>
+                    </div>
+                    <div class="clr"></div>
+                    <div class="result">
+                      <div class="normal">
+                          <p class="col1">Mệnh giá</p>
+                          <p class="col2">Số lượng</p>
+                          <p class="col3">Thành tiền</p>
+                      </div>
+                      <div class="clr"></div>
+                      <?php
+                        define("F", 100);
+                        define("ONE", 1000);
+                        define("TWO", 2000);
+                        define("FIVE", 5000);
+                        define("ONE_0", 10000);
+                        define("TWO_0", 20000);
+                        define("FIVE_0", 50000);
+                        define("ONE_00", 100000);
+                        define("TWO_00", 200000);
+                        define("FIVE_00", 500000);
+                        define("ONE_000", 1000000);
+
+                        $one000 = 0;
+                        $five00 = 0;
+                        $two00 = 0;
+                        $one00 = 0;
+                        $five0 = 0;
+                        $two0 = 0;
+                        $one0 = 0;
+                        $five = 0;
+                        $two = 0;
+                        $one = 0;
+                        $f = 0;
+                        if (is_numeric($money) && $money > 1000)
+                        {
+                          while($money >= ONE_000)
+                          {
+                            $one000 += 1;
+                            $money = $money - ONE_000;
+                          }
+                          while($money >= FIVE_00)
+                          {
+                            $five00 += 1;
+                            $money = $money - FIVE_00;
+                          }
+                          while($money >= TWO_00)
+                          {
+                            $two00 += 1;
+                            $money = $money - TWO_00;
+                          }
+                          while($money >= ONE_00)
+                          {
+                            $one00 += 1;
+                            $money = $money - ONE_00;
+                          }
+                          while($money >= FIVE_0)
+                          {
+                            $five0 += 1;
+                            $money = $money - FIVE_0;
+                          }
+                          while($money >= TWO_0)
+                          {
+                            $two0 += 1;
+                            $money = $money - TWO_0;
+                          }
+                          while($money >= ONE_0)
+                          {
+                            $one0 += 1;
+                            $money = $money - ONE_0;
+                          }
+                          while($money >= ONE)
+                          {
+                            $one += 1;
+                            $money = $money - ONE;
+                          }
+                          while($money >= TWO)
+                          {
+                            $two += 1;
+                            $money = $money - TWO;
+                          }
+                          while($money >= FIVE)
+                          {
+                            $five += 1;
+                            $money = $money - FIVE;
+                          }
+                          while($money >= F)
+                          {
+                            $f += 1;
+                            $money = $money - F;
+                          }
+                          $total = F * $f + ONE_000 * $one000 + FIVE_00 * $five00 + TWO_00 * $two00 + ONE_00 * $one00 + FIVE_0 * $five0 + TWO_0 * $two0 + ONE_0 * $one0 + ONE * $one + TWO * $two + FIVE * $five;
+                        }
+                      ?>
+                      <?php
+                        if($one000 > 0)
+                        {
+                          echo '<div class="normal">
+                                  <p class="col1">'.number_format(ONE_000).'</p>
+                                  <p class="col2">'.$one000.'</p>
+                                  <p class="col3">'.number_format(ONE_000 * $one000).'</p>
+                                </div><div class="clr"></div>';
+                        }
+                        if($five00 > 0)
+                        {
+                          echo '<div class="normal">
+                                  <p class="col1">'.number_format(FIVE_00).'</p>
+                                  <p class="col2">'.$five00.'</p>
+                                  <p class="col3">'.number_format(FIVE_00 * $five00).'</p>
+                                </div><div class="clr"></div>';
+                        }
+                        if($two00 > 0)
+                        {
+                          echo '<div class="normal">
+                                  <p class="col1">'.number_format(TWO_00).'</p>
+                                  <p class="col2">'.$two00.'</p>
+                                  <p class="col3">'.number_format(TWO_00 * $two00).'</p>
+                                </div><div class="clr"></div>';
+                        }
+                        if($one00 > 0)
+                        {
+                          echo '<div class="normal">
+                                  <p class="col1">'.number_format(ONE_00).'</p>
+                                  <p class="col2">'.$one00.'</p>
+                                  <p class="col3">'.number_format(ONE_00 * $one00).'</p>
+                                </div><div class="clr"></div>';
+                        }
+                        if($five0 > 0)
+                        {
+                          echo '<div class="normal">
+                                  <p class="col1">'.number_format(FIVE_0).'</p>
+                                  <p class="col2">'.$five0.'</p>
+                                  <p class="col3">'.number_format(FIVE_0 * $five0).'</p>
+                                </div><div class="clr"></div>';
+                        }
+                        if($two0 > 0)
+                        {
+                          echo '<div class="normal">
+                                  <p class="col1">'.number_format(TWO_0).'</p>
+                                  <p class="col2">'.$two0.'</p>
+                                  <p class="col3">'.number_format(TWO_0 * $two0).'</p>
+                                </div><div class="clr"></div>';
+                        }
+                        if($one0 > 0)
+                        {
+                          echo '<div class="normal">
+                                  <p class="col1">'.number_format(ONE_0).'</p>
+                                  <p class="col2">'.$one0.'</p>
+                                  <p class="col3">'.number_format(ONE_0 * $one0).'</p>
+                                </div><div class="clr"></div>';
+                        }
+                        if($one > 0)
+                        {
+                          echo '<div class="normal">
+                                  <p class="col1">'.number_format(ONE).'</p>
+                                  <p class="col2">'.$one.'</p>
+                                  <p class="col3">'.number_format(ONE * $one).'</p>
+                                </div><div class="clr"></div>';
+                        }
+                        if($two > 0)
+                        {
+                          echo '<div class="normal">
+                                  <p class="col1">'.number_format(TWO).'</p>
+                                  <p class="col2">'.$two.'</p>
+                                  <p class="col3">'.number_format(TWO * $two).'</p>
+                                </div><div class="clr"></div>';
+                        }
+                        if($five > 0)
+                        {
+                          echo '<div class="normal">
+                                  <p class="col1">'.number_format(FIVE).'</p>
+                                  <p class="col2">'.$five.'</p>
+                                  <p class="col3">'.number_format(FIVE * $five).'</p>
+                                </div><div class="clr"></div>';
+                        }
+                        if($f > 0)
+                        {
+                          echo '<div class="normal">
+                                  <p class="col1">'.number_format(F).'</p>
+                                  <p class="col2">'.$f.'</p>
+                                  <p class="col3">'.number_format(F * $f).'</p>
+                                </div><div class="clr"></div>';
+                        }		
+                        echo '<hr><p class="total">Tổng tiền: ' .number_format($total) . '</p>';			
+                      ?>
+                    </div>
+                  </div><?php      
+                break;
+                case '6':
+
+                break;
+                case '7':
+
+                break;
+                case '8':
+
+                break;
+                case '9':
+
+                break;
+                case '10':
+
+                break;
+                case '11':
+
+                break;
+                case '12':
+
+                break;
+                case '13':
+
+                break;
+                case '14':
+
+                break;
+                case '15':
+
+                break;
+                case '16':
+
+                break;
+                case '17':
+
+                break;
+                case '18':
+
+                break;
 							}
 						}?>
-				</div>
-
-			
-
-
-			
-
-			<!-- ve tam giac -->
-				<style>
-					ul{
-						list-style-type: none;
-						border: 1px solid #000;
-						width: 900px;
-						padding: 50px 97px;
-						margin: 50px auto;
-						border-radius: 10px;
-					}
-					li{
-						display: inline-block;
-						margin-right: 48px;
-					}
-					.name:link, .name:visited{
-						border: 5px solid #ff9800;
-						color: #000;
-						border-radius: 20px;
-						padding: 20px 50px;
-						display: inline-block;
-						font-weight: bold;
-						text-decoration: none;
-					}
-					.name:hover{
-						border: 5px solid #000;
-						color: #ff9800;
-					}
-				</style>
-				<div class="tamgiac">
-					<ul>
-						<h1 style="color: red; margin: 50px 0; text-align: center;">Ve Tam Giac</h1>
-						<li>
-								<a class="name" href="ZendVN.php?type=1">
-									<?php
-										for( $i = 1; $i <= 6; $i++)
-										{
-											for ($j = 0; $j < $i; $j++)
-											{
-												echo "* ";
-											}
-											echo '<br>';
-										}
-									?>
-								</a>
-						</li>
-						<li>
-								<a class="name" href="ZendVN.php?type=2">
-									<?php
-										for ($i = 0; $i <= 6; $i++)
-										{
-											for($j = 6; $j > $i; $j--)
-											{
-												echo '* ';
-											}
-											echo '<br>';
-										}
-									?>
-								</a>
-						</li>
-						<li style="text-align: center; margin: 0;">
-								<a class="name" href="ZendVN.php?type=3">
-									<?php
-										for( $i = 1; $i <= 12; $i++)
-										{
-											if($i % 2 == 0)
-											{
-												for ($j = 1; $j < $i; $j++)
-												{
-													echo "* ";
-												}		
-												echo '<br>';
-											}
-										}
-									?>
-								</a>
-						</li>
-						<div class="result" style="margin: 100px auto 50px; width: 150px;">
-							<?php
-							$result = '';
-								if(isset($_GET['type']))
-								{
-									$type = $_GET['type'];
-									switch($type)
-									{
-										case '1':
-											$i = 1;
-											while($i <= 6)
-											{
-												$result .= str_repeat('* ', $i) . '<br>';
-												$i++;
-											}
-										break;
-										case '2':
-											$i = 6;
-											while($i >= 1)
-											{
-												$result .= str_repeat('* ', $i) . '<br>';
-												$i--;
-											}
-										break;
-										case '3':
-											$i = 1;
-											while ($i <= 6)
-											{
-												$space = str_repeat("&nbsp;&nbsp;", 6 - $i);
-												$character = str_repeat("* ", 2 * $i - 1);
-												$result .= $space . $character . "<br>";
-												$i++;
-											}
-										break;
-									}
-								}
-								echo $result;
-							?>
-						</div>
-					</ul>
-				</div>
-			<!-- image gallery -->
-				<div class="image" style="border: 1px solid #000; width: 500px; margin: 100px auto; text-align: center;"><br>
-					<h1 style="color: red;">image gallery</h1><br><br>
-					<?php
-						$i = 1;
-						do
-						{
-							echo '<img src="public/images/bocap-0'.$i.'.png" alt=""><br><br><br><br>';
-							$flagShow = 0;
-							if (isset($_GET['show']))
-							{
-								$flagShow = $_GET['show'];
-								$i++;
-							}
-						}
-						while($i <= 12 && $flagShow == 1);
-					?>
-					<a class="name" href="ZendVN.php?show=1">Show All</a>
-					<a class="name" href="ZendVN.php?show=0">Show Demo</a><br><br>
-				</div>
-			
-			<!-- giai cau do bang vong lap -->
-				<div class="giaido" style="text-align: center; border: 1px solid #000; width: 630px; margin: 0 auto 50px; padding: 0 20px;">
-					<h1 style='color: red;'>Giai cau do bang vong lap</h1>
-					<p style="font-weight: bold; font-size: 20px;">Yeu nhau cau sau bo ba<br>
-						Ghet nhau cau sau bo ra lam muoi<br>
-						Moi nguoi mot mieng tram nguoi<br>
-						Co muoi bay qua hoi nguoi ghet yeu.<br>
-					</p>
-					<p style="text-align: right;"><i>Hoi co bao nhieu nguoi yeu nhau, ghet nhau?</i></p>
-					<h2 style="font-weight: bold;text-align: start">Dap an:</h2>
-					<?php
-						for($x = 1; $x <= 16; $x++)
-						{
-							for($y = 1; $y <= 9; $y++)
-							{
-								if( 3 * $x + 10 * $y == 100 && $x + $y == 17)
-								{
-									echo "<h6> $x nguoi yeu nhau va $y nguoi ghet nhau</h6>";
-								}
-							}
-						}
-					?>
-				</div>
-			<!-- may atm -->
-			 	<style>
-					.content11 {
-					width: 700px;
-					border: 2px solid #9A9A9A;
-					background: #E6E6E6;
-					margin: 20px auto;
-					}
-					
-					.content11 .info {
-					height: 150px;
-					padding: 0px;
-					text-align: center;
-					} 
-					.content11 .info img {
-					margin: 10px;
-					float: left;
-					border-radius: 5px;
-					}
-
-					.content11 .info h1 {
-					color: red;
-					margin: 0px;
-					}
-
-					.content11 .info p {
-					font-size: 18px;
-					}
-
-					.content11 .info input {
-					height: 30px;
-					}
-
-					.content11 .info input[type='text'] {
-					width: 300px;
-					font-size: 18px;
-					}
-
-					.content11 .info input[type='submit'] {
-					width: 100px;
-					font-size: 18px;
-					border-radius: 5px;
-					height: 34px;
-					}
-
-					.clr {
-					clear:both;
-					}
-
-					.result div p {
-					display: inline-table;
-					font-size: 18px;
-					font-weight: bold;
-					margin-top: 0px;
-					margin-bottom: 5px;
-					}
-					.result div p.col1{
-					width: 200px;
-					text-align: left;
-					}
-					.result div p.col2{
-					width: 200px;
-					text-align: center;
-					}
-					.result div p.col3{
-					width: 200px;
-					text-align: right;
-					}
-					.result {
-					padding: 10px;
-					}
-
-					.result p.total {
-					text-align: right;
-					font-size: 20px;
-					font-weight: bold;
-					color: #3879D9;
-					}
-				</style>
-				<div class="content11">
-					<?php
-						$money = 0;
-						$total = 0;
-						if(isset($_POST['money'])) $money = $_POST['money'];
-					?>
-					<div class="info">
-							<img src="public/images/bocap.png" alt="atm">
-							<h1>Mô phỏng máy ATM</h1>
-							<form action="#" method="post">
-								<p>Vui lòng nhập vào số tiền mà quý khách muốn thực hiện giao dịch</p>
-								<input type="text" name="money" value="<?php echo number_format($money);?>">
-								<input type="submit" value="Rút tiền">
-							</form>
-					</div>
-					<div class="clr"></div>
-					<div class="result">
-							<div class="normal">
-								<p class="col1">Mệnh giá</p>
-								<p class="col2">Số lượng</p>
-								<p class="col3">Thành tiền</p>
-							</div>
-							<div class="clr"></div>
-					<?php
-							define("F", 100);
-							define("ONE", 1000);
-							define("TWO", 2000);
-							define("FIVE", 5000);
-							define("ONE_0", 10000);
-							define("TWO_0", 20000);
-							define("FIVE_0", 50000);
-							define("ONE_00", 100000);
-							define("TWO_00", 200000);
-							define("FIVE_00", 500000);
-							define("ONE_000", 1000000);
-
-							$one000 = 0;
-							$five00 = 0;
-							$two00 = 0;
-							$one00 = 0;
-							$five0 = 0;
-							$two0 = 0;
-							$one0 = 0;
-							$five = 0;
-							$two = 0;
-							$one = 0;
-							$f = 0;
-							if (is_numeric($money) && $money > 1000)
-							{
-
-								while($money >= ONE_000)
-								{
-									$one000 += 1;
-									$money = $money - ONE_000;
-								}
-
-								while($money >= FIVE_00)
-								{
-									$five00 += 1;
-									$money = $money - FIVE_00;
-								}
-
-								while($money >= TWO_00)
-								{
-									$two00 += 1;
-									$money = $money - TWO_00;
-								}
-
-								while($money >= ONE_00)
-								{
-									$one00 += 1;
-									$money = $money - ONE_00;
-								}
-
-								while($money >= FIVE_0)
-								{
-									$five0 += 1;
-									$money = $money - FIVE_0;
-								}
-
-								while($money >= TWO_0)
-								{
-									$two0 += 1;
-									$money = $money - TWO_0;
-								}
-
-								while($money >= ONE_0)
-								{
-									$one0 += 1;
-									$money = $money - ONE_0;
-								}
-
-								while($money >= ONE)
-								{
-									$one += 1;
-									$money = $money - ONE;
-								}
-
-								while($money >= TWO)
-								{
-									$two += 1;
-									$money = $money - TWO;
-								}
-
-								while($money >= FIVE)
-								{
-									$five += 1;
-									$money = $money - FIVE;
-								}
-
-								while($money >= F)
-								{
-									$f += 1;
-									$money = $money - F;
-								}
-
-								$total = F * $f + ONE_000 * $one000 + FIVE_00 * $five00 + TWO_00 * $two00 + ONE_00 * $one00 + FIVE_0 * $five0 + TWO_0 * $two0 + ONE_0 * $one0 + ONE * $one + TWO * $two + FIVE * $five;
-							}
-					?>
-					<?php
-							if($one000 > 0)
-							{
-								echo '<div class="normal">
-												<p class="col1">'.number_format(ONE_000).'</p>
-												<p class="col2">'.$one000.'</p>
-												<p class="col3">'.number_format(ONE_000 * $one000).'</p>
-											</div><div class="clr"></div>';
-							}
-
-							if($five00 > 0)
-							{
-								echo '<div class="normal">
-												<p class="col1">'.number_format(FIVE_00).'</p>
-												<p class="col2">'.$five00.'</p>
-												<p class="col3">'.number_format(FIVE_00 * $five00).'</p>
-											</div><div class="clr"></div>';
-							}
-
-							if($two00 > 0)
-							{
-								echo '<div class="normal">
-												<p class="col1">'.number_format(TWO_00).'</p>
-												<p class="col2">'.$two00.'</p>
-												<p class="col3">'.number_format(TWO_00 * $two00).'</p>
-											</div><div class="clr"></div>';
-							}
-
-							if($one00 > 0)
-							{
-								echo '<div class="normal">
-												<p class="col1">'.number_format(ONE_00).'</p>
-												<p class="col2">'.$one00.'</p>
-												<p class="col3">'.number_format(ONE_00 * $one00).'</p>
-											</div><div class="clr"></div>';
-							}
-							
-							if($five0 > 0)
-							{
-								echo '<div class="normal">
-												<p class="col1">'.number_format(FIVE_0).'</p>
-												<p class="col2">'.$five0.'</p>
-												<p class="col3">'.number_format(FIVE_0 * $five0).'</p>
-											</div><div class="clr"></div>';
-							}
-
-							if($two0 > 0)
-							{
-								echo '<div class="normal">
-												<p class="col1">'.number_format(TWO_0).'</p>
-												<p class="col2">'.$two0.'</p>
-												<p class="col3">'.number_format(TWO_0 * $two0).'</p>
-											</div><div class="clr"></div>';
-							}
-
-							if($one0 > 0)
-							{
-								echo '<div class="normal">
-												<p class="col1">'.number_format(ONE_0).'</p>
-												<p class="col2">'.$one0.'</p>
-												<p class="col3">'.number_format(ONE_0 * $one0).'</p>
-											</div><div class="clr"></div>';
-							}
-
-							if($one > 0)
-							{
-								echo '<div class="normal">
-												<p class="col1">'.number_format(ONE).'</p>
-												<p class="col2">'.$one.'</p>
-												<p class="col3">'.number_format(ONE * $one).'</p>
-											</div><div class="clr"></div>';
-							}
-
-							if($two > 0)
-							{
-								echo '<div class="normal">
-												<p class="col1">'.number_format(TWO).'</p>
-												<p class="col2">'.$two.'</p>
-												<p class="col3">'.number_format(TWO * $two).'</p>
-											</div><div class="clr"></div>';
-							}
-
-							if($five > 0)
-							{
-								echo '<div class="normal">
-												<p class="col1">'.number_format(FIVE).'</p>
-												<p class="col2">'.$five.'</p>
-												<p class="col3">'.number_format(FIVE * $five).'</p>
-											</div><div class="clr"></div>';
-							}
-
-							if($f > 0)
-							{
-								echo '<div class="normal">
-												<p class="col1">'.number_format(F).'</p>
-												<p class="col2">'.$f.'</p>
-												<p class="col3">'.number_format(F * $f).'</p>
-											</div><div class="clr"></div>';
-							}
-							
-								echo '<hr><p class="total">Tổng tiền: ' .number_format($total) . '</p>';	
-							
-					?>
-				</div>
-		</div>
+				</div>			
 		<!-- function -->
 		<div class="ham">
 			<style>
