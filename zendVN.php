@@ -295,15 +295,8 @@
 						echo $result;
 					?>
 				</h3>
-			<!-- vong lap for -->
-				<?php
-					echo "<h1 style='text-align: center;'>for loop</h1>";
-					for($i = 1; $i <= 10; $i++)
-					{
-						echo "<h2 style= 'text-align: center'>$i. hello every one! <br></h2>";
-					}
-				?>
-			<!-- vong la while -->
+
+			<!-- ve tam giac -->
 				<style>
 					ul{
 						list-style-type: none;
@@ -317,7 +310,7 @@
 						display: inline-block;
 						margin-right: 48px;
 					}
-					a:link, a:visited{
+					.name:link, .name:visited{
 						border: 5px solid #ff9800;
 						color: #000;
 						border-radius: 20px;
@@ -326,7 +319,7 @@
 						font-weight: bold;
 						text-decoration: none;
 					}
-					a:hover{
+					.name:hover{
 						border: 5px solid #000;
 						color: #ff9800;
 					}
@@ -335,7 +328,7 @@
 					<ul>
 						<h1 style="color: red; margin: 50px 0; text-align: center;">Ve Tam Giac</h1>
 						<li>
-								<a href="ZendVN.php?type=1">
+								<a class="name" href="ZendVN.php?type=1">
 									<?php
 										for( $i = 1; $i <= 6; $i++)
 										{
@@ -349,7 +342,7 @@
 								</a>
 						</li>
 						<li>
-								<a href="ZendVN.php?type=2">
+								<a class="name" href="ZendVN.php?type=2">
 									<?php
 										for ($i = 0; $i <= 6; $i++)
 										{
@@ -363,7 +356,7 @@
 								</a>
 						</li>
 						<li style="text-align: center; margin: 0;">
-								<a href="ZendVN.php?type=3">
+								<a class="name" href="ZendVN.php?type=3">
 									<?php
 										for( $i = 1; $i <= 12; $i++)
 										{
@@ -379,7 +372,7 @@
 									?>
 								</a>
 						</li>
-						<div class="result" style="margin: 100px auto 50px; width: 135px;">
+						<div class="result" style="margin: 100px auto 50px; width: 150px;">
 							<?php
 							$result = '';
 								if(isset($_GET['type']))
