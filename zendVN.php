@@ -4,38 +4,36 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<link rel="stylesheet" href="public/css/bootstrap.min.css">
-		<script src="public/js/jquery-3.3.1.min.js"></script>
-		<script src="public/js/bootstrap.min.js"></script>	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<title>Document</title>
 	</head>
 	<body>
 		<div class="content">
 			<!-- hien thi tung trang -->
-				<div class="tnt_pagination" style="text-align: center; margin: 20px auto">
-					<span class="disabled_tnt_pagination">Prev</span>
-					<a href="zendVN.php?page=1">1</a>
-					<a href="zendVN.php?page=2">2</a>
-					<a href="zendVN.php?page=3">3</a>
-					<a href="zendVN.php?page=4">4</a>
-					<a href="zendVN.php?page=5">5</a>
-					<a href="zendVN.php?page=6">6</a>
-					<a href="zendVN.php?page=7">7</a>
-					<a href="zendVN.php?page=8">8</a>
-					<a href="zendVN.php?page=9">9</a>
-					<a href="zendVN.php?page=10">10</a>
-					<a href="#forwaed">Next</a>
-				</div>
+      <div class="container">
+        <ul class="pagination">
+          <li><a href="zendVN.php?page=1">1</a></li>
+          <li><a href="zendVN.php?page=2">2</a></li>
+          <li><a href="zendVN.php?page=3">3</a></li>
+          <li><a href="zendVN.php?page=4">4</a></li>
+          <li><a href="zendVN.php?page=5">5</a></li>
+          <li><a href="zendVN.php?page=6">6</a></li>
+          <li><a href="zendVN.php?page=7">7</a></li>
+        </ul>
+      </div>
         <div class="result">
 					<?php
 						$result = '';
-						if(isset($_GET['page']))
+						if(isset($_POST['page']))
 						{
-						  $page = $_GET['page'];
+						  $page = $_POST['page'];
 							switch($page)
 							{
                 case '1':?>
                 <!-- may tinh --><?php
+                  $act = 'active';
                   $a = ''; 
                   $b = '';
                   $c = '';
@@ -294,15 +292,15 @@
 								case '3':?>
 								<!-- ve tam giac -->
                   <style>
-                    ul{
+                    .ull{
                       list-style-type: none;
                       border: 1px solid #000;
                       width: 900px;
-                      padding: 50px 97px;
-                      margin: 50px auto;
+                      padding: 10px 97px;
+                      margin: 0px auto;
                       border-radius: 10px;
                     }
-                    li{
+                    .lii{
                       display: inline-block;
                       margin-right: 48px;
                     }
@@ -321,10 +319,10 @@
                     }
                   </style>
                   <div class="tamgiac">
-                    <ul>
+                    <ul class="ull">
                       <h1 style="color: red; margin: 50px 0; text-align: center;">Ve Tam Giac</h1>
-                      <li>
-                          <a class="name" href="ZendVN.php?type=1">
+                      <li class="lii">
+                          <a class="name" href="zendVN.php?page=3">
                             <?php
                               for( $i = 1; $i <= 6; $i++)
                               {
@@ -337,8 +335,8 @@
                             ?>
                           </a>
                       </li>
-                      <li>
-                          <a class="name" href="ZendVN.php?type=2">
+                      <li class="lii">
+                          <a class="name" href="zendVN.php?page=3">
                             <?php
                               for ($i = 0; $i <= 6; $i++)
                               {
@@ -351,8 +349,8 @@
                             ?>
                           </a>
                       </li>
-                      <li style="text-align: center; margin: 0;">
-                          <a class="name" href="ZendVN.php?type=3">
+                      <li class="lii" style="text-align: center; margin: 0;">
+                          <a class="name" href="zendVN.php?page=3">
                             <?php
                               for( $i = 1; $i <= 12; $i++)
                               {
@@ -828,5 +826,6 @@
 							}
 						}?>
 				</div>
+    </div>
 	</body>
 </html>
