@@ -1962,8 +1962,9 @@
 					$str = addcslashes($str, "s");
 					$str = stripslashes($str);
 					echo $str . "<Br>";
-				//html entity
+        //html entity
+          $str = 'php is easy';
+          echo 'in' . $str;
 			?>
-					<h1>HTL intities &gt;</h1>
 	</body>
 </html>
