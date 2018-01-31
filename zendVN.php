@@ -1933,7 +1933,138 @@
 					echo '</pre>';			
 				//chuan hoa
 					$str = '  nguyen    VAn   An ';
-					function formatString($str, $type = null)
+					// function formatString($str, $type = null)
+					// {
+					// 	$str = strtolower($str);
+					// 	$str = trim($str);
+					// 	$arrex = explode(' ', $str);
+					// 	foreach ($arrex as $key => $value)
+					// 	{
+					// 		if(trim($value) == null) {
+					// 			unset($arrex[$key]);
+					// 			continue;
+					// 		}
+					// 		if($type == 'danh-tu')
+					// 		{
+					// 			$arrex[$key] = ucfirst($value);
+					// 		}
+					// 	}
+					// 	$result = implode(' ', $arrex);
+					// 	$result = ucfirst($result);
+					// 	return $result;
+					// }
+					$result = formatString($str, 'danh-tu');
+					echo $result . '<br>';
+					echo strlen($result) . '<br>';
+				//thao tac voi ki tu gach cheo
+					$str = "'php' \is easy\ ";
+					$str = addslashes($str);
+					$str = addcslashes($str, "s");
+					$str = stripslashes($str);
+					echo $str . "<Br>";
+        //html entity
+          $str = '<b>php</b> is easy';
+          echo 'input: ' . $str . '<br>';
+          echo 'output: ' . htmlspecialchars_decode($str) . "<br>";
+          $str1 = '<b>php</b> is easy ©';          
+          echo 'output: ' . htmlentities($str1) . "<br>";
+          $str2 = '<b>php</b> is easy';          
+          echo 'output: ' . strip_tags($str2) . "<br>";
+        //doc so co ba chu so
+          // $arrNumber = array(
+          //   0 => 'không',
+          //   1 => 'một',
+          //   2 => 'hai',
+          //   3 => 'ba',
+          //   4 => 'bốn',
+          //   5 => 'năm',
+          //   6 => 'sáu',
+          //   7 => 'bảy',
+          //   8 => 'tám',
+          //   9 => 'chín'
+          // );
+          // function readNumber3Digit($number, $dictionaryNumber, $readFull = true)
+          // {
+          //   $number = strval($number);
+          //   $number = str_pad($number, 3, 0, STR_PAD_LEFT);
+          //       $digit_0 = substr($number, 2, 1);
+          //       $digit_00 = substr($number, 1, 1);
+          //       $digit_000 = substr($number, 0, 1);
+
+          //       $str_000 = $dictionaryNumber[$digit_000] . ' trăm ';
+          //       $str_00 = $dictionaryNumber[$digit_00] . ' mươi ';
+          //       if($digit_00 == 0) $str_00  = 'lẻ ';
+          //       if($digit_00 == 1) $str_00  = 'mười ';
+          //       $str_0 = $dictionaryNumber[$digit_0];
+          //       if($digit_00 > 1 && $digit_0 == 1) $str_0  = 'mốt ';           
+          //       if($digit_00 > 0 && $digit_0 == 5) $str_0  = 'lăm ';           
+          //       if($digit_00 == 0 && $digit_0 == 0)
+          //       {
+          //         $str_00 = '';
+          //         $str_0 = '';
+          //       }        
+          //       if($readFull == false)
+          //       { 
+          //         if($digit_000 == 0 ) $str_000 = '';
+          //         if($digit_000 == 0 && $digit_00 == 0) $str_00 = '';
+          //       }   
+          //       $result = $str_000 . $str_00 . $str_0;
+          //       return $result;
+          // }
+          
+          // $number = 651;
+          // $result = readNumber3Digit($number, $arrNumber, false);
+          // echo "Input: " . $number . '<br>';
+          // echo "Output: " . $result . '<br>';
+        //doc so co 12 chu so
+        $dictionnaryNumbers = array(
+          0 => 'không',
+          1 => 'một',
+          2 => 'hai',
+          3 => 'ba',
+          4 => 'bốn',
+          5 => 'năm',
+          6 => 'sáu',
+          7 => 'bảy',
+          8 => 'tám',
+          9 => 'chín'
+        );
+        $dictionnaryUnits = array(
+          0 => " tỷ ",
+          1 => " triệu ",
+          2 => " nghìn ",
+          3 => " đồng ",
+        );
+        function readNumber3Digit($number, $dictionaryNumber, $readFull = true)
+        {
+          $number = strval($number);
+          $number = str_pad($number, 3, 0, STR_PAD_LEFT);
+              $digit_0 = substr($number, 2, 1);
+              $digit_00 = substr($number, 1, 1);
+              $digit_000 = substr($number, 0, 1);
+
+              $str_000 = $dictionaryNumber[$digit_000] . ' trăm ';
+              $str_00 = $dictionaryNumber[$digit_00] . ' mươi ';
+              if($digit_00 == 0) $str_00  = ' lẻ ';
+              if($digit_00 == 1) $str_00  = ' mười ';
+              $str_0 = $dictionaryNumber[$digit_0];
+              if($digit_00 > 1 && $digit_0 == 1) $str_0  = ' mốt ';           
+              if($digit_00 > 0 && $digit_0 == 5) $str_0  = 'lăm ';           
+              if($digit_00 == 0 && $digit_0 == 0)
+              {
+                $str_00 = '';
+                $str_0 = '';
+              }        
+              if($readFull == false)
+              { 
+                if($digit_000 == 0 ) $str_000 = '';
+                if($digit_000 == 0 && $digit_00 == 0) $str_00 = '';
+              }   
+              $resull = $str_000 . $str_00 . $str_0;
+              return $resull;
+        }
+        
+        function formatString($str, $type = null)
 					{
 						$str = strtolower($str);
 						$str = trim($str);
@@ -1953,70 +2084,48 @@
 						$result = ucfirst($result);
 						return $result;
 					}
-					$result = formatString($str, 'danh-tu');
-					echo $result . '<br>';
-					echo strlen($result) . '<br>';
-				//thao tac voi ki tu gach cheo
-					$str = "'php' \is easy\ ";
-					$str = addslashes($str);
-					$str = addcslashes($str, "s");
-					$str = stripslashes($str);
-					echo $str . "<Br>";
-        //html entity
-          $str = '<b>php</b> is easy';
-          echo 'input: ' . $str . '<br>';
-          echo 'output: ' . htmlspecialchars_decode($str) . "<br>";
-          $str1 = '<b>php</b> is easy ©';          
-          echo 'output: ' . htmlentities($str1) . "<br>";
-          $str2 = '<b>php</b> is easy';          
-          echo 'output: ' . strip_tags($str2) . "<br>";
-        //doc so co ba chu so
-          $arrNumber = array(
-            0 => 'không',
-            1 => 'một',
-            2 => 'hai',
-            3 => 'ba',
-            4 => 'bốn',
-            5 => 'năm',
-            6 => 'sáu',
-            7 => 'bảy',
-            8 => 'tám',
-            9 => 'chín'
-          );
-          function readNumber3Digit($number, $dictionaryNumber, $readFull = true)
-          {
-            $number = strval($number);
-            $number = str_pad($number, 3, 0, STR_PAD_LEFT);
-                $digit_0 = substr($number, 2, 1);
-                $digit_00 = substr($number, 1, 1);
-                $digit_000 = substr($number, 0, 1);
 
-                $str_000 = $dictionaryNumber[$digit_000] . ' trăm ';
-                $str_00 = $dictionaryNumber[$digit_00] . ' mươi ';
-                if($digit_00 == 0) $str_00  = 'lẻ ';
-                if($digit_00 == 1) $str_00  = 'mười ';
-                $str_0 = $dictionaryNumber[$digit_0];
-                if($digit_00 > 1 && $digit_0 == 1) $str_0  = 'mốt ';           
-                if($digit_00 > 0 && $digit_0 == 5) $str_0  = 'lăm ';           
-                if($digit_00 == 0 && $digit_0 == 0)
-                {
-                  $str_00 = '';
-                  $str_0 = '';
-                }        
-                if($readFull == false)
-                { 
-                  if($digit_000 == 0 ) $str_000 = '';
-                  if($digit_000 == 0 && $digit_00 == 0) $str_00 = '';
-                }   
-                $result = $str_000 . $str_00 . $str_0;
-                return $result;
+        function readNumber12Digits($number, $dictionnaryUnits, $dictionnaryNumbers)
+        {
+          $number = strval($number);
+          $number = str_pad($number, 12, 0, STR_PAD_LEFT);
+          $arrNumber = str_split($number, 3);
+          foreach($arrNumber as $key => $value)
+          {
+            if($value != '000')
+            {
+              $index = $key;
+              break;
+            }
           }
-          
-          $number = 651;
-          $result = readNumber3Digit($number, $arrNumber, false);
-          echo "Input: " . $number . '<br>';
-          echo "Output: " . $result . '<br>';
-          
+
+          foreach($arrNumber as $key => $value)
+          {
+            if($key >= $index)
+            {
+              $readFull = true;
+              if($key == $index) $readFull = false;
+                $resull[$key] = readNumber3Digit($value, $dictionnaryNumbers, $readFull) .$dictionnaryUnits[$key];
+            }
+          }
+          $resull = implode(" ", $resull);
+          $resull = formatString($resull);
+
+          $resull = str_replace("không đồng", "đồng", $resull);
+          $resull = str_replace("không trăm đồng", "đồng", $resull);
+          $resull = str_replace("không nghìn đồng", "đồng", $resull);
+          $resull = str_replace("không trăm nghìn đồng", "đồng", $resull);
+          $resull = str_replace("không triệu đồng", "đồng", $resull);
+          $resull = str_replace("không trăm triệu đồng", "đồng", $resull);
+          $resull = str_replace("không tỷ triệu đồng", "đồng", $resull);
+          return $resull;
+        }
+        
+        $number = 10000;
+        $resull = readNumber12Digits($number, $dictionnaryUnits, $dictionnaryNumbers);      
+                
+        echo "Input: " . $number . '<br>';
+        echo "Output: " . $resull . '<br>';
 			?>
 	</body>
 </html>
