@@ -35,32 +35,32 @@
     //   $age = '19';
     //   getuser($pdo, $name, $age);
 //10
-    function binValue($pdo){
-        $id = '3';
-        $name = 'tuan';
-        $class = '15cd';
-        $sth = $pdo -> prepare('SELECT name, class, id from hocsinh where name = :name and class = :class and id = :id');
-        $sth -> bindValue(':id', $id, PDO::PARAM_INT);
-        $sth -> bindValue(':name', $name, PDO::PARAM_STR);
-        $sth -> bindValue(':class', $class, PDO::PARAM_STR);
-        $sth -> execute();
-        $users  = $sth->fetch();
-        print_r($users);
-    }
-    binValue($pdo);
-
     // function binValue($pdo){
-    //     $sth = $pdo -> prepare('SELECT * from user');
+    //     $id = '3';
+    //     $name = 'tuan';
+    //     $class = '15cd';
+    //     $sth = $pdo -> prepare('SELECT name, class, id from hocsinh where name = :name and class = :class and id = :id');
+    //     $sth -> bindValue(':id', $id, PDO::PARAM_INT);
+    //     $sth -> bindValue(':name', $name, PDO::PARAM_STR);
+    //     $sth -> bindValue(':class', $class, PDO::PARAM_STR);
     //     $sth -> execute();
-    //     print("PDO::FETCH_ASSOC: ");
-    //     print("Return next row as an array indexed by column name\n");
-    //     $result = $sth -> fetch(PDO::FETCH_ASSOC);
-    //     echo '<pre>';
-    //     print_r($result);
-    //     echo '</pre>';        
-    //     print("\n");
+    //     $users  = $sth->fetch();
+    //     print_r($users);
     // }
     // binValue($pdo);
+//11
+    function binValue($pdo){
+        $sth = $pdo -> prepare('SELECT * from hocsinh');
+        $sth -> execute();
+        print("PDO::FETCH_ASSOC: ");
+        print("Return next row as an array indexed by column name\n");
+        $result = $sth -> fetch(PDO::FETCH_ASSOC);
+        echo '<pre>';
+        print_r($result);
+        echo '</pre>';        
+        print("\n");
+    }
+    binValue($pdo);
     
     // function binValue($pdo){
     //     $sth = $pdo -> prepare('SELECT * from user');
