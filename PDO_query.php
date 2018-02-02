@@ -12,7 +12,7 @@
         PDO::ATTR_EMULATE_PREPARES => false,        
     ];
     $pdo = new PDO($dsn, $user, $pass, $opt);
-//1
+//8
     // function getuser($conn){
     //     $sql = 'SELECT * FROM hocsinh';
     //     foreach ($conn->query($sql) as $row) {
@@ -23,15 +23,17 @@
     //     }
     //   }
     // getUser($pdo);
- //2   
-    // function getuser($pdo, $name){
-    //     $stmt = $pdo->prepare('SELECT * FROM hocsinh WHERE name = ?');
-    //     $stmt->execute([$name]);
+ //9   
+    // function getuser($pdo, $name, $age){
+    //     $stmt = $pdo->prepare('SELECT * FROM hocsinh WHERE name = ? AND age = ?');
+    //     $stmt->execute([$name, $age]);
     //     $users  = $stmt->fetch();
     //     print_r([$name]);
+    //     print_r([$age]);
     //   }
     //   $name = 'binh';
-    //   getuser($pdo, $name);
+    //   $age = '19';
+    //   getuser($pdo, $name, $age);
 
     // function binValue($pdo){
     //     $email = 'nguyenvanbinh3790@gmail.com';
