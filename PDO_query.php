@@ -14,21 +14,24 @@
     $pdo = new PDO($dsn, $user, $pass, $opt);
 //1
     // function getuser($conn){
-    //     $sql = 'SELECT name FROM hocsinh';
+    //     $sql = 'SELECT * FROM hocsinh';
     //     foreach ($conn->query($sql) as $row) {
-    //       print $row['name'] . '<br>';
+    //       print "id = ". $row['id'] . "<br>";
+    //       print "name = ". $row['name'] . "<br>";
+    //       print "class = ". $row['class'] . "<br>";
+    //       print "age = ". $row['age'] . "<br>";
     //     }
     //   }
     // getUser($pdo);
  //2   
-    function getuser($pdo, $name){
-        $stmt = $pdo->prepare('SELECT * FROM hocsinh WHERE name = ?');
-        $stmt->execute([$name]);
-        $users  = $stmt->fetch();
-        print_r([$name]);
-      }
-      $name = 'binh';
-      getuser($pdo, $name);
+    // function getuser($pdo, $name){
+    //     $stmt = $pdo->prepare('SELECT * FROM hocsinh WHERE name = ?');
+    //     $stmt->execute([$name]);
+    //     $users  = $stmt->fetch();
+    //     print_r([$name]);
+    //   }
+    //   $name = 'binh';
+    //   getuser($pdo, $name);
 
     // function binValue($pdo){
     //     $email = 'nguyenvanbinh3790@gmail.com';
