@@ -1,7 +1,7 @@
 
 <?php
     $host = '127.0.0.1';
-    $db = 'php_mysql';
+    $db = 'test';
     $pass = '';
     $user = 'root';
     $charset = 'utf8';
@@ -12,14 +12,14 @@
         PDO::ATTR_EMULATE_PREPARES => false,        
     ];
     $pdo = new PDO($dsn, $user, $pass, $opt);
-
-    // function getuser($conn){
-    //     $sql = 'SELECT email FROM user';
-    //     foreach ($conn->query($sql) as $row) {
-    //       print $row['email'];
-    //     }
-    //   }
-    // getUser($pdo);
+//1
+    function getuser($conn){
+        $sql = 'SELECT name FROM hocsinh';
+        foreach ($conn->query($sql) as $row) {
+          print $row['name'] . '<br>';
+        }
+      }
+    getUser($pdo);
     // function getuser($pdo, $email){
     //     $stmt = $pdo->prepare('SELECT * FROM user WHERE email = ?');
     //     $stmt->execute([$email]);
