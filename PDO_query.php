@@ -13,21 +13,23 @@
     ];
     $pdo = new PDO($dsn, $user, $pass, $opt);
 //1
-    function getuser($conn){
-        $sql = 'SELECT name FROM hocsinh';
-        foreach ($conn->query($sql) as $row) {
-          print $row['name'] . '<br>';
-        }
-      }
-    getUser($pdo);
-    // function getuser($pdo, $email){
-    //     $stmt = $pdo->prepare('SELECT * FROM user WHERE email = ?');
-    //     $stmt->execute([$email]);
-    //     $users  = $stmt->fetch();
-    //     print_r([$email]);
+    // function getuser($conn){
+    //     $sql = 'SELECT name FROM hocsinh';
+    //     foreach ($conn->query($sql) as $row) {
+    //       print $row['name'] . '<br>';
+    //     }
     //   }
-    //   $email = 'nguyenvanbinh3479@gmail.com';
-    //   getuser($pdo, $email);
+    // getUser($pdo);
+ //2   
+    function getuser($pdo, $name){
+        $stmt = $pdo->prepare('SELECT * FROM hocsinh WHERE name = ?');
+        $stmt->execute([$name]);
+        $users  = $stmt->fetch();
+        print_r([$name]);
+      }
+      $name = 'binh';
+      getuser($pdo, $name);
+
     // function binValue($pdo){
     //     $email = 'nguyenvanbinh3790@gmail.com';
     //     $sth = $pdo -> prepare('SELECT email from user where email = :email');
