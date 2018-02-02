@@ -139,5 +139,16 @@
     //     print("\n");
     // }
     // binValue($pdo);
+//17
+    try{
+        $stmt = new PDO("mysql:host=$host;dbname=$db;charset=$charset");
+        $stmt -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        //sai cu phap
+        $stmt -> prepare("SELECT name FORM hocsinh");
+    }
+    catch(PDOException $e){
+        echo "ERROR! co loi vowi PDO";
+        file_put_contents("PDOErrors.txt", $e -> getMessage(), FILE_APPEND);
+    }
     
 ?>
