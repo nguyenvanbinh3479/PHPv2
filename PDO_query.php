@@ -23,7 +23,7 @@
     //     }
     //   }
     // getUser($pdo);
- //9   
+//9   
     // function getuser($pdo, $name, $age){
     //     $stmt = $pdo->prepare('SELECT * FROM hocsinh WHERE name = ? AND age = ?');
     //     $stmt->execute([$name, $age]);
@@ -34,16 +34,20 @@
     //   $name = 'binh';
     //   $age = '19';
     //   getuser($pdo, $name, $age);
-
-    // function binValue($pdo){
-    //     $email = 'nguyenvanbinh3790@gmail.com';
-    //     $sth = $pdo -> prepare('SELECT email from user where email = :email');
-    //     $sth -> bindValue(':email', $email, PDO::PARAM_INT);
-    //     $sth -> execute();
-    //     $users  = $sth->fetch();
-    //     print_r($users);
-    // }
-    // binValue($pdo);
+//10
+    function binValue($pdo){
+        $id = '3';
+        $name = 'tuan';
+        $class = '15cd';
+        $sth = $pdo -> prepare('SELECT name, class, id from hocsinh where name = :name and class = :class and id = :id');
+        $sth -> bindValue(':id', $id, PDO::PARAM_INT);
+        $sth -> bindValue(':name', $name, PDO::PARAM_STR);
+        $sth -> bindValue(':class', $class, PDO::PARAM_STR);
+        $sth -> execute();
+        $users  = $sth->fetch();
+        print_r($users);
+    }
+    binValue($pdo);
 
     // function binValue($pdo){
     //     $sth = $pdo -> prepare('SELECT * from user');
