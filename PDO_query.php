@@ -62,43 +62,43 @@
     // }
     // binValue($pdo);
 //12    
-    function binValue($pdo){
-        $sth = $pdo -> prepare('SELECT * from hocsinh');
-        $sth -> execute();
-        $sh = $pdo -> prepare('SELECT * from hocsinh');
-        $sh -> execute();
-        $bt = $pdo -> prepare('SELECT * from hocsinh');
-        $bt -> execute();
-        print("fetch the first column from the first row in the result set:\n");
-        print("Return next row as an array indexed by column email\n");
-        $result = $sth -> fetchColumn();
-        echo '<pre>';
-        print_r("id = $result\n");
-        echo '</pre>';        
-        print("\n");
-        $result = $bt -> fetchColumn(1);
-        echo '<pre>';
-        print_r("email = $result\n");
-        echo '</pre>';        
-        print("\n");
-        $result = $sh -> fetchColumn(2);
-        echo '<pre>';
-        print_r("class = $result\n");
-        echo '</pre>';        
-        print("\n");
-        $result = $sh -> fetchColumn(3);
-        echo '<pre>';
-        print_r("age = $result\n");
-        echo '</pre>';        
-        print("\n");
-    }
-    binValue($pdo);
-
     // function binValue($pdo){
-    //     $sth = $pdo -> prepare('SELECT id, email, password from user');
+    //     $sth = $pdo -> prepare('SELECT * from hocsinh');
+    //     $sth -> execute();
+    //     $sh = $pdo -> prepare('SELECT * from hocsinh');
+    //     $sh -> execute();
+    //     $bt = $pdo -> prepare('SELECT * from hocsinh');
+    //     $bt -> execute();
+    //     print("fetch the first column from the first row in the result set:\n");
+    //     print("Return next row as an array indexed by column name\n");
+    //     $result = $sth -> fetchColumn();
+    //     echo '<pre>';
+    //     print_r("id = $result\n");
+    //     echo '</pre>';        
+    //     print("\n");
+    //     $result = $bt -> fetchColumn(1);
+    //     echo '<pre>';
+    //     print_r("name = $result\n");
+    //     echo '</pre>';        
+    //     print("\n");
+    //     $result = $sh -> fetchColumn(2);
+    //     echo '<pre>';
+    //     print_r("class = $result\n");
+    //     echo '</pre>';        
+    //     print("\n");
+    //     $result = $sh -> fetchColumn(3);
+    //     echo '<pre>';
+    //     print_r("age = $result\n");
+    //     echo '</pre>';        
+    //     print("\n");
+    // }
+    // binValue($pdo);
+//13
+    // function binValue($pdo){
+    //     $sth = $pdo -> prepare('SELECT id, name, age, class from hocsinh');
     //     $sth -> execute();
     //     print("fetch the first column from the first row in the result set:\n");
-    //     print("Return next row as an array indexed by column email\n");
+    //     print("Return next row as an array indexed by column name\n");
     //     $result = $sth -> fetchAll();
     //     echo '<pre>';
     //     print_r($result);
@@ -106,9 +106,9 @@
     //     print("\n");
     // }
     // binValue($pdo);
-
+//14
     // function binValue($pdo){
-    //     $sth = $pdo -> prepare('SELECT id, email, password from user');
+    //     $sth = $pdo -> prepare('SELECT id, name, class, age from hocsinh');
     //     $sth -> execute();
     //     $count = $sth -> rowCount();
     //     echo '<pre>';
@@ -117,22 +117,22 @@
     //     print("\n");
     // }
     // binValue($pdo);
+//15
+    function binValue($pdo){
+        $sth = $pdo -> prepare('SELECT id, name, password from user');
+        $sth -> execute();
+        print("fetch the first column from the first row in the result set:\n");
+        print("Return next row as an array indexed by column name\n");
+        $result = $sth -> fetchAll();
+        echo '<pre>';
+        print_r($result);
+        echo '</pre>';        
+        print("\n");
+    }
+    binValue($pdo);
 
     // function binValue($pdo){
-    //     $sth = $pdo -> prepare('SELECT id, email, password from user');
-    //     $sth -> execute();
-    //     print("fetch the first column from the first row in the result set:\n");
-    //     print("Return next row as an array indexed by column email\n");
-    //     $result = $sth -> fetchAll();
-    //     echo '<pre>';
-    //     print_r($result);
-    //     echo '</pre>';        
-    //     print("\n");
-    // }
-    // binValue($pdo);
-
-    // function binValue($pdo){
-    //     $sth = $pdo -> prepare('SELECT * from user WHERE email LIKE ?');
+    //     $sth = $pdo -> prepare('SELECT * from user WHERE name LIKE ?');
     //     $result = $sth -> execute(['%binh%']);
     //     echo '<pre>';
     //     print_r($result);
