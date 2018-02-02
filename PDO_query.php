@@ -118,21 +118,8 @@
     // }
     // binValue($pdo);
 //15
-    function binValue($pdo){
-        $sth = $pdo -> prepare('SELECT id, name, password from user');
-        $sth -> execute();
-        print("fetch the first column from the first row in the result set:\n");
-        print("Return next row as an array indexed by column name\n");
-        $result = $sth -> fetchAll();
-        echo '<pre>';
-        print_r($result);
-        echo '</pre>';        
-        print("\n");
-    }
-    binValue($pdo);
-
     // function binValue($pdo){
-    //     $sth = $pdo -> prepare('SELECT * from user WHERE name LIKE ?');
+    //     $sth = $pdo -> prepare('SELECT * from hocsinh WHERE name LIKE ?');
     //     $result = $sth -> execute(['%binh%']);
     //     echo '<pre>';
     //     print_r($result);
@@ -140,12 +127,12 @@
     //     print("\n");
     // }
     // binValue($pdo);
-
+//16
     // function binValue($pdo){
-    //     $ids = [27,28,29];
+    //     $ids = [1,2,3];
     //     $inPlaceholders = str_repeat('?,', count($ids) - 1) . '?';
-    //     $sth = $pdo -> prepare('SELECT * from user where id IN ($inPlaceholders)');
-    //     $result = $sth -> execute([$ids]);
+    //     $stmt = $pdo -> prepare("SELECT * from hocsinh where id IN ($inPlaceholders)");
+    //     $result = $stmt -> execute($ids);
     //     echo '<pre>';
     //     print_r($result);
     //     echo '</pre>';        
