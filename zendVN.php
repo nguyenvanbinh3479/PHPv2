@@ -18,9 +18,6 @@
           <li><a href="zendVN.php?page=2">2</a></li>
           <li><a href="zendVN.php?page=3">3</a></li>
           <li><a href="zendVN.php?page=4">4</a></li>
-          <li><a href="zendVN.php?page=5">5</a></li>
-          <li><a href="zendVN.php?page=6">6</a></li>
-          <li><a href="zendVN.php?page=7">7</a></li>
         </ul>
       </div>
         <div class="result">
@@ -568,8 +565,7 @@
                         echo '<hr><p class="total">Tổng tiền: ' .number_format($total) . '</p>';			
                       ?>
                     </div>
-                  </div>
-							<?php		
+                  </div><?php
                 break;
                 case '4':?>
                 <!-- doc so co 12 chu so --><?php
@@ -669,7 +665,7 @@
           
                     $resull = str_replace("không đồng", "đồng", $resull);
                     $resull = str_replace("không trăm đồng", "đồng", $resull);
-                    $resull = str_replace("không nghìn đồng", "đồng", $resull);
+                    $resull = str_replace("không nghìn đồng", "nghìn đồng", $resull);
                     $resull = str_replace("không trăm nghìn đồng", "đồng", $resull);
                     $resull = str_replace("không triệu đồng", "đồng", $resull);
                     $resull = str_replace("không trăm triệu đồng", "đồng", $resull);
@@ -677,17 +673,11 @@
                     return $resull;
                   }
                   
-                  $number = 638304749;
+                  $number =1000000;
                   $resull = readNumber12Digits($number, $dictionnaryUnits, $dictionnaryNumbers);      
                           
                   echo "Input: " . $number . '<br>';
                   echo "Output: " . $resull . '<br>';        
-                break;
-                case '5':?>
-                <?php      
-                break;
-                case '6':
-                
                 break;
 							}
 						}?>
