@@ -18,6 +18,7 @@
           <li><a href="zendVN.php?page=2">2</a></li>
           <li><a href="zendVN.php?page=3">3</a></li>
           <li><a href="zendVN.php?page=4">4</a></li>
+          <li><a href="zendVN.php?page=5">5</a></li>
         </ul>
       </div>
         <div class="result">
@@ -679,6 +680,56 @@
                   echo "Input: " . $number . '<br>';
                   echo "Output: " . $resull . '<br>';        
                 break;
+                case '5':?>
+                <!-- tao anh ngau nhien -->
+                  <style>
+                    .contentimg{
+                      margin: 20px auto;
+                      width: 450px;
+                      border: 1px solid #999;
+                      padding: 10px;
+                    }
+                    .contentimg h1{
+                      text-align: center;
+                      color: red;
+                    }
+                    .contentimg .image{
+                      text-align: center;
+                      margin: 20px 0;
+                    }
+                    .contentimg .image img{
+                      margin: 10px 0;
+                    }
+                    .contentimg .image a{
+                      display: block;
+                      background-color: #686f97;
+                      padding: 3px 10px;
+                      text-decoration: none;
+                      border-radius: 20px;
+                      color: #fff;
+                      width: 200px;
+                      margin: 0 auto;
+                    }
+                    .contentimg .image a:hover{
+                      color: #f6f321;
+                    }
+                  </style>
+                  <script>
+                    function refreshpage(){
+                      window.location.reload();
+                    }
+                  </script>
+                  <div class="contentimg">
+                    <h1>hinh anh ngau nhien</h1>
+                    <div class="image">
+                      <?php
+                        $num = rand(1,12);
+                        echo '<img src="public/images/bocap-0'.$num.'.png">';
+                      ?>
+                      <a href="javascript:refreshpage()">Random img</a>
+                    </div>
+                  </div><?php
+                break;
 							}
 						}?>
 				</div>
@@ -883,53 +934,11 @@
     //tao so ngau nhien
       echo 'so ngau nhien: ' . rand().'<br>';
       echo 'so ngau nhien (0 - 10): '.rand(0,10).'<br>';
+    //dinh dang so
+    $num = 123456789.123456;
+    $out = number_format($num, 3);
+    echo 'input: '. $num. '<br>';
+    echo 'output: '. $out. '<br>';
     ?>
-    <style>
-      .contentimg{
-        margin: 20px auto;
-        width: 450px;
-        border: 1px solid #999;
-        padding: 10px;
-      }
-      .contentimg h1{
-        text-align: center;
-        color: red;
-      }
-      .contentimg .image{
-        text-align: center;
-        margin: 20px 0;
-      }
-      .contentimg .image img{
-        margin: 10px 0;
-      }
-      .contentimg .image a{
-        display: block;
-        background-color: #686f97;
-        padding: 3px 10px;
-        text-decoration: none;
-        border-radius: 20px;
-        color: #fff;
-        width: 200px;
-        margin: 0 auto;
-      }
-      .contentimg .image a:hover{
-        color: #f6f321;
-      }
-    </style>
-    <script>
-      function refreshpage(){
-        window.location.reload();
-      }
-    </script>
-    <div class="contentimg">
-      <h1>hinh anh ngau nhien</h1>
-      <div class="image">
-        <?php
-          $num = rand(1,12);
-          echo '<img src="public/images/bocap-0'.$num.'.png">';
-        ?>
-        <a href="javascript:refreshpage()">Random img</a>
-      </div>
-    </div>
 	</body>
 </html>
