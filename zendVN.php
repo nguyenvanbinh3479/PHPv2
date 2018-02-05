@@ -884,5 +884,52 @@
       echo 'so ngau nhien: ' . rand().'<br>';
       echo 'so ngau nhien (0 - 10): '.rand(0,10).'<br>';
     ?>
+    <style>
+      .contentimg{
+        margin: 20px auto;
+        width: 450px;
+        border: 1px solid #999;
+        padding: 10px;
+      }
+      .contentimg h1{
+        text-align: center;
+        color: red;
+      }
+      .contentimg .image{
+        text-align: center;
+        margin: 20px 0;
+      }
+      .contentimg .image img{
+        margin: 10px 0;
+      }
+      .contentimg .image a{
+        display: block;
+        background-color: #686f97;
+        padding: 3px 10px;
+        text-decoration: none;
+        border-radius: 20px;
+        color: #fff;
+        width: 200px;
+        margin: 0 auto;
+      }
+      .contentimg .image a:hover{
+        color: #f6f321;
+      }
+    </style>
+    <script>
+      function refreshpage(){
+        window.location.reload();
+      }
+    </script>
+    <div class="contentimg">
+      <h1>hinh anh ngau nhien</h1>
+      <div class="image">
+        <?php
+          $num = rand(1,12);
+          echo '<img src="public/images/bocap-0'.$num.'.png">';
+        ?>
+        <a href="javascript:refreshpage()">Random img</a>
+      </div>
+    </div>
 	</body>
 </html>
