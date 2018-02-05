@@ -19,6 +19,7 @@
           <li><a href="zendVN.php?page=3">3</a></li>
           <li><a href="zendVN.php?page=4">4</a></li>
           <li><a href="zendVN.php?page=5">5</a></li>
+          <li><a href="zendVN.php?page=6">6</a></li>
         </ul>
       </div>
         <div class="result">
@@ -730,6 +731,92 @@
                     </div>
                   </div><?php
                 break;
+                case '6':?>
+                  <!-- number -->
+                  <h1>number</h1>
+                    <?php
+                    //kiemtra
+                      $number = '2,000,000';
+                      $number = str_replace(',', '', $number);
+                      if(is_numeric($number))
+                      {
+                        echo 'number';
+                      }
+                      else
+                      {
+                        echo 'not number';
+                      }
+                    //tao 1 day so
+                      $start = 2;
+                      $end = 20;
+                      $array = range($start, $end, 3);
+                      echo '<pre>';
+                      print_r($array);
+                      echo '</pre>';
+                    //lam tron so
+                      $number = 18.5;
+                      echo round($number). '<br>';
+                      echo round($number, 2). '<br>';
+                      echo round($number, 0, PHP_ROUND_HALF_UP). '<br>';
+                      echo round($number, 0, PHP_ROUND_HALF_DOWN). '<br>';
+                      echo round($number, 0, PHP_ROUND_HALF_ODD). '<br>';
+                      echo round($number, 0, PHP_ROUND_HALF_EVEN). '<br>';
+
+                      echo ceil($number). '<br>';
+                      echo floor($number). '<br>';
+                    //tim tong
+                      $arr = array(1,-3,5,6,8,4);
+                      
+                      sort($arr);
+                      $sum = 0;
+                      foreach ($arr as $value)
+                      {
+                        $sum += $value;
+                      }
+                      echo '<pre>';
+                      print_r($arr);
+                      echo '</pre>';
+
+                      $min = $arr[0];
+                      $max = $arr[count($arr) - 1];
+                      echo 'max' . $max . '<br>';
+                      echo 'min' . $min . '<br>';
+                      echo 'sum' . $sum . '<br>';
+                      $sum = array_sum($arr);
+                      echo min($arr) . '<br>';
+                      echo max($arr) . '<br>';
+                      echo $sum . '<br>';
+                      
+                      $strnum = '1,-3,5,6,8,4';
+                      $arrnum = explode(',', $strnum);
+                      $sum = array_sum($arrnum);
+                      echo min($arrnum) . '<br>';
+                      echo max($arrnum) . '<br>';
+                      echo $sum . '<br>';
+                    //tao so ngau nhien
+                      echo 'so ngau nhien: ' . rand().'<br>';
+                      echo 'so ngau nhien (0 - 10): '.rand(0,10).'<br>';
+                    //dinh dang so
+                      $num = 123456789.123456;
+                      $out = number_format($num, 3);
+                      echo 'input: '. $num. '<br>';
+                      echo 'output: '. $out. '<br>';
+                    //lay gia tri tuyet doi
+                      $num = -12.34;
+                      $out = abs($num);
+                      echo 'input: '. $num. '<br>';
+                      echo 'output: '. $out. '<br>';
+                    //luy thua
+                      $x = 2;
+                      $y = 3;
+                      $out = pow($x, $y);
+                      echo 'output: '. $out. '<br>';
+                    //can bac hai
+                      $x = 25;
+                      $out = sqrt($x);
+                      echo 'output: '. $out. '<br>';
+                  ?><?php
+                break;
 							}
 						}?>
 				</div>
@@ -871,74 +958,5 @@
                     <a class="name" href="ZendVN.php?show=1">Show All</a>
                     <a class="name" href="ZendVN.php?show=0">Show Demo</a><br><br>
       </div>
-    <!-- number -->
-      <?php
-      //kiemtra
-        $number = '2,000,000';
-        $number = str_replace(',', '', $number);
-        if(is_numeric($number))
-        {
-          echo 'number';
-        }
-        else
-        {
-          echo 'not number';
-        }
-      //tao 1 day so
-        $start = 2;
-        $end = 20;
-        $array = range($start, $end, 3);
-        echo '<pre>';
-        print_r($array);
-        echo '</pre>';
-      //lam tron so
-        $number = 18.5;
-        echo round($number). '<br>';
-        echo round($number, 2). '<br>';
-        echo round($number, 0, PHP_ROUND_HALF_UP). '<br>';
-        echo round($number, 0, PHP_ROUND_HALF_DOWN). '<br>';
-        echo round($number, 0, PHP_ROUND_HALF_ODD). '<br>';
-        echo round($number, 0, PHP_ROUND_HALF_EVEN). '<br>';
-
-        echo ceil($number). '<br>';
-        echo floor($number). '<br>';
-      //tim tong
-        $arr = array(1,-3,5,6,8,4);
-        
-        sort($arr);
-        $sum = 0;
-        foreach ($arr as $value)
-        {
-          $sum += $value;
-        }
-        echo '<pre>';
-        print_r($arr);
-        echo '</pre>';
-
-        $min = $arr[0];
-        $max = $arr[count($arr) - 1];
-        echo 'max' . $max . '<br>';
-        echo 'min' . $min . '<br>';
-        echo 'sum' . $sum . '<br>';
-        $sum = array_sum($arr);
-        echo min($arr) . '<br>';
-        echo max($arr) . '<br>';
-        echo $sum . '<br>';
-        
-      $strnum = '1,-3,5,6,8,4';
-      $arrnum = explode(',', $strnum);
-      $sum = array_sum($arrnum);
-      echo min($arrnum) . '<br>';
-      echo max($arrnum) . '<br>';
-      echo $sum . '<br>';
-    //tao so ngau nhien
-      echo 'so ngau nhien: ' . rand().'<br>';
-      echo 'so ngau nhien (0 - 10): '.rand(0,10).'<br>';
-    //dinh dang so
-    $num = 123456789.123456;
-    $out = number_format($num, 3);
-    echo 'input: '. $num. '<br>';
-    echo 'output: '. $out. '<br>';
-    ?>
 	</body>
 </html>
