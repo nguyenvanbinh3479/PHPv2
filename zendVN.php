@@ -880,6 +880,9 @@
       echo min($arrnum) . '<br>';
       echo max($arrnum) . '<br>';
       echo $sum . '<br>';
-      ?>
+    //tao so ngau nhien
+      echo 'so ngau nhien: ' . rand().'<br>';
+      echo 'so ngau nhien (0 - 10): '.rand(0,10).'<br>';
+    ?>
 	</body>
 </html>
