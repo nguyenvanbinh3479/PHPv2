@@ -733,7 +733,7 @@
                 break;
                 case '6':?>
                   <!-- number -->
-                  <h1>number</h1>
+                    <h1>number</h1>
                     <?php
                     //kiemtra
                       $number = '2,000,000';
