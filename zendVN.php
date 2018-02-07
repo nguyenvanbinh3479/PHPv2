@@ -823,120 +823,120 @@
     </div>
     <!-- ve tam giac -->
       <style>
-                    .ull{
-                      list-style-type: none;
-                      border: 1px solid #000;
-                      width: 900px;
-                      padding: 10px 97px;
-                      margin: 0px auto;
-                      border-radius: 10px;
-                    }
-                    .lii{
-                      display: inline-block;
-                      margin-right: 48px;
-                    }
-                    .name:link, .name:visited{
-                      border: 5px solid #ff9800;
-                      color: #000;
-                      border-radius: 20px;
-                      padding: 20px 50px;
-                      display: inline-block;
-                      font-weight: bold;
-                      text-decoration: none;
-                    }
-                    .name:hover{
-                      border: 5px solid #000;
-                      color: #ff9800;
-                    }
+        .ull{
+          list-style-type: none;
+          border: 1px solid #000;
+          width: 900px;
+          padding: 10px 97px;
+          margin: 0px auto;
+          border-radius: 10px;
+        }
+        .lii{
+          display: inline-block;
+          margin-right: 48px;
+        }
+        .name:link, .name:visited{
+          border: 5px solid #ff9800;
+          color: #000;
+          border-radius: 20px;
+          padding: 20px 50px;
+          display: inline-block;
+          font-weight: bold;
+          text-decoration: none;
+        }
+        .name:hover{
+          border: 5px solid #000;
+          color: #ff9800;
+        }
       </style>
       <div class="tamgiac">
-                    <ul class="ull">
-                      <h1 style="color: red; margin: 50px 0; text-align: center;">Ve Tam Giac</h1>
-                      <li class="lii">
-                          <a class="name" href="zendVN.php?type=1">
-                            <?php
-                              for( $i = 1; $i <= 6; $i++)
-                              {
-                                for ($j = 0; $j < $i; $j++)
-                                {
-                                  echo "* ";
-                                }
-                                echo '<br>';
-                              }
-                            ?>
-                          </a>
+          <ul class="ull">
+            <h1 style="color: red; margin: 50px 0; text-align: center;">Ve Tam Giac</h1>
+            <li class="lii">
+              <a class="name" href="zendVN.php?type=1">
+                <?php
+                  for( $i = 1; $i <= 6; $i++)
+                  {
+                    for ($j = 0; $j < $i; $j++)
+                    {
+                      echo "* ";
+                    }
+                    echo '<br>';
+                  }
+                ?>
+              </a>
                       </li>
                       <li class="lii">
-                          <a class="name" href="zendVN.php?type=2">
-                            <?php
-                              for ($i = 0; $i <= 6; $i++)
-                              {
-                                for($j = 6; $j > $i; $j--)
-                                {
-                                  echo '* ';
-                                }
-                                echo '<br>';
-                              }
-                            ?>
-                          </a>
+              <a class="name" href="zendVN.php?type=2">
+                <?php
+                  for ($i = 0; $i <= 6; $i++)
+                  {
+                    for($j = 6; $j > $i; $j--)
+                    {
+                      echo '* ';
+                    }
+                    echo '<br>';
+                  }
+                ?>
+              </a>
                       </li>
                       <li class="lii" style="text-align: center; margin: 0;">
-                          <a class="name" href="zendVN.php?type=3">
-                            <?php
-                              for( $i = 1; $i <= 12; $i++)
-                              {
-                                if($i % 2 == 0)
-                                {
-                                  for ($j = 1; $j < $i; $j++)
-                                  {
-                                    echo "* ";
-                                  }		
-                                  echo '<br>';
-                                }
-                              }
-                            ?>
-                          </a>
-                      </li>
-                      <div class="result" style="margin: 100px auto 50px; width: 150px;">
-                        <?php
-                        $result = '';
-                          if(isset($_GET['type']))
-                          {
-                            $type = $_GET['type'];
-                            switch($type)
-                            {
-                              case '1':
-                                $i = 1;
-                                while($i <= 6)
-                                {
-                                  $result .= str_repeat('* ', $i) . '<br>';
-                                  $i++;
-                                }
-                              break;
-                              case '2':
-                                $i = 6;
-                                while($i >= 1)
-                                {
-                                  $result .= str_repeat('* ', $i) . '<br>';
-                                  $i--;
-                                }
-                              break;
-                              case '3':
-                                $i = 1;
-                                while ($i <= 6)
-                                {
-                                  $space = str_repeat("&nbsp;&nbsp;", 6 - $i);
-                                  $character = str_repeat("* ", 2 * $i - 1);
-                                  $result .= $space . $character . "<br>";
-                                  $i++;
-                                }
-                              break;
-                            }
-                          }
-                          echo $result;
-                        ?>
-                      </div>
-                    </ul>
+              <a class="name" href="zendVN.php?type=3">
+              <?php
+                for( $i = 1; $i <= 12; $i++)
+                {
+                  if($i % 2 == 0)
+                  {
+                    for ($j = 1; $j < $i; $j++)
+                    {
+              echo "* ";
+                        }		
+                        echo '<br>';
+                      }
+                    }
+                  ?>
+                </a>
+                        </li>
+                        <div class="result" style="margin: 100px auto 50px; width: 150px;">
+              <?php
+              $result = '';
+                if(isset($_GET['type']))
+                {
+                  $type = $_GET['type'];
+                  switch($type)
+                  {
+                    case '1':
+                      $i = 1;
+                      while($i <= 6)
+                      {
+                        $result .= str_repeat('* ', $i) . '<br>';
+                        $i++;
+                      }
+                    break;
+                    case '2':
+                      $i = 6;
+                      while($i >= 1)
+                      {
+                        $result .= str_repeat('* ', $i) . '<br>';
+                        $i--;
+                      }
+                    break;
+                    case '3':
+                      $i = 1;
+                      while ($i <= 6)
+                      {
+                        $space = str_repeat("&nbsp;&nbsp;", 6 - $i);
+                        $character = str_repeat("* ", 2 * $i - 1);
+                        $result .= $space . $character . "<br>";
+                        $i++;
+                      }
+                    break;
+                  }
+                }
+                echo $result;
+              ?>
+            </div>
+          </ul>
       </div>
     <!-- image gallery -->
       <div class="image" style="border: 1px solid #000; width: 500px; margin: 100px auto; text-align: center;"><br>
