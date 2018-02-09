@@ -958,5 +958,41 @@
                     <a class="name" href="ZendVN.php?show=1">Show All</a>
                     <a class="name" href="ZendVN.php?show=0">Show Demo</a><br><br>
       </div>
+    <!-- phan so -->
+      <?php
+        $fraction = "4/3";
+        $arrfraction = explode("/",$fraction);
+        echo "<pre>";
+        print_r($arrfraction);
+        echo "</pre>";        
+        $ts = $arrfraction[0];
+        $ms = $arrfraction[1];
+        function ucln($n1, $n2){
+          for($i = 1; $i <= $n1; $i++)
+          {
+            if($n1 % $i == 0) $uclnn1[] = $i;
+          }
+          for($i = 1; $i <= $n2; $i++)
+          {
+            if($n2 % $i == 0) $uclnn2[] = $i;
+          }
+          $tam = array_intersect($uclnn1, $uclnn2);
+          $result = max($tam);
+          return $result;
+        }
+        $ucln = ucln($ts,$ms);
+        $ts = $ts/$ucln;
+        $ms = $ms/$ucln;
+        echo $ts . "/" . $ms. "<br>";
+        //nhan 2 phan so
+        $fraction1 = "52/6";
+        $fraction2 = "34/8";
+        echo "phan so thu nhat: $fraction1 <br>";
+        echo "phan so thu hai: $fraction2 <br>";
+        function optfraction($fraction)
+        {
+          
+        }
+      ?>
 	</body>
 </html>
