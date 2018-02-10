@@ -20,6 +20,8 @@
           <li><a href="zendVN.php?page=4">4</a></li>
           <li><a href="zendVN.php?page=5">5</a></li>
           <li><a href="zendVN.php?page=6">6</a></li>
+          <li><a href="zendVN.php?page=6">7</a></li>
+          <li><a href="zendVN.php?page=6">8</a></li>
         </ul>
       </div>
         <div class="result">
@@ -870,6 +872,140 @@
                       ?>
                     <?php
                 break;
+                case '7':?>
+                  <!-- time --><?php
+                    $time = getdate();
+                    echo "<pre>";
+                    print_r($time);
+                    echo "</pre>";
+                    //giơ
+                    echo $hours = $time["hours"] . "<br>";      
+                    //mui gio
+                    $timeZone = date_default_timezone_get();
+                    echo $timeZone ."<br>";
+                    date_default_timezone_set("Asia/Ho_Chi_Minh");
+                    $timeZonef = date_default_timezone_get();
+                    echo $timeZonef. "<br>";
+                    $time = getdate();
+                    echo "<pre>";
+                    print_r($time);
+                    echo "</pre>";
+                    //lam viec voi mui gio
+                    $timezone = timezone_identifiers_list(16);
+                    echo "<pre>";
+                    print_r($timezone);
+                    echo "</pre>";
+                    //xac dinh thoi gian hien tai
+                    $time = time();
+                    echo $time. "<br>";
+                    $times = mktime(1,0,0,1,1,1970);
+                    echo $times."<br>";
+                    //dinh dang hien thi time
+                    $time = time();
+                    $time = mktime(12,12,12,12,12,2018);
+                    echo date("d/m/Y - H:i:s A", $time).'<br>';
+                    //kiem tra ngay hop le
+                    $reault = checkdate(12,31,2018);
+                    echo $reault. '<br>';
+                break;
+                case '8':?>
+                <!-- thao tac ngay thang -->
+                  <style>
+                    .time{
+                      margin: 20px auto;
+                      width: 700px;
+                      border: 2px solid #2baf4d;
+                    }
+                    .time h1{
+                      text-align: center;
+                      margin-bottom: 10px;
+                      color: #d01713;
+                    }
+                    .time .row{
+                      margin-bottom: 10px;
+                    }
+                    .time .row span{
+                      display: inline-block;
+                      width: 100px;
+                    }
+                    .time .row select{
+                      width: 100px;
+                    }
+                    .time .row input[type=submit]{
+                      padding: 2px 10px;
+                    }
+                  </style>
+                  <div class="time">
+                    <div class="margin" style="margin: 30px;">
+                      <h1>kiem tra thoi gian</h1>
+                      <form action="" method="post" id="main" >
+                        <div class="row">
+                          <span>ngay</span>
+                            <?php
+                              $arrDays = range(1, 31);
+                              $arrMonths = range(1, 12);
+                              $arrYears = range(1970, 2018);
+                              function createSelectBox($arrData, $name, $keySelected)
+                              {
+                                $strDays = "";
+                                if(!empty($arrData))
+                                {
+                                  $strDays = '<select name="'.$name.'">';
+                                  for($i = 0; $i <count($arrData); $i++)
+                                  {
+                                    if($keySelected == $i)
+                                    {
+                                      $strDays .= '<option value="'.$i.'" selected="true">'.$arrData[$i].'</option>';
+                                    }
+                                    else{
+                                      $strDays .= '<option value="'.$i.'">'.$arrData[$i].'</option>';
+                                    }
+                                  }
+                                  $strDays .= '</select>'; 
+                                }
+                                return $strDays;
+                              }
+                              $days = (isset($_POST['days-select'])) ? $_POST['days-select'] : 0; 
+                              $months = (isset($_POST['months-select'])) ? $_POST['months-select'] : 0; 
+                              $years = (isset($_POST['years-select'])) ? $_POST['years-select'] : 0; 
+                              $strDays = createSelectBox($arrDays, "days-select", $days);
+                              $strMonths = createSelectBox($arrMonths, "months-select", $months);
+                              $strYears = createSelectBox($arrYears, "years-select", $years);
+                              echo $strDays;
+                            ?>
+                        </div>
+                        <div class="row">
+                          <span>thang</span>
+                          <?php
+                            echo $strMonths;
+                          ?>
+                        </div>
+                        <div class="row">
+                          <span>nam</span>
+                            <?php
+                              echo $strYears;
+                            ?>
+                        </div>
+                        <div class="row">
+                          <input type="submit" value="check date">
+                        </div>
+                        <div class="result">
+                          <?php
+                            echo "ngay duoc chon: $arrDays[$days]/$arrMonths[$months]/$arrYears[$years] <br>";
+                            if(checkdate($arrMonths[$months], $arrDays[$days], $arrYears[$years]))
+                            {
+                              echo "<p>ngay hop le</p><br>";
+                            }
+                            else
+                            {
+                              echo "<p>ngay khong hop le</p><br>";                    
+                            }
+                          ?>
+                        </div>
+                      </form>
+                    </div>
+                  </div><?php
+                break;
 							}
 						}?>
 				</div>
@@ -1011,131 +1147,5 @@
         <a class="name" href="ZendVN.php?show=1">Show All</a>
         <a class="name" href="ZendVN.php?show=0">Show Demo</a><br><br>
       </div>
-    <!-- time -->
-      <?php
-        $time = getdate();
-        echo "<pre>";
-        print_r($time);
-        echo "</pre>";
-        //giơ
-        echo $hours = $time["hours"] . "<br>";      
-        //mui gio
-        $timeZone = date_default_timezone_get();
-        echo $timeZone ."<br>";
-        date_default_timezone_set("Asia/Ho_Chi_Minh");
-        $timeZonef = date_default_timezone_get();
-        echo $timeZonef. "<br>";
-        $time = getdate();
-        echo "<pre>";
-        print_r($time);
-        echo "</pre>";
-        //lam viec voi mui gio
-        $timezone = timezone_identifiers_list(16);
-        echo "<pre>";
-        print_r($timezone);
-        echo "</pre>";
-        //xac dinh thoi gian hien tai
-        $time = time();
-        echo $time. "<br>";
-        $times = mktime(1,0,0,1,1,1970);
-        echo $times."<br>";
-        //dinh dang hien thi time
-        $time = time();
-        $time = mktime(12,12,12,12,12,2018);
-        echo date("d/m/Y - H:i:s A", $time).'<br>';
-        //kiem tra ngay hop le
-        $reault = checkdate(12,31,2018);
-        echo $reault. '<br>';?>
-        <!-- thao tac ngay thang -->
-        <style>
-          .time{
-            margin: 20px auto;
-            width: 700px;
-            border: 2px solid #2baf4d;
-          }
-          .time h1{
-            text-align: center;
-            margin-bottom: 10px;
-            color: #d01713;
-          }
-          .time .row{
-            margin-bottom: 10px;
-          }
-          .time .row span{
-            display: inline-block;
-            width: 100px;
-          }
-          .time .row select{
-            width: 100px;
-          }
-          .time .row input[type=submit]{
-            padding: 2px 10px;
-          }
-        </style>
-        <div class="time">
-          <div class="margin" style="margin: 30px;">
-            <h1>kiem tra thoi gian</h1>
-            <form action="" method="post" id="main" >
-              <div class="row">
-                <span>ngay</span>
-                  <?php
-                    $arrDays = range(1, 31);
-                    $arrMonths = range(1, 12);
-                    $arrYears = range(1970, 2018);
-                    function createSelectBox($arrData, $name, $keySelected)
-                    {
-                      $strDays = "";
-                      if(!empty($arrData))
-                      {
-                        $strDays = '<select name="'.$name.'">';
-                        for($i = 0; $i <count($arrData); $i++)
-                        {
-                          if($keySelected == $i)
-                          {
-                            $strDays .= '<option value="'.$i.'" selected="true">'.$arrData[$i].'</option>';
-                          }
-                          else{
-                            $strDays .= '<option value="'.$i.'">'.$arrData[$i].'</option>';
-                          }
-                        }
-                        $strDays .= '</select>'; 
-                      }
-                      return $strDays;
-                    }
-                    $days = (isset($_POST['days-select'])) ? $_POST['days-select'] : 0; 
-                    $months = (isset($_POST['months-select'])) ? $_POST['months-select'] : 0; 
-                    $years = (isset($_POST['years-select'])) ? $_POST['years-select'] : 0; 
-                    $strDays = createSelectBox($arrDays, "days-select", $days);
-                    $strMonths = createSelectBox($arrMonths, "months-select", $months);
-                    $strYears = createSelectBox($arrYears, "years-select", $years);
-                    echo $strDays;
-                  ?>
-              </div>
-              <div class="row">
-                <span>thang</span>
-                <?php
-                  echo $strMonths;
-                ?>
-              </div>
-              <div class="row">
-                <span>nam</span>
-                  <?php
-                    echo $strYears;
-                  ?>
-              </div>
-              <div class="row">
-                <input type="submit" value="check date">
-              </div>
-              <div class="result">
-                <?php
-                  echo "ngay duoc chon: $arrDays[$days]/$arrMonths[$months]/$arrYears[$years]";
-                ?>
-              </div>
-            </form>
-          </div>
-        </div>
-      <?php
-
-      ?>
 	</body>
 </html>
