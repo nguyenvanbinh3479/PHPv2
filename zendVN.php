@@ -1029,6 +1029,11 @@
         echo "<pre>";
         print_r($time);
         echo "</pre>";
+        //lam viec voi mui gio
+        $timezone = timezone_identifiers_list();
+        echo "<pre>";
+        print_r($timezone);
+        echo "</pre>";
       ?>
 	</body>
 </html>
