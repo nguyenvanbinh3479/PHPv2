@@ -1040,6 +1040,9 @@
         $times = mktime(1,0,0,1,1,1970);
         echo $times."<br>";
         //dinh dang hien thi time
+        $time = time();
+        $time = mktime(12,12,12,12,12,2018);
+        echo date("d/m/Y - H:i:s A", $time);
       ?>
 	</body>
 </html>
