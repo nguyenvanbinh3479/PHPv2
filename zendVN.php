@@ -20,8 +20,8 @@
           <li><a href="zendVN.php?page=4">4</a></li>
           <li><a href="zendVN.php?page=5">5</a></li>
           <li><a href="zendVN.php?page=6">6</a></li>
-          <li><a href="zendVN.php?page=6">7</a></li>
-          <li><a href="zendVN.php?page=6">8</a></li>
+          <li><a href="zendVN.php?page=7">7</a></li>
+          <li><a href="zendVN.php?page=8">8</a></li>
         </ul>
       </div>
         <div class="result">
@@ -873,7 +873,8 @@
                     <?php
                 break;
                 case '7':?>
-                  <!-- time --><?php
+                  <!-- time -->
+                    <h1>Time</h1><?php
                     $time = getdate();
                     echo "<pre>";
                     print_r($time);
