@@ -993,23 +993,24 @@
       </div>
     <!-- image gallery -->
       <div class="image" style="border: 1px solid #000; width: 500px; margin: 100px auto; text-align: center;"><br>
-                    <h1 style="color: red;">image gallery</h1><br><br>
-                    <?php
-                      $i = 1;
-                      do
-                      {
-                        echo '<img src="public/images/bocap-0'.$i.'.png" alt=""><br><br><br><br>';
-                        $flagShow = 0;
-                        if (isset($_GET['show']))
-                        {
-                          $flagShow = $_GET['show'];
-                          $i++;
-                        }
-                      }
-                      while($i <= 12 && $flagShow == 1);
-                    ?>
-                    <a class="name" href="ZendVN.php?show=1">Show All</a>
-                    <a class="name" href="ZendVN.php?show=0">Show Demo</a><br><br>
+        <h1 style="color: red;">image gallery</h1><br><br>
+        <?php
+          $i = 1;
+          do
+          {
+            echo '<img src="public/images/bocap-0'.$i.'.png" alt=""><br><br><br><br>';
+            $flagShow = 0;
+            if (isset($_GET['show']))
+            {
+              $flagShow = $_GET['show'];
+              $i++;
+            }
+          }
+          while($i <= 12 && $flagShow == 1);
+        ?>
+        <a class="name" href="ZendVN.php?show=1">Show All</a>
+        <a class="name" href="ZendVN.php?show=0">Show Demo</a><br><br>
       </div>
+    <!-- time -->
 	</body>
 </html>
