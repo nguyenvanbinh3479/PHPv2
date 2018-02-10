@@ -1030,10 +1030,16 @@
         print_r($time);
         echo "</pre>";
         //lam viec voi mui gio
-        $timezone = timezone_identifiers_list();
+        $timezone = timezone_identifiers_list(16);
         echo "<pre>";
         print_r($timezone);
         echo "</pre>";
+        //xac dinh thoi gian hien tai
+        $time = time();
+        echo $time. "<br>";
+        $times = mktime(1,0,0,1,1,1970);
+        echo $times."<br>";
+        //dinh dang hien thi time
       ?>
 	</body>
 </html>
