@@ -1016,11 +1016,19 @@
         $time = getdate();
         echo "<pre>";
         print_r($time);
-        echo "</pre>"; 
+        echo "</pre>";
         //giơ
-        echo $hours = $time["hours"];      
+        echo $hours = $time["hours"] . "<br>";      
         //mui gio
-        
+        $timeZone = date_default_timezone_get();
+        echo $timeZone ."<br>";
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
+        $timeZonef = date_default_timezone_get();
+        echo $timeZonef. "<br>";
+        $time = getdate();
+        echo "<pre>";
+        print_r($time);
+        echo "</pre>";
       ?>
 	</body>
 </html>
