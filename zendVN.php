@@ -1042,7 +1042,10 @@
         //dinh dang hien thi time
         $time = time();
         $time = mktime(12,12,12,12,12,2018);
-        echo date("d/m/Y - H:i:s A", $time);
+        echo date("d/m/Y - H:i:s A", $time).'<br>';
+        //kiem tra ngay hop le
+        $reault = checkdate(12,31,2018);
+        echo $reault. '<br>';
       ?>
 	</body>
 </html>
