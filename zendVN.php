@@ -1082,7 +1082,7 @@
                     $arrDays = range(1, 31);
                     $arrMonths = range(1, 12);
                     $arrYears = range(1970, 2018);
-                    function createSelectBox($arrData, $name)
+                    function createSelectBox($arrData, $name, $keySelected)
                     {
                       $strDays = "";
                       if(!empty($arrData))
@@ -1090,15 +1090,24 @@
                         $strDays = '<select name="'.$name.'">';
                         for($i = 0; $i <count($arrData); $i++)
                         {
-                          $strDays .= '<option value="'.$i.'">'.$arrData[$i].'</option>';
+                          if($keySelected == $i)
+                          {
+                            $strDays .= '<option value="'.$i.'" selected="true">'.$arrData[$i].'</option>';
+                          }
+                          else{
+                            $strDays .= '<option value="'.$i.'">'.$arrData[$i].'</option>';
+                          }
                         }
                         $strDays .= '</select>'; 
                       }
                       return $strDays;
                     }
-                    $strDays = createSelectBox($arrDays, "days-select");
-                    $strMonths = createSelectBox($arrMonths, "months-select");
-                    $strYears = createSelectBox($arrYears, "Years-select");
+                    $days = (isset($_POST['days-select'])) ? $_POST['days-select'] : 0; 
+                    $months = (isset($_POST['months-select'])) ? $_POST['months-select'] : 0; 
+                    $years = (isset($_POST['years-select'])) ? $_POST['years-select'] : 0; 
+                    $strDays = createSelectBox($arrDays, "days-select", $days);
+                    $strMonths = createSelectBox($arrMonths, "months-select", $months);
+                    $strYears = createSelectBox($arrYears, "years-select", $years);
                     echo $strDays;
                   ?>
               </div>
@@ -1116,6 +1125,11 @@
               </div>
               <div class="row">
                 <input type="submit" value="check date">
+              </div>
+              <div class="result">
+                <?php
+                  echo "ngay duoc chon: $arrDays[$days]/$arrMonths[$months]/$arrYears[$years]";
+                ?>
               </div>
             </form>
           </div>
