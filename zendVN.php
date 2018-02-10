@@ -1081,6 +1081,7 @@
                   <?php
                     $arrDays = range(1, 31);
                     $arrMonths = range(1, 12);
+                    $arrYears = range(1970, 2018);
                     function createSelectBox($arrData, $name)
                     {
                       $strDays = "";
@@ -1097,6 +1098,7 @@
                     }
                     $strDays = createSelectBox($arrDays, "days-select");
                     $strMonths = createSelectBox($arrMonths, "months-select");
+                    $strYears = createSelectBox($arrYears, "Years-select");
                     echo $strDays;
                   ?>
               </div>
@@ -1108,12 +1110,9 @@
               </div>
               <div class="row">
                 <span>nam</span>
-                <select name="years-select">
-                  <option value="0">1</option>
-                  <option value="0">1</option>
-                  <option value="0">1</option>
-                  <option value="0">1</option>
-                </select>
+                  <?php
+                    echo $strYears;
+                  ?>
               </div>
               <div class="row">
                 <input type="submit" value="check date">
