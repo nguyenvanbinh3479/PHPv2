@@ -1072,44 +1072,39 @@
             padding: 2px 10px;
           }
         </style>
-        <div class="container" style="margin: 15px;">
-          <div class="time">
-          <h1>kiem tra thoi gian</h1>
+        <div class="time">
+          <div class="margin" style="margin: 30px;">
+            <h1>kiem tra thoi gian</h1>
             <form action="" method="post" id="main" >
               <div class="row">
                 <span>ngay</span>
-                <select name="day-select">
-                  <option value="0">1</option>
-                  <option value="0">2</option>
-                  <option value="0">3</option>
-                  <option value="0">4</option>
-                  <option value="0">5</option>
-                  <option value="0">6</option>
-                  <option value="0">7</option>
-                  <option value="0">8</option>
-                  <option value="0">9</option>
-                  <option value="0">10</option>
-                  <option value="0">11</option>
-                  <option value="0">12</option>
-                  <option value="0">13</option>
-                  <option value="0">14</option>
-                  <option value="0">15</option>
-                  <option value="0">16</option>
-                  <option value="0">17</option>
-                  <option value="0">18</option>
-                  <option value="0">19</option>
-                  <option value="0">20</option>
-                </select>
+                  <?php
+                    $arrDays = range(1, 31);
+                    $arrMonths = range(1, 12);
+                    function createSelectBox($arrData, $name)
+                    {
+                      $strDays = "";
+                      if(!empty($arrData))
+                      {
+                        $strDays = '<select name="'.$name.'">';
+                        for($i = 0; $i <count($arrData); $i++)
+                        {
+                          $strDays .= '<option value="'.$i.'">'.$arrData[$i].'</option>';
+                        }
+                        $strDays .= '</select>'; 
+                      }
+                      return $strDays;
+                    }
+                    $strDays = createSelectBox($arrDays, "days-select");
+                    $strMonths = createSelectBox($arrMonths, "months-select");
+                    echo $strDays;
+                  ?>
               </div>
               <div class="row">
                 <span>thang</span>
-                <select name="months-select">
-                  <option value="0">1</option>
-                  <option value="0">1</option>
-                  <option value="0">1</option>
-                  <option value="0">1</option>
-                  <option value="0">1</option>
-                </select>
+                <?php
+                  echo $strMonths;
+                ?>
               </div>
               <div class="row">
                 <span>nam</span>
