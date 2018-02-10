@@ -1012,5 +1012,15 @@
         <a class="name" href="ZendVN.php?show=0">Show Demo</a><br><br>
       </div>
     <!-- time -->
+      <?php
+        $time = getdate();
+        echo "<pre>";
+        print_r($time);
+        echo "</pre>"; 
+        //giơ
+        echo $hours = $time["hours"];      
+        //mui gio
+        
+      ?>
 	</body>
 </html>
