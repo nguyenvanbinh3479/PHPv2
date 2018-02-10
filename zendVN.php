@@ -1045,7 +1045,89 @@
         echo date("d/m/Y - H:i:s A", $time).'<br>';
         //kiem tra ngay hop le
         $reault = checkdate(12,31,2018);
-        echo $reault. '<br>';
+        echo $reault. '<br>';?>
+        <!-- thao tac ngay thang -->
+        <style>
+          .time{
+            margin: 20px auto;
+            width: 700px;
+            border: 2px solid #2baf4d;
+          }
+          .time h1{
+            text-align: center;
+            margin-bottom: 10px;
+            color: #d01713;
+          }
+          .time .row{
+            margin-bottom: 10px;
+          }
+          .time .row span{
+            display: inline-block;
+            width: 100px;
+          }
+          .time .row select{
+            width: 100px;
+          }
+          .time .row input[type=submit]{
+            padding: 2px 10px;
+          }
+        </style>
+        <div class="container" style="margin: 15px;">
+          <div class="time">
+          <h1>kiem tra thoi gian</h1>
+            <form action="" method="post" id="main" >
+              <div class="row">
+                <span>ngay</span>
+                <select name="day-select">
+                  <option value="0">1</option>
+                  <option value="0">2</option>
+                  <option value="0">3</option>
+                  <option value="0">4</option>
+                  <option value="0">5</option>
+                  <option value="0">6</option>
+                  <option value="0">7</option>
+                  <option value="0">8</option>
+                  <option value="0">9</option>
+                  <option value="0">10</option>
+                  <option value="0">11</option>
+                  <option value="0">12</option>
+                  <option value="0">13</option>
+                  <option value="0">14</option>
+                  <option value="0">15</option>
+                  <option value="0">16</option>
+                  <option value="0">17</option>
+                  <option value="0">18</option>
+                  <option value="0">19</option>
+                  <option value="0">20</option>
+                </select>
+              </div>
+              <div class="row">
+                <span>thang</span>
+                <select name="months-select">
+                  <option value="0">1</option>
+                  <option value="0">1</option>
+                  <option value="0">1</option>
+                  <option value="0">1</option>
+                  <option value="0">1</option>
+                </select>
+              </div>
+              <div class="row">
+                <span>nam</span>
+                <select name="years-select">
+                  <option value="0">1</option>
+                  <option value="0">1</option>
+                  <option value="0">1</option>
+                  <option value="0">1</option>
+                </select>
+              </div>
+              <div class="row">
+                <input type="submit" value="check date">
+              </div>
+            </form>
+          </div>
+        </div>
+      <?php
+
       ?>
 	</body>
 </html>
