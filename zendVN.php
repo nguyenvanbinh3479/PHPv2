@@ -25,8 +25,8 @@
           <li><a href="zendVN.php?page=9">9</a></li>
         </ul>
       </div>
-        <div class="result">
-					<?php
+      <div class="result">
+				<?php
 						$result = '';
 						if(isset($_GET['page']))
 						{
@@ -1013,7 +1013,7 @@
                 break;
 							}
 						}?>
-				</div>
+			</div>
     </div>
     <!-- ve tam giac -->
       <style>
