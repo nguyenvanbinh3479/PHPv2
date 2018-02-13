@@ -9,12 +9,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- date -->
     <link rel="stylesheet" href="public/css/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="public/js/jquery-3.3.1.min.js"></script>
     <script src="public/js/jquery-ui.js"></script>
     <script>
       $( function() {
-        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker({
+          dateFormat: "dd/mm/yy",
+          changeYear: true,
+          yearRange: "1997:2018",
+          changeMonth: true
+        });
       } );
     </script>
 		<title>Document</title>
