@@ -23,6 +23,7 @@
           <li><a href="zendVN.php?page=7">7</a></li>
           <li><a href="zendVN.php?page=8">8</a></li>
           <li><a href="zendVN.php?page=9">9</a></li>
+          <li><a href="zendVN.php?page=10">10</a></li>
         </ul>
       </div>
       <div class="result">
@@ -1011,6 +1012,9 @@
                 case '9':?>
                   <!-- calendar --><?php
                 break;
+                case '10:'?>
+                  <!-- calendar --><?php
+                  
 							}
 						}?>
 			</div>
