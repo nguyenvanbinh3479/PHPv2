@@ -1171,6 +1171,15 @@
         <a class="name" href="ZendVN.php?show=0">Show Demo</a><br><br>
       </div>
       <!-- date picker-->
-      <p>Date: <input type="text" id="datepicker"></p>
+      <?php
+        echo "<pre>";
+          print_r($_POST);
+        echo "</pre>";
+        $date = (isset($_POST['date'])) ? $_POST['date'] : "";
+      ?>
+      <form action="" method="post">
+        <p>Date: <input readonly="readonly" type="text" id="datepicker" name="date" value="<?php echo $date ?>"></p>
+        <input type="submit" value="submit">
+      </form>
 	</body>
 </html>
