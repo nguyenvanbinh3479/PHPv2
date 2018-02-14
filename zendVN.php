@@ -1065,8 +1065,15 @@
                       </form>
                       <div class="result">
                         <?php
-                          echo $date;
-                        ?>
+                          echo "input ". $date . '<br>';
+                          echo "output ". date("m-d-Y", strtotime($date)) . '<br>';
+                        //   echo "input ". $date . '<br>';
+                        //   $date = date_parse_from_format('d/m/Y' , $date);
+                        //   $timestamp = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
+                        //   echo "output ". date("m-d-Y", $timestamp) . '<br>';?>
+                      <h1>lam viec voi thoi gian</h1><?php
+                        $result = date();
+                      ?>
                       </div>
                     </div><?php
                 break;
