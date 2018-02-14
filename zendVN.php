@@ -1076,6 +1076,7 @@
                         $arrEn = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
                         $arrVn = array('Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật');
                         $result = str_replace($arrEn, $arrVn, $result);
+                        $result = str_replace(',', ', ngày', $result);
                         echo $result;
                       ?>
                       </div>
