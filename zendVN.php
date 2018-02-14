@@ -1066,11 +1066,10 @@
                       <div class="result">
                         <?php
                           echo "input ". $date . '<br>';
-                          echo "output ". date("m-d-Y", strtotime($date)) . '<br>';
-                        //   echo "input ". $date . '<br>';
-                        //   $date = date_parse_from_format('d/m/Y' , $date);
-                        //   $timestamp = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
-                        //   echo "output ". date("m-d-Y", $timestamp) . '<br>';?>
+                          $date = date_parse_from_format('d/m/Y' , $date);
+                          $timestamp = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
+                          echo "output ". date("d-m-Y", $timestamp) . '<br>';?>
+                          
                       <h1>lam viec voi thoi gian</h1><?php
                         $result = date('h:i A D, d/m/Y', time());
                         $arrEn = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
