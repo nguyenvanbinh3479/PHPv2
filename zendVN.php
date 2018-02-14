@@ -1072,7 +1072,11 @@
                         //   $timestamp = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
                         //   echo "output ". date("m-d-Y", $timestamp) . '<br>';?>
                       <h1>lam viec voi thoi gian</h1><?php
-                        $result = date();
+                        $result = date('h:i A D, d/m/Y', time());
+                        $arrEn = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
+                        $arrVn = array('Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật');
+                        $result = str_replace($arrEn, $arrVn, $result);
+                        echo $result;
                       ?>
                       </div>
                     </div><?php
