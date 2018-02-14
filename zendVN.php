@@ -1025,23 +1025,50 @@
                 break;
                 case '9':?>
                   <!-- date picker-->
-                  <div class="content4">
-                    <h1>Date picker</h1><?php
-                      echo "<pre>";
-                        print_r($_POST);
-                      echo "</pre>";
-                      $date = (isset($_POST['date'])) ? $_POST['date'] : "";
-                    ?>
-                    <form action="" method="post">
-                      <div class="row">
-                        <span>Date: </span>
-                        <input readonly="readonly" type="text" id="datepicker" name="date" value="<?php echo $date ?>">
+                    <style>
+                      .content4{
+                        margin: 20px auto;
+                        width: 700px;
+                        border: 2px solid #2baf4d;
+                      }
+                      .content4 h1{
+                        text-align: center;
+                        margin-bottom: 10px;
+                        color: #d01713;
+                      }
+                      .content4 .row{
+                        margin: 10px 15px;
+                      }
+                      .content4 .row span{
+                        display: inline-block;
+                        width: 100px;
+                      }
+                      .content4 .row select{
+                        width: 100px;
+                      }
+                      .content4 .row input[type=submit]{
+                        padding: 2px 10px;
+                      }
+                    </style>
+                    <div class="content4">
+                      <h1>Date picker</h1><?php
+                        $date = (isset($_POST['date'])) ? $_POST['date'] : "";
+                      ?>
+                      <form action="" method="post">
+                        <div class="row">
+                          <span>Date: </span>
+                          <input readonly="readonly" type="text" id="datepicker" name="date" value="<?php echo $date ?>">
+                        </div>
+                        <div class="row">
+                          <input type="submit" value="submit">    
+                        </div>   
+                      </form>
+                      <div class="result">
+                        <?php
+                          echo $date;
+                        ?>
                       </div>
-                      <div class="row">
-                        <input type="submit" value="submit">    
-                      </div>   
-                    </form>
-                  </div><?php
+                    </div><?php
                 break;
                 case '10:'?>
                   <!-- calendar --><?php
