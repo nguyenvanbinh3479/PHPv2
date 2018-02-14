@@ -1024,11 +1024,28 @@
                   </div><?php
                 break;
                 case '9':?>
-                  <!-- calendar --><?php
+                  <!-- date picker-->
+                  <div class="content4">
+                    <h1>Date picker</h1><?php
+                      echo "<pre>";
+                        print_r($_POST);
+                      echo "</pre>";
+                      $date = (isset($_POST['date'])) ? $_POST['date'] : "";
+                    ?>
+                    <form action="" method="post">
+                      <div class="row">
+                        <span>Date: </span>
+                        <input readonly="readonly" type="text" id="datepicker" name="date" value="<?php echo $date ?>">
+                      </div>
+                      <div class="row">
+                        <input type="submit" value="submit">    
+                      </div>   
+                    </form>
+                  </div><?php
                 break;
                 case '10:'?>
                   <!-- calendar --><?php
-                  
+                    
 							}
 						}?>
 			</div>
@@ -1170,16 +1187,6 @@
         <a class="name" href="ZendVN.php?show=1">Show All</a>
         <a class="name" href="ZendVN.php?show=0">Show Demo</a><br><br>
       </div>
-      <!-- date picker-->
-      <?php
-        echo "<pre>";
-          print_r($_POST);
-        echo "</pre>";
-        $date = (isset($_POST['date'])) ? $_POST['date'] : "";
-      ?>
-      <form action="" method="post">
-        <p>Date: <input readonly="readonly" type="text" id="datepicker" name="date" value="<?php echo $date ?>"></p>
-        <input type="submit" value="submit">
-      </form>
+      
 	</body>
 </html>
