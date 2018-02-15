@@ -1079,7 +1079,9 @@
                         echo $result;
                       ?>
                       </div>
-                    </div><?php
+                    </div>
+                  <!-- lam viec voi thoi gian -->
+                    <?php
                 break;
                 case '10:'?>
                   <!-- calendar --><?php
