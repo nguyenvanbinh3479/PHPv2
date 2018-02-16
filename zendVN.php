@@ -1069,7 +1069,7 @@
                           $date = date_parse_from_format('d/m/Y' , $date);
                           $timestamp = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
                           echo "output ". date("d-m-Y", $timestamp) . '<br>';?>
-                          
+                  <!-- lam viec voi thoi gian -->      
                       <h1>lam viec voi thoi gian</h1><?php
                         $result = date('h:i A D, d/m/Y', time());
                         $arrEn = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
@@ -1078,9 +1078,46 @@
                         $result = str_replace(',', ', ngày', $result);
                         echo $result;
                       ?>
+                    <!-- kiem tra nam nhuan -->
+                      <h1>kiem tra nam nhuan</h1><?php
+                        // function testLeapYear($year)
+                        // {
+                        //   $flag = false;
+                        //   if($year % 4 == 0 && $year % 100 != 0 || $year % 400 == 0 )
+                        //   {
+                        //     $flag = true;
+                        //   }
+                        //   return $flag;
+                        // }
+                        // $year = 2012;
+                        // if(testLeapYear($year))
+                        // {
+                        //   echo 'nam nhuan';
+                        // }
+                        // else
+                        // {
+                        //   echo 'khong phai la nam nhuan';
+                        // }
+                        // c2
+                        $year = 2013;
+                        if(checkdate(2, 29, $year))
+                        {
+                          echo 'nam nhuan';
+                        }
+                        else
+                        {
+                          echo 'khong phai la nam nhuan';
+                        }
+                    ?>
+                    <!-- tim so ngay trong thang -->
+                     <h1>tim so ngay trong thang</h1><?php
+                      $month = 2;
+                      $year = 2018;
+                      $timestamp = mktime(0, 0, 0, $month, 1, $year);
+                      echo $totalDays = date('t', $timestamp);
+                    ?>
                       </div>
                     </div>
-                  <!-- lam viec voi thoi gian -->
                     <?php
                 break;
                 case '10:'?>
