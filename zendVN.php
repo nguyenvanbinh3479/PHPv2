@@ -1119,13 +1119,19 @@
                     <!-- xac dinh khoang thoi gian -->
                     <h1>xac dinh khoang thoi gian</h1><?php
                       $timePost = '16/02/2018 15:00:00';
-                      $timeReply = '16/02/2018 15:30:00';
+                      $timeReply = '16/02/2018 15:00:10';
                       $datePost = date_parse_from_format('d/m/Y H:i:s', $timePost);
                       $dateReply = date_parse_from_format('d/m/Y H:i:s', $timeReply);
                       $tsPost = mktime($datePost['hour'], $datePost['minute'], $datePost['second'], $datePost['month'], $datePost['day'], $datePost['year']);
                       $tsReply = mktime($dateReply['hour'], $dateReply['minute'], $dateReply['second'], $dateReply['month'], $dateReply['day'], $dateReply['year']);
-                      echo $distance = $tsReply - $tsPost;
-            
+                      $distance = $tsReply - $tsPost;
+                      switch($distance)
+                        {
+                          case ($distance < 60):
+                            $result = $distance .' seconds ago';
+                          break;
+                        }
+                        echo $result;
                     ?>
                       </div>
                     </div>
