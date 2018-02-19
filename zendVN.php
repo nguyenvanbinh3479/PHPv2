@@ -1149,49 +1149,62 @@
                           echo $result;
                       ?>
                   <!-- so sanh 2 ngay -->
-                      <h1>so sanh 2 ngay</h1>
-                      <script>
-                      $( function() {
-                        $( "#datestart" ).datepicker({
-                          dateFormat: "dd/mm/yy",
-                          changeYear: true,
-                          yearRange: "1997:2018",
-                          changeMonth: true
-                        });
-                      } );
-                      $( function() {
-                        $( "#dateend" ).datepicker({
-                          dateFormat: "dd/mm/yy",
-                          changeYear: true,
-                          yearRange: "1997:2018",
-                          changeMonth: true
-                        });
-                      } );
-                      </script>
-                        <?php
-                          $date = (isset($_POST['date'])) ? $_POST['date'] : "";
-                        ?>
-                        <form action="" method="post">
-                          <div class="row">
-                            <span>Start: </span>
-                            <input readonly="readonly" type="text" id="datestart" name="datestart" value="<?php echo $date ?>">
-                          </div>
-                          <div class="row">
-                            <span>End: </span>
-                            <input readonly="readonly" type="text" id="dateend" name="dateend" value="<?php echo $date ?>">
-                          </div>
-                          <div class="row">
-                            <input type="submit" value="submit">    
-                          </div>   
-                        </form>
-                        <div class="result">
-                          <?php
-                            echo "input ". $date . '<br>';
-                            $date = date_parse_from_format('d/m/Y' , $date);
-                            $timestamp = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
-                            echo "output ". date("d-m-Y", $timestamp) . '<br>';?>
+                    <h1>so sanh 2 ngay</h1>
+                    <script>
+                        $( function() {
+                          $( "#datestart" ).datepicker({
+                            dateFormat: "dd/mm/yy",
+                            changeYear: true,
+                            yearRange: "1997:2018",
+                            changeMonth: true
+                          });
+                        } );
+                        $( function() {
+                          $( "#dateend" ).datepicker({
+                            dateFormat: "dd/mm/yy",
+                            changeYear: true,
+                            yearRange: "1997:2018",
+                            changeMonth: true
+                          });
+                        } );
+                    </script>
+                      <?php
+                        $datestart = (isset($_POST['datestart'])) ? $_POST['datestart'] : "";
+                        $dateend = (isset($_POST['dateend'])) ? $_POST['dateend'] : "";
+                      ?>
+                      <form action="" method="post">
+                        <div class="row">
+                          <span>Start: </span>
+                          <input readonly="readonly" type="text" id="datestart" name="datestart" value="<?php echo $datestart ?>">
                         </div>
+                        <div class="row">
+                          <span>End: </span>
+                          <input readonly="readonly" type="text" id="dateend" name="dateend" value="<?php echo $dateend ?>">
+                        </div>
+                        <div class="row">
+                          <input type="submit" value="submit">    
+                        </div>   
+                      </form>
+                      <div class="result">
+                        <?php
+                          function comparetwoday($datestart, $dateend)
+                          {
+                            $arrdatestart = date_parse_from_format('d/m/Y' , $datestart);
+                            $tsstart = mktime(0, 0, 0, $arrdatestart['month'], $arrdatestart['day'], $arrdatestart['year']);
+                            $arrdateend = date_parse_from_format('d/m/Y' , $dateend);
+                            $tsend = mktime(0, 0, 0, $arrdateend['month'], $arrdateend['day'], $arrdateend['year']);
+                            if($tsend > $tsstart)
+                            {
+                              echo "hop le";
+                            }
+                            else
+                            {
+                              echo 'khong hop le';
+                            }
+                          }
+                        ?>
                       </div>
+                    </div>
                   <?php
                 break;
                 case '10:'?>
