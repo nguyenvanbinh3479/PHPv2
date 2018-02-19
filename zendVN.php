@@ -11,16 +11,6 @@
     <link rel="stylesheet" href="public/css/jquery-ui.css">
     <script src="public/js/jquery-3.3.1.min.js"></script>
     <script src="public/js/jquery-ui.js"></script>
-    <script>
-      $( function() {
-        $( "#datepicker" ).datepicker({
-          dateFormat: "dd/mm/yy",
-          changeYear: true,
-          yearRange: "1997:2018",
-          changeMonth: true
-        });
-      } );
-    </script>
 		<title>Document</title>
 	</head>
 	<body>
@@ -1050,6 +1040,16 @@
                         padding: 2px 10px;
                       }
                     </style>
+                    <script>
+                      $( function() {
+                        $( "#datepicker" ).datepicker({
+                          dateFormat: "dd/mm/yy",
+                          changeYear: true,
+                          yearRange: "1997:2018",
+                          changeMonth: true
+                        });
+                      } );
+                    </script>
                     <div class="content4">
                       <h1>Date picker</h1><?php
                         $date = (isset($_POST['date'])) ? $_POST['date'] : "";
@@ -1070,15 +1070,15 @@
                           $timestamp = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
                           echo "output ". date("d-m-Y", $timestamp) . '<br>';?>
                   <!-- lam viec voi thoi gian -->      
-                      <h1>lam viec voi thoi gian</h1><?php
-                        $result = date('h:i A D, d/m/Y', time());
-                        $arrEn = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
-                        $arrVn = array('Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật');
-                        $result = str_replace($arrEn, $arrVn, $result);
-                        $result = str_replace(',', ', ngày', $result);
-                        echo $result;
-                      ?>
-                    <!-- kiem tra nam nhuan -->
+                    <h1>lam viec voi thoi gian</h1><?php
+                      $result = date('h:i A D, d/m/Y', time());
+                      $arrEn = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
+                      $arrVn = array('Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật');
+                      $result = str_replace($arrEn, $arrVn, $result);
+                      $result = str_replace(',', ', ngày', $result);
+                      echo $result;
+                    ?>
+                  <!-- kiem tra nam nhuan -->
                       <h1>kiem tra nam nhuan</h1><?php
                         // function testLeapYear($year)
                         // {
@@ -1108,15 +1108,15 @@
                         {
                           echo 'khong phai la nam nhuan';
                         }
-                    ?>
-                    <!-- tim so ngay trong thang -->
+                  ?>
+                  <!-- tim so ngay trong thang -->
                      <h1>tim so ngay trong thang</h1><?php
                       $month = 2;
                       $year = 2018;
                       $timestamp = mktime(0, 0, 0, $month, 1, $year);
                       echo $totalDays = date('t', $timestamp);
-                    ?>
-                    <!-- xac dinh khoang thoi gian -->
+                  ?>
+                  <!-- xac dinh khoang thoi gian -->
                       <h1>xac dinh khoang thoi gian</h1><?php
                         $timePost = '16/02/2018 15:00:00';
                         $timeReply = '27/02/2018 16:31:30';
@@ -1148,9 +1148,51 @@
                           }
                           echo $result;
                       ?>
+                  <!-- so sanh 2 ngay -->
+                      <h1>so sanh 2 ngay</h1>
+                      <script>
+                      $( function() {
+                        $( "#datestart" ).datepicker({
+                          dateFormat: "dd/mm/yy",
+                          changeYear: true,
+                          yearRange: "1997:2018",
+                          changeMonth: true
+                        });
+                      } );
+                      $( function() {
+                        $( "#dateend" ).datepicker({
+                          dateFormat: "dd/mm/yy",
+                          changeYear: true,
+                          yearRange: "1997:2018",
+                          changeMonth: true
+                        });
+                      } );
+                      </script>
+                        <?php
+                          $date = (isset($_POST['date'])) ? $_POST['date'] : "";
+                        ?>
+                        <form action="" method="post">
+                          <div class="row">
+                            <span>Start: </span>
+                            <input readonly="readonly" type="text" id="datestart" name="datestart" value="<?php echo $date ?>">
+                          </div>
+                          <div class="row">
+                            <span>End: </span>
+                            <input readonly="readonly" type="text" id="dateend" name="dateend" value="<?php echo $date ?>">
+                          </div>
+                          <div class="row">
+                            <input type="submit" value="submit">    
+                          </div>   
+                        </form>
+                        <div class="result">
+                          <?php
+                            echo "input ". $date . '<br>';
+                            $date = date_parse_from_format('d/m/Y' , $date);
+                            $timestamp = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
+                            echo "output ". date("d-m-Y", $timestamp) . '<br>';?>
+                        </div>
                       </div>
-                    </div>
-                    <?php
+                  <?php
                 break;
                 case '10:'?>
                   <!-- calendar --><?php
