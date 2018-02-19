@@ -1193,14 +1193,28 @@
                             $tsstart = mktime(0, 0, 0, $arrdatestart['month'], $arrdatestart['day'], $arrdatestart['year']);
                             $arrdateend = date_parse_from_format('d/m/Y' , $dateend);
                             $tsend = mktime(0, 0, 0, $arrdateend['month'], $arrdateend['day'], $arrdateend['year']);
+                            $result = 0;
                             if($tsend > $tsstart)
                             {
-                              echo "hop le";
+                              $result = 1;
                             }
-                            else
+                            else if($tsend < $tsstart)
                             {
-                              echo 'khong hop le';
+                              $result = -1;
                             }
+                            return $result;
+                          }
+
+                          if(comparetwoday($datestart, $dateend)==1)
+                          {
+                            echo "end > start";
+                          }
+                          else if(comparetwoday($datestart, $dateend)==-1)
+                          {
+                            echo "start > end";
+                          }
+                          else{
+                            echo "end = start";
                           }
                         ?>
                       </div>
