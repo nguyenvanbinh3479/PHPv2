@@ -1219,7 +1219,90 @@
                         ?>
                       </div>
                     </div>
-                  <?php
+                  <!-- congtru thoi gian -->
+                    <h1>cong tru thoi gian</h1>
+                    <script>
+                        $( function() {
+                          $( "#date" ).datepicker({
+                            dateFormat: "dd/mm/yy",
+                            changeYear: true,
+                            yearRange: "1997:2018",
+                            changeMonth: true
+                          });
+                        } );
+                    </script>
+                      <?php
+                        function createSelectBox($arrData, $name, $keySelected)
+                        {
+                          $strDays = "";
+                          if(!empty($arrData))
+                          {
+                            $strDays = '<select name="'.$name.'">';
+                            for($i = 0; $i <count($arrData); $i++)
+                            {
+                              if($keySelected == $i)
+                              {
+                                $strDays .= '<option value="'.$i.'" selected="true">'.$arrData[$i].'</option>';
+                              }
+                              else{
+                                $strDays .= '<option value="'.$i.'">'.$arrData[$i].'</option>';
+                              }
+                            }
+                            $strDays .= '</select>'; 
+                          }
+                          return $strDays;
+                        }
+                        function addTime($date, $format, $type, $value)
+                        {
+                          $arrDate = date_parse_from_format($format, $date);
+                          $type = strtolower($type);
+                          switch($type)
+                          {
+                            case 'day':
+                              $ts = mktime(0,0,0, $arrDate['month'], $arrDate['day'] + $value, $arrDate['year']);
+                            break;
+                            case 'month':
+                              $ts = mktime(0,0,0, $arrDate['month']  + $value, $arrDate['day'], $arrDate['year']);
+                            break;
+                            case 'year':
+                            $ts = mktime(0,0,0, $arrDate['month'], $arrDate['day'], $arrDate['year']  + $value);
+                          break;
+                          }
+                          echo $result = date($format, $ts);
+                          return $result;
+                        }
+                        $arrType = array('-- Select type --' ,'Day', 'Month', 'Year');
+                        $date = (isset($_POST['date'])) ? $_POST['date'] : "";
+                        $type = (isset($_POST['select-type'])) ? $_POST['select-type'] : "";
+                        $value = (isset($_POST['value'])) ? $_POST['value'] : "";
+                        $strType = createSelectBox($arrType, 'select-type', $type);
+                        addTime($date, 'd/m/Y', $arrType[$type], $value);
+                      ?>
+                      <form action="" method="post">
+                        <div class="row">
+                          <span>date: </span>
+                          <input readonly="readonly" type="text" id="date" name="date" value="<?php echo $date ?>">
+                        </div>
+                        <div class="row">
+                          <span>Type</span>
+                          <?php
+                            echo $strType;
+                          ?>
+                        </div>   
+                        <div class="row">
+                          <span>Value</span>
+                          <input type="text" id="value" name="value" value="<?php echo $value ?>">                          
+                        </div>  
+                        <div class="row">
+                          <input type="submit" value="submit">    
+                        </div> 
+                      </form>
+                      <div class="result">
+                        <?php
+                        ?>
+                      </div>
+                    </div>  
+                    <?php
                 break;
                 case '10:'?>
                   <!-- calendar --><?php
