@@ -1306,7 +1306,6 @@
                 break;
                 case '10:'?>
                   <!-- calendar --><?php
-                    
 							}
 						}?>
 			</div>
