@@ -1305,7 +1305,7 @@
                     <?php
                 break;
                 case '10:'?>
-                  <!-- calendar --><?php
+                  <!-- phuong thuc preg_match preg_match_all --><?php
 							}
 						}?>
 			</div>
