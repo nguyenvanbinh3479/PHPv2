@@ -1304,8 +1304,68 @@
                     </div>  
                     <?php
                 break;
-                case '10:'?>
-                  <!-- phuong thuc preg_match preg_match_all --><?php
+                case '10':?>
+                  <!-- phuong thuc preg_match preg_match_all -->
+                    <h1>preg_match</h1><?php
+                    $subject = 'php /php/ is easy';
+                    $pattern = '#/php/#';
+                    if(preg_match_all($pattern, $subject, $match)==true)
+                    {
+                      echo 'tim thay';
+                    }
+                    else
+                    {
+                      echo 'khong tim thay';
+                    }
+                    echo '<pre>';
+                    print_r($match[0]);
+                    echo '</pre>';  ?>
+                    <h1>checkInput</h1><?php
+                    function checkEmail($value)
+                    {
+                      $pattern = '#^[a-z][a-z0-9_\.]{4,31}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$#';
+                      $flag = false;
+                      if(preg_match($pattern, $value)==true)
+                      {
+                        $flag = true;
+                      }
+                      return $flag;
+                    }   
+                    function checkUserName($value)
+                    {
+                      $pattern = '#^[a-z][a-z0-9_\.\s]{4,31}$#';
+                      $flag = false;
+                      if(preg_match($pattern, $value)==true)
+                      {
+                        $flag = true;
+                      }
+                      return $flag;
+                    } 
+                    function checkPassword($value)
+                    {
+                      $pattern = '#^(?=.*\d)(?=.*[A-Z])(?=.*\W).{8,8}$#';
+                      $flag = false;
+                      if(preg_match($pattern, $value)==true)
+                      {
+                        $flag = true;
+                      }
+                      return $flag;
+                    }
+                    function checkWebsite($value)
+                    {
+                      $pattern = '#^(https?://(www\.)?|(www\.))[a-z0-9\-]{3,}(\.[a-z]{2,4}){1,2}$#';
+                      $flag = false;
+                      if(preg_match($pattern, $value)==true)
+                      {
+                        $flag = true;
+                      }
+                      return $flag;
+                    }
+                  // $result = checkEmail('nguyenvanbinh3479@gmail.com');
+                  // $result = checkUserName('nguyenvanbinh3479gmailcom');
+                  // $result = checkPassword('binhK12@');
+                  $result = checkWebsite('www.zend.vn');
+                  echo $result;
 							}
 						}?>
 			</div>
