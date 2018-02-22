@@ -1361,11 +1361,14 @@
                       }
                       return $flag;
                     }
-                  // $result = checkEmail('nguyenvanbinh3479@gmail.com');
-                  // $result = checkUserName('nguyenvanbinh3479gmailcom');
-                  // $result = checkPassword('binhK12@');
-                  $result = checkWebsite('www.zend.vn');
-                  echo $result;
+                  $result0 = checkEmail('nguyenvanbinh3479@gmail.com');
+                  $result1 = checkUserName('nguyenvanbinh3479gmailcom');
+                  $result2 = checkPassword('binhK12@');
+                  $result3 = checkWebsite('www.zend.vn');
+                  echo $result0;
+                  echo $result1;
+                  echo $result2;
+                  echo $result3;
 							}
 						}?>
 			</div>
