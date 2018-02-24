@@ -1365,9 +1365,9 @@
                   $result1 = checkUserName('nguyenvanbinh3479gmailcom');
                   $result2 = checkPassword('binhK12@');
                   $result3 = checkWebsite('www.zend.vn');
-                  // echo $result0;
-                  // echo $result1;
-                  // echo $result2;
+                  echo $result0;
+                  echo $result1;
+                  echo $result2;
                   echo $result3;
 							}
 						}?>
