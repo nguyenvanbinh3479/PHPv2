@@ -1367,6 +1367,7 @@
                   $result3 = checkWebsite('www.zend.vn');
                   echo $result0;
                   echo $result1;
+                  echo $result2;
                   echo $result3;
 							}
 						}?>
