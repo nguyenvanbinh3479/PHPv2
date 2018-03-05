@@ -1079,7 +1079,7 @@
                       echo $result;
                     ?>
                   <!-- kiem tra nam nhuan -->
-                      <h1>kiem tra nam nhuan</h1><?php
+                    <h1>kiem tra nam nhuan</h1><?php
                         // function testLeapYear($year)
                         // {
                         //   $flag = false;
@@ -1150,75 +1150,75 @@
                       ?>
                   <!-- so sanh 2 ngay -->
                     <h1>so sanh 2 ngay</h1>
-                    <script>
-                        $( function() {
-                          $( "#datestart" ).datepicker({
-                            dateFormat: "dd/mm/yy",
-                            changeYear: true,
-                            yearRange: "1997:2018",
-                            changeMonth: true
-                          });
-                        } );
-                        $( function() {
-                          $( "#dateend" ).datepicker({
-                            dateFormat: "dd/mm/yy",
-                            changeYear: true,
-                            yearRange: "1997:2018",
-                            changeMonth: true
-                          });
-                        } );
-                    </script>
-                      <?php
-                        $datestart = (isset($_POST['datestart'])) ? $_POST['datestart'] : "";
-                        $dateend = (isset($_POST['dateend'])) ? $_POST['dateend'] : "";
-                      ?>
-                      <form action="" method="post">
-                        <div class="row">
-                          <span>Start: </span>
-                          <input readonly="readonly" type="text" id="datestart" name="datestart" value="<?php echo $datestart ?>">
-                        </div>
-                        <div class="row">
-                          <span>End: </span>
-                          <input readonly="readonly" type="text" id="dateend" name="dateend" value="<?php echo $dateend ?>">
-                        </div>
-                        <div class="row">
-                          <input type="submit" value="submit">    
-                        </div>   
-                      </form>
-                      <div class="result">
+                      <script>
+                          $( function() {
+                            $( "#datestart" ).datepicker({
+                              dateFormat: "dd/mm/yy",
+                              changeYear: true,
+                              yearRange: "1997:2018",
+                              changeMonth: true
+                            });
+                          } );
+                          $( function() {
+                            $( "#dateend" ).datepicker({
+                              dateFormat: "dd/mm/yy",
+                              changeYear: true,
+                              yearRange: "1997:2018",
+                              changeMonth: true
+                            });
+                          } );
+                      </script>
                         <?php
-                          function comparetwoday($datestart, $dateend)
-                          {
-                            $arrdatestart = date_parse_from_format('d/m/Y' , $datestart);
-                            $tsstart = mktime(0, 0, 0, $arrdatestart['month'], $arrdatestart['day'], $arrdatestart['year']);
-                            $arrdateend = date_parse_from_format('d/m/Y' , $dateend);
-                            $tsend = mktime(0, 0, 0, $arrdateend['month'], $arrdateend['day'], $arrdateend['year']);
-                            $result = 0;
-                            if($tsend > $tsstart)
-                            {
-                              $result = 1;
-                            }
-                            else if($tsend < $tsstart)
-                            {
-                              $result = -1;
-                            }
-                            return $result;
-                          }
-
-                          if(comparetwoday($datestart, $dateend)==1)
-                          {
-                            echo "end > start";
-                          }
-                          else if(comparetwoday($datestart, $dateend)==-1)
-                          {
-                            echo "start > end";
-                          }
-                          else{
-                            echo "end = start";
-                          }
+                          $datestart = (isset($_POST['datestart'])) ? $_POST['datestart'] : "";
+                          $dateend = (isset($_POST['dateend'])) ? $_POST['dateend'] : "";
                         ?>
+                        <form action="" method="post">
+                          <div class="row">
+                            <span>Start: </span>
+                            <input readonly="readonly" type="text" id="datestart" name="datestart" value="<?php echo $datestart ?>">
+                          </div>
+                          <div class="row">
+                            <span>End: </span>
+                            <input readonly="readonly" type="text" id="dateend" name="dateend" value="<?php echo $dateend ?>">
+                          </div>
+                          <div class="row">
+                            <input type="submit" value="submit">    
+                          </div>   
+                        </form>
+                        <div class="result">
+                          <?php
+                            function comparetwoday($datestart, $dateend)
+                            {
+                              $arrdatestart = date_parse_from_format('d/m/Y' , $datestart);
+                              $tsstart = mktime(0, 0, 0, $arrdatestart['month'], $arrdatestart['day'], $arrdatestart['year']);
+                              $arrdateend = date_parse_from_format('d/m/Y' , $dateend);
+                              $tsend = mktime(0, 0, 0, $arrdateend['month'], $arrdateend['day'], $arrdateend['year']);
+                              $result = 0;
+                              if($tsend > $tsstart)
+                              {
+                                $result = 1;
+                              }
+                              else if($tsend < $tsstart)
+                              {
+                                $result = -1;
+                              }
+                              return $result;
+                            }
+
+                            if(comparetwoday($datestart, $dateend)==1)
+                            {
+                              echo "end > start";
+                            }
+                            else if(comparetwoday($datestart, $dateend)==-1)
+                            {
+                              echo "start > end";
+                            }
+                            else{
+                              echo "end = start";
+                            }
+                          ?>
+                        </div>
                       </div>
-                    </div>
                   <!-- congtru thoi gian -->
                     <h1>cong tru thoi gian</h1>
                     <script>
@@ -1365,9 +1365,9 @@
                   $result1 = checkUserName('nguyenvanbinh3479gmailcom');
                   $result2 = checkPassword('binhK12@');
                   $result3 = checkWebsite('www.zend.vn');
-                  // echo $result0;
-                  // echo $result1;
-                  // echo $result2;
+                  echo $result0;
+                  echo $result1;
+                  echo $result2;
                   echo $result3;
 							}
 						}?>
