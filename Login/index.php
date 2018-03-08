@@ -37,25 +37,25 @@
 </html>
 
 <?php
-    $host = '127.0.0.1';
-    $db = 'test';
-    $pass = '';
-    $user = 'root';
-    $charset = 'utf8';
-    $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-    $opt = [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        PDO::ATTR_EMULATE_PREPARES => false,        
-    ];
-    $pdo = new PDO($dsn, $user, $pass, $opt);
+    // $host = '127.0.0.1';
+    // $db = 'test';
+    // $pass = '';
+    // $user = 'root';
+    // $charset = 'utf8';
+    // $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+    // $opt = [
+    //     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    //     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    //     PDO::ATTR_EMULATE_PREPARES => false,        
+    // ];
+    // $pdo = new PDO($dsn, $user, $pass, $opt);
 
-    function getuser($conn){
-        $sql = 'SELECT email FROM hocsinh';
-        foreach ($conn->query($sql) as $row) {
-          print $row['email'];
-        }
-      }
+    // function getuser($conn){
+    //     $sql = 'SELECT email FROM hocsinh';
+    //     foreach ($conn->query($sql) as $row) {
+    //       print $row['email'];
+    //     }
+    //   }
     // getUser($pdo);
     // function getUser($conn){
     //     $stmt = $pdo -> prepare('SELECT * FROM hocsinh where name = ? AND class = ?');
