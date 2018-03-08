@@ -45,7 +45,7 @@
 </style>
 <body>
     <form method="post">
-        <h1>Sample Calculator</h1>
+        <h1>Simple Calculator</h1>
         <div class="form">
         First Number: <input class="one" type="number" name="a" value="" required><br>
         Opertor: <select name='c'>
@@ -54,7 +54,7 @@
         <option>-</option>
         </select><br>
         Second Number: <input class="two" type="number" name="b" value="" required><br>
-        Result: <input class="three" type="number" name="result" value="<?php echo $result; ?>"><br>
+        Result: <input class="three" type="number" name="result" value="<?php echo $result; ?>" readonly><br>
         <input class="input" type="submit" value="Caculate" name="submit">
         </div>
     </form>
