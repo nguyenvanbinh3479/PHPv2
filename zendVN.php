@@ -1372,7 +1372,6 @@
 							}
 						}?>
 			</div>
-    </div>
     <!-- ve tam giac -->
       <style>
         .ull{
@@ -1510,6 +1509,8 @@
         <a class="name" href="ZendVN.php?show=1">Show All</a>
         <a class="name" href="ZendVN.php?show=0">Show Demo</a><br><br>
       </div>
-      
-	</body>
+      <svg width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+</svg>
+  </body>
 </html>

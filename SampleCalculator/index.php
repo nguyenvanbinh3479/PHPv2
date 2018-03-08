@@ -47,14 +47,14 @@
     <form method="post">
         <h1>Sample Calculator</h1>
         <div class="form">
-        First Number: <input class="one" type="text" name="a" value="<?php echo $a; ?>" required><br>
+        First Number: <input class="one" type="number" name="a" value="" required><br>
         Opertor: <select name='c'>
-        <option>null</option>        
+        <option>+/-</option>        
         <option>+</option>
         <option>-</option>
         </select><br>
-        Second Number: <input class="two" type="text" name="b" value="<?php echo $b; ?>" required><br>
-        Result: <input class="three" type="text" name="result" value="<?php echo $result; ?>"><br>
+        Second Number: <input class="two" type="number" name="b" value="" required><br>
+        Result: <input class="three" type="number" name="result" value="<?php echo $result; ?>"><br>
         <input class="input" type="submit" value="Caculate" name="submit">
         </div>
     </form>

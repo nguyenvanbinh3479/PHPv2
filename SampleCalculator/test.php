@@ -2,16 +2,13 @@
 <?php
     $number = new Number();
     $result = 0;
-    $a = "";
-    $b = "";
     
     if(isset($_POST['a']) && isset($_POST['b']) && isset($_POST['c']))
     {
-    $a = $_POST['a'];
-    $b = $_POST['b'];
-    $c = $_POST['c'];
-    if (is_numeric($a) && is_numeric($b))
-    {
+        $a = $_POST['a'];
+        $b = $_POST['b'];
+        $c = $_POST['c'];
+        
         $number->setFirst($a);
         $number->setFirst($b);
         switch($c)
@@ -23,6 +20,5 @@
             $result = $number->hieu($a, $b);
         break;
         }	
-    }
     }
 ?>
