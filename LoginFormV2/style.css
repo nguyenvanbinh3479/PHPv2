@@ -51,12 +51,18 @@ input[name="password"]{
 }
 
 p{
+    text-decoration: none;
+    cursor: none;
+    color: red;
+}
+
+.forgot{
     color: #ff0000;
     font-style: italic;
 }
-p:hover{
+.forgot:hover{
     text-decoration: underline;
-    cursor:pointer;
+    cursor: pointer;
 }
 .button{
     background: #dfdfdf;
@@ -73,5 +79,5 @@ input[name="submit"]{
     background: #ff9e13;
     color: #fff;
     border-radius: 20px;
-    cursor:pointer;
+    cursor: pointer;
 }
