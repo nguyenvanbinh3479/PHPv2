@@ -30,7 +30,7 @@
         $sql = "select email, password from users";     
             $query = $conn -> query($sql);
             if(mysqli_num_rows($query)){
-                header('location: main.php');
+                header('location: admin.php?c=home');
             }
             else{
                 echo "error";

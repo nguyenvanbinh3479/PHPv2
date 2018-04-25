@@ -1,5 +1,6 @@
 <?php 
 class ChiTietPlayList_Model{
+	public $id;
     public $playlist_id;
     public $baihat_id;
 
@@ -14,9 +15,10 @@ class ChiTietPlayList_Model{
 
 		while ($row = mysqli_fetch_assoc($result)){
             $chi_tiet_playlist = new ChiTietPlayList_Model();
+            $chi_tiet_playlist->id = $row['id'];
             $chi_tiet_playlist->playlist_id = $row['playlist_id'];
             $chi_tiet_playlist->baihat_id = $row['baihat_id'];
-            $list_chi_tiet_playlist[] = $chi_tiet_playlist;            
+            $list_chi_tiet_playlist[] = $chi_tiet_playlist;          
         }
 
         return $list_chi_tiet_playlist;
@@ -42,6 +44,7 @@ class ChiTietPlayList_Model{
 
 		$row = mysqli_fetch_assoc($result);
         $chi_tiet_playlist = new ChiTietPlayList_Model();
+        $chi_tiet_playlist->id = $row['id'];
         $chi_tiet_playlist->playlist_id = $row['playlist_id'];
         $chi_tiet_playlist->baihat_id = $row['baihat_id'];
 

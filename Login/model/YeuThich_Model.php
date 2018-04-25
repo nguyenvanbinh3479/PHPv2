@@ -1,31 +1,35 @@
 <?php 
 class YeuThich_Model{
+	public $id;
     public $baihat_id;
     public $user_id;
+	public $ngay;
 
     public function all(){
 		$conn = FT_Database::instance()->getConnection();
 		$sql = 'select * from yeuthichs';
 		$result = mysqli_query($conn, $sql);
-		$list_yeu_thich = array();
+		$list_yeuthich = array();
 
 		if(!$result)
 			die('Error: '.mysqli_query_error());
 
 		while ($row = mysqli_fetch_assoc($result)){
-            $yeu_thich = new YeuThich_Model();
-            $yeu_thich->baihat_id = $row['baihat_id'];
-            $yeu_thich->user_id = $row['user_id'];
-            $list_yeu_thich[] = $yeu_thich;            
+            $yeuthich = new YeuThich_Model();
+            $yeuthich->id = $row['id'];
+            $yeuthich->baihat_id = $row['baihat_id'];
+            $yeuthich->user_id = $row['user_id'];
+            $yeuthich->ngay = $row['ngay'];
+            $list_yeuthich[] = $yeuthich;            
         }
 
-        return $list_yeu_thich;
+        return $list_yeuthich;
 	}
 
 	public function save(){
 		$conn = FT_Database::instance()->getConnection();
-		$stmt = $conn->prepare("INSERT INTO yeuthichs (baihat_id, user_id) VALUES (?, ?)");
-		$stmt->bind_param("ii", $this->baihat_id, $this->user_id);
+		$stmt = $conn->prepare("INSERT INTO yeuthichs (baihat_id, user_id, ngay) VALUES (?, ?, ?)");
+		$stmt->bind_param("iis", $this->baihat_id, $this->user_id, $this->ngay);
 		$rs = $stmt->execute();
 		$this->id = $stmt->insert_id;		
 		$stmt->close();
@@ -41,11 +45,13 @@ class YeuThich_Model{
 			die('Error: ');
 
 		$row = mysqli_fetch_assoc($result);
-        $yeu_thich = new YeuThich_Model();
-        $yeu_thich->baihat_id = $row['baihat_id'];
-        $yeu_thich->user_id = $row['user_id'];
+        $yeuthich = new YeuThich_Model();
+        $yeuthich->id = $row['id'];
+        $yeuthich->baihat_id = $row['baihat_id'];	
+        $yeuthich->user_id = $row['user_id'];
+        $yeuthich->ngay = $row['ngay'];
 
-        return $yeu_thich;
+        return $yeuthich;
 	}
 
 	public function delete(){
@@ -58,8 +64,8 @@ class YeuThich_Model{
 
 	public function update(){
 		$conn = FT_Database::instance()->getConnection();
-		$stmt = $conn->prepare("UPDATE yeuthichs SET baihat_id=?, user_id=? WHERE id=?");
-		$stmt->bind_param("iii", $this->baihat_id, $this->user_id, $_POST['id']);
+		$stmt = $conn->prepare("UPDATE yeuthichs SET baihat_id=?, user_id=?, ngay=? WHERE id=?");
+		$stmt->bind_param("iii", $this->baihat_id, $this->user_id, $this->ngay, $_POST['id']);
 		$stmt->execute();
 		$stmt->close();
 	}

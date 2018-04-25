@@ -9,10 +9,16 @@ class ChiTietPlayList_Controller extends Base_Controller
     public function index()
     {        
         $this->model->load('ChiTietPlayList');
+        $this->model->load('BaiHat');
+        $this->model->load('PlayList');
         $list_chitietplaylist = $this->model->ChiTietPlayList->all();
+        $list_baihat = $this->model->BaiHat->all();
+        $list_playlist = $this->model->PlayList->all();
         $data = array(
             'title' => 'index',
-            'list_chitietplaylist' => $list_chitietplaylist
+            'list_chitietplaylist' => $list_chitietplaylist,
+            'list_baihat' => $list_baihat,
+            'list_playlist' => $list_playlist
         );
 
         // Load view
@@ -29,7 +35,7 @@ class ChiTietPlayList_Controller extends Base_Controller
         $chitietplaylist = $this->model->ChiTietPlayList->findById($_GET['id']);
         $data = array(
             'title' => 'show',
-            'chitietplaylist' => $chitietplaylist
+            'chitietplaylist' => $chitietplaylist     
         );
 
         // Load view
@@ -42,7 +48,18 @@ class ChiTietPlayList_Controller extends Base_Controller
     */
     public function create()
     {        
-        $this->view->load('chitietplaylists/create');
+        $this->model->load('BaiHat');
+        $this->model->load('PlayList');
+
+        $list_baihat = $this->model->BaiHat->all();
+        $list_playlist = $this->model->PlayList->all(); 
+
+        $data = array(
+            'title' => 'index',
+            'list_baihat' => $list_baihat,
+            'list_playlist' => $list_playlist            
+        );
+        $this->view->load('chitietplaylists/create',$data);
     }
 
      /**
@@ -54,6 +71,7 @@ class ChiTietPlayList_Controller extends Base_Controller
         $this->model->load('ChiTietPlayList');
         $this->model->ChiTietPlayList->playlist_id = $_POST['playlist_id'];
         $this->model->ChiTietPlayList->baihat_id = $_POST['baihat_id'];
+        
         $this->model->ChiTietPlayList->save();
 
         go_back();
@@ -66,10 +84,18 @@ class ChiTietPlayList_Controller extends Base_Controller
     public function edit()
     {        
         $this->model->load('ChiTietPlayList');
+        $this->model->load('BaiHat');
+        $this->model->load('PlayList');
+
         $chitietplaylist = $this->model->ChiTietPlayList->findById($_GET['id']);
+        $list_baihat = $this->model->BaiHat->all();
+        $list_playlist = $this->model->PlayList->all(); 
+
         $data = array(
             'title' => 'edit',
-            'chitietplaylist' => $chitietplaylist
+            'chitietplaylist' => $chitietplaylist,
+            'list_baihat' => $list_baihat,
+            'list_playlist' => $list_playlist  
         );
 
         // Load view

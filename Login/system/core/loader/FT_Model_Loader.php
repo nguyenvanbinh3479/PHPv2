@@ -23,7 +23,7 @@ class FT_Model_Loader
             // Chuyển chữ hoa đầu và thêm hậu tố _Library
             $class = ucfirst($model) . '_Model';
             require_once(PATH_ROOT . '/model/' . $class . '.php');
-            $this->{$model} = new $class();            
+            $this->{$model} = new $class();
         }
     }
 }

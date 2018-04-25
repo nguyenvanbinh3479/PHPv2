@@ -65,8 +65,8 @@ class Playlist_Model{
 
 	public function update(){
 		$conn = FT_Database::instance()->getConnection();
-		$stmt = $conn->prepare("UPDATE playlists SET user_id=?, ten=?, link=? WHERE id=?");
-		$stmt->bind_param("issi", $this->user_id, $this->ten, $this->link, $_POST['id']);
+		$stmt = $conn->prepare("UPDATE playlists SET user_id=?, ten=?, anh=? WHERE id=?");
+		$stmt->bind_param("issi", $this->user_id, $this->ten, $this->anh, $_POST['id']);
 		$stmt->execute();
 		$stmt->close();
 	}

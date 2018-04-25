@@ -9,10 +9,16 @@ class YeuThich_Controller extends Base_Controller
     public function index()
     {        
         $this->model->load('YeuThich');
+        $this->model->load('BaiHat');
+        $this->model->load('User');
         $list_yeuthich = $this->model->YeuThich->all();
+        $list_baihat = $this->model->BaiHat->all();
+        $list_user = $this->model->User->all();
         $data = array(
             'title' => 'index',
-            'list_yeuthich' => $list_yeuthich
+            'list_yeuthich' => $list_yeuthich,
+            'list_baihat' => $list_baihat,
+            'list_user' => $list_user
         );
 
         // Load view
@@ -42,7 +48,20 @@ class YeuThich_Controller extends Base_Controller
     */
     public function create()
     {        
-        $this->view->load('yeuthichs/create');
+        $this->model->load('BaiHat');
+        $this->model->load('User');
+
+        $list_baihat = $this->model->BaiHat->all();
+        $list_user = $this->model->User->all();
+
+        $data = array(
+            'title' => 'index',
+            'list_baihat' => $list_baihat,
+            'list_user' => $list_user,
+        );
+
+        $this->view->load('yeuthichs/create',$data);
+
     }
 
      /**
@@ -54,6 +73,7 @@ class YeuThich_Controller extends Base_Controller
         $this->model->load('YeuThich');
         $this->model->YeuThich->baihat_id = $_POST['baihat_id'];
         $this->model->YeuThich->user_id = $_POST['user_id'];
+        $this->model->YeuThich->ngay = $_POST['ngay'];
         $this->model->YeuThich->save();
 
         go_back();
@@ -66,10 +86,16 @@ class YeuThich_Controller extends Base_Controller
     public function edit()
     {        
         $this->model->load('YeuThich');
+        $this->model->load('BaiHat');
+        $this->model->load('User');
         $yeuthich = $this->model->YeuThich->findById($_GET['id']);
+        $list_baihat = $this->model->BaiHat->all();
+        $list_user = $this->model->User->all();
         $data = array(
             'title' => 'edit',
-            'yeuthich' => $yeuthich
+            'yeuthich' => $yeuthich,
+            'list_baihat' => $list_baihat,
+            'list_user' => $list_user
         );
 
         // Load view
@@ -86,6 +112,7 @@ class YeuThich_Controller extends Base_Controller
         $yeuthich = $this->model->YeuThich->findById($_POST['id']);
         $yeuthich->baihat_id = $_POST['baihat_id'];
         $yeuthich->user_id = $_POST['user_id'];          
+        $yeuthich->ngay = $_POST['ngay'];          
         $yeuthich->update();
 
         go_back();

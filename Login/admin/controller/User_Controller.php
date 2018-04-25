@@ -74,7 +74,7 @@ class User_Controller extends Base_Controller
             'title' => 'edit',
             'user' => $user
         );
-
+        
         // Load view
         $this->view->load('users/edit', $data);
     }

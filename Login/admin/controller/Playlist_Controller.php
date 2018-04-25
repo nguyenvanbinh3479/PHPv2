@@ -9,10 +9,15 @@ class Playlist_Controller extends Base_Controller
     public function index()
     {        
         $this->model->load('Playlist');
+        $this->model->load('User');
+
         $list_playlist = $this->model->Playlist->all();
+        $list_user = $this->model->User->all();
+        
         $data = array(
             'title' => 'index',
-            'list_playlist' => $list_playlist
+            'list_playlist' => $list_playlist,
+            'list_user' => $list_user
         );
 
         // Load view
@@ -42,7 +47,16 @@ class Playlist_Controller extends Base_Controller
     */
     public function create()
     {        
-        $this->view->load('playlists/create');
+        $this->model->load('User');
+
+        $list_user = $this->model->User->all();
+        
+        $data = array(
+            'title' => 'index',
+            'list_user' => $list_user
+        );
+
+        $this->view->load('playlists/create', $data);
     }
 
      /**
@@ -67,10 +81,15 @@ class Playlist_Controller extends Base_Controller
     public function edit()
     {        
         $this->model->load('Playlist');
+        $this->model->load('User');      
+
         $playlist = $this->model->Playlist->findById($_GET['id']);
+        $user = $this->model->User->all();
+        
         $data = array(
             'title' => 'edit',
-            'playlist' => $playlist
+            'playlist' => $playlist,
+            'list_user' => $user
         );
 
         // Load view

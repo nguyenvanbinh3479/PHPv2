@@ -1,5 +1,6 @@
 <?php 
 class BinhLuan_Model{
+	public $id;
     public $baihat_id;
     public $user_id;
     public $noi_dung;
@@ -8,20 +9,21 @@ class BinhLuan_Model{
 		$conn = FT_Database::instance()->getConnection();
 		$sql = 'select * from binhluans';
 		$result = mysqli_query($conn, $sql);
-		$list_binh_luan = array();
+		$list_binhluan = array();
 
 		if(!$result)
 			die('Error: '.mysqli_query_error());
 
 		while ($row = mysqli_fetch_assoc($result)){
-            $binh_luan = new BinhLuan_Model();
-            $binh_luan->baihat_id = $row['baihat_id'];
-            $binh_luan->user_id = $row['user_id'];
-            $binh_luan->noi_dung = $row['noi_dung'];
-            $list_binh_luan[] = $binh_luan;            
+            $binhluan = new BinhLuan_Model();
+            $binhluan->id = $row['id'];
+            $binhluan->baihat_id = $row['baihat_id'];
+            $binhluan->user_id = $row['user_id'];
+            $binhluan->noi_dung = $row['noi_dung'];
+            $list_binhluan[] = $binhluan;            
         }
 
-        return $list_binh_luan;
+        return $list_binhluan;
 	}
 
 	public function save(){
@@ -43,12 +45,13 @@ class BinhLuan_Model{
 			die('Error: ');
 
 		$row = mysqli_fetch_assoc($result);
-        $binh_luan = new BinhLuan_Model();
-        $binh_luan->baihat_id = $row['baihat_id'];
-        $binh_luan->user_id = $row['user_id'];
-        $binh_luan->noi_dung = $row['noi_dung'];
+        $binhluan = new BinhLuan_Model();
+        $binhluan->id = $row['id'];      
+        $binhluan->baihat_id = $row['baihat_id'];
+        $binhluan->user_id = $row['user_id'];
+        $binhluan->noi_dung = $row['noi_dung'];
 
-        return $binh_luan;
+        return $binhluan;
 	}
 
 	public function delete(){
