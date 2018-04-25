@@ -6,7 +6,7 @@
         $email = addslashes($_POST['email']);
         $password = addslashes($_POST['password']);
         //kiem tra co ton tai khong
-        $query = mysqli_query($conn,"SELECT email, password FROM user WHERE email='$email'");
+        $query = mysqli_query($conn,"SELECT email, password FROM users WHERE email='$email'");
          //Kiểm tra email có đúng định dạng hay không
          if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/", $email)){
             echo "Email này không hợp lệ. Vui long nhập email khác. <a href='javascript: history.go(-1)'>Trở lại</a>";
@@ -27,7 +27,7 @@
         //luu ten dang nhap
         $_SESSION['email'] = $email;
         
-        $sql = "select email, password from user";     
+        $sql = "select email, password from users";     
             $query = $conn -> query($sql);
             if(mysqli_num_rows($query)){
                 header('location: main.php');

@@ -2,7 +2,7 @@
     $dbhost = 'localhost';
     $dbuser = 'root';
     $dbpass = '';
-    $dbname = 'php_mysql';
+    $dbname = 'msc';
     //kết nối
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
     if(!$conn){
